@@ -6,10 +6,12 @@
   ];
 
   home.packages = [ 
-    pkgs.firefox 
-    pkgs.vlc 
-    pkgs.dolphin 
     pkgs.brave 
+    pkgs.ffmpeg_6-full
+    pkgs.firefox 
+    pkgs.libsForQt5.dolphin
+    pkgs.libsForQt5.dolphin-plugins
+    pkgs.vlc 
   ];
 
   home.username = "michzuerch";
