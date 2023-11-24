@@ -1,0 +1,161 @@
+{ config, pkgs, lib, ... }:
+
+{
+  imports = [ 
+    ./hardware-configuration.nix
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      trusted-users = [ "root" "michzuerch" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "-delete-older-than 60d";
+    };
+  };
+
+  zramSwap.enable = true;
+
+  boot = {
+    bootspec.enable = true;
+    tmp.cleanOnBoot = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = lib.mkForce false;
+    };
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    kernelParams = [
+      "quiet"
+      "splash"
+      "vga=current"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "acpi_backlight=native"
+    ];
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+  };
+
+  security = {
+    tpm2.enable = true;
+    tpm2.pkcs11.enable = true;
+    tpm2.tctiEnvironment.enable = true;
+  };
+
+  networking.hostName = "ThinkpadNomad"; # Define your hostname.
+  networking.networkmanager.enable = true;
+
+  # Enable network manager applet
+  programs.nm-applet.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.git.enable = true;
+
+  programs.sway.enable = true;
+
+  programs.hyprland.enable = true;
+
+  programs.dconf.enable = true;
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
+  #programs.hyprland = {
+  #  enable = true;
+  #  package = hyprland.packages.${pkgs.system}.hyprland;
+  #};
+
+  # Set your time zone.
+  time.timeZone = "Europe/Busingen";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "de_DE.UTF-8";
+    LC_IDENTIFICATION = "de_DE.UTF-8";
+    LC_MEASUREMENT = "de_DE.UTF-8";
+    LC_MONETARY = "de_DE.UTF-8";
+    LC_NAME = "de_DE.UTF-8";
+    LC_NUMERIC = "de_DE.UTF-8";
+    LC_PAPER = "de_DE.UTF-8";
+    LC_TELEPHONE = "de_DE.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
+  };
+
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    xkbVariant = "";
+    displayManager.lightdm.enable = true;
+    desktopManager.lxqt.enable = true;
+    windowManager.awesome.enable = true;
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint pkgs.hplip ];
+
+  # SSD
+  services.fstrim.enable = true;
+
+  # Bluetooth
+  services.blueman.enable = true;
+
+  services.dbus.enable = true;
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  hardware.opengl.enable = true;
+  security.rtkit.enable = true;
+  security.polkit.enable = true;
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  users.users.michzuerch = {
+    isNormalUser = true;
+    description = "Michi";
+    extraGroups = [ "networkmanager" "wheel" "tss" ];
+    packages = with pkgs; [
+    ];
+  };
+
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    alacritty
+    ripgrep-all
+    fzf
+    lazygit
+    ranger
+    sbctl
+    wget
+    curl
+    gh
+
+  ];
+  system.stateVersion = "23.05"; # Did you read the comment?
+}
