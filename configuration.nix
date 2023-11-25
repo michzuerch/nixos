@@ -101,6 +101,7 @@
     xkbVariant = "";
     displayManager.lightdm.enable = true;
     desktopManager.lxqt.enable = true;
+    desktopManager.plasma5.enable = true;
     windowManager.awesome.enable = true;
   };
 

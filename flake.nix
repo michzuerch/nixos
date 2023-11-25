@@ -28,9 +28,9 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-	  ./virtualisation.nix
-	  ./fonts.nix
-	  ./powermanagement.nix
+	  ./system/virtualisation.nix
+	  ./system/fonts.nix
+	  ./system/powermanagement.nix
 	  lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
