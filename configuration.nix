@@ -69,13 +69,6 @@
   programs.hyprland.enable = true;
 
   programs.dconf.enable = true;
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-
-  #programs.hyprland = {
-  #  enable = true;
-  #  package = hyprland.packages.${pkgs.system}.hyprland;
-  #};
 
   # Set your time zone.
   time.timeZone = "Europe/Busingen";

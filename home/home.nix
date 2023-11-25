@@ -3,6 +3,7 @@
   imports = [
     ./alacritty.nix
     ./git.nix
+    ./shell.nix
   ];
 
   home.packages = [ 
