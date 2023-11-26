@@ -5,7 +5,7 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    syntaxHightlighting.enable = true;
+    syntaxHighlighting.enable = true;
     initExtra = ''
     PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
      %F{green}→%f "
@@ -26,7 +26,7 @@
   home.packages = with pkgs; [
     neofetch
     fd
-    cat
+    bat
     direnv 
     eza
     cowsay

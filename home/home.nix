@@ -4,6 +4,8 @@
     ./alacritty.nix
     ./git.nix
     ./shell.nix
+    ./hyprland.nix
+    ./sway.nix
   ];
 
   home.packages = [ 

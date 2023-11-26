@@ -70,6 +70,8 @@
 
   programs.dconf.enable = true;
 
+  programs.light.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Busingen";
 
@@ -131,7 +133,7 @@
   users.users.michzuerch = {
     isNormalUser = true;
     description = "Michi";
-    extraGroups = [ "networkmanager" "wheel" "tss" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "video" ];
     packages = with pkgs; [
     ];
   };
@@ -149,7 +151,10 @@
     wget
     curl
     gh
-
   ];
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
+  };
+
   system.stateVersion = "23.05"; # Did you read the comment?
 }
