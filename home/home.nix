@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./sway.nix
     ./rust.nix
+    ./helix.nix
   ];
 
   home.packages = [ 
