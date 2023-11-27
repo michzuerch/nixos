@@ -7,7 +7,7 @@
 
         format = lib.concatStrings [
           "[░▒▓](#a3aed2)"
-          "[  ](bg:#a3aed2 fg:#090c0c)"
+          "[  ](bg:#a3aed2 fg:#090c0c)"
           "[](bg:#769ff0 fg:#a3aed2)"
           "$directory"
           "[](fg:#769ff0 bg:#394260)"
@@ -29,7 +29,26 @@
           format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
+          substitutions = {
+            "Documents" = "󰈙 ";
+            "Downloads" = " ";
+            "Music" = " ";
+            "Pictures" = " ";
+	  };
+        };
+
+        git_branch = {
+          symbol = "";
+          style = "bg:#394260";
+          format = "[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)";
+        };
+
+
+        git_status = {
+          style = "bg:#394260";
+          format = "[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)";
 	};
+	
 
         character = {
           success_symbol = "[➜](bold green)";
