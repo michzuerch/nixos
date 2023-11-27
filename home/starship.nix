@@ -48,13 +48,31 @@
           style = "bg:#394260";
           format = "[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)";
 	};
-	
 
-        character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](bold red)";
-         };
-         package.disabled = true;
+	nodejs = {
+          symbol = "";
+          style = "bg:#212736";
+          format = "[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)";
+        };
+
+        rust = {
+          symbol = "";
+          style = "bg:#212736";
+          format = "[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)";
+        };
+
+        golang = {
+          symbol = "";
+          style = "bg:#212736";
+          format = "[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)";
+	};
+
+        time = {
+           disabled = false;
+           time_format = "%R"; # Hour:Minute Format
+           style = "bg:#1d2230";
+           format = "[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)";
+        };
       };
   };
 }
