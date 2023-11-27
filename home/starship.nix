@@ -21,6 +21,7 @@
           "[](fg:#212736 bg:#1d2230)"
           "$time"
           "[ ](fg:#1d2230)"
+	  "$sudo"
           "$character"
         ];
 
@@ -42,7 +43,6 @@
           style = "bg:#394260";
           format = "[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)";
         };
-
 
         git_status = {
           style = "bg:#394260";
@@ -72,6 +72,11 @@
            time_format = "%R"; # Hour:Minute Format
            style = "bg:#1d2230";
            format = "[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)";
+        };
+
+        sudo = {
+           disabled = false;
+           style = "bg:#1d2230";
         };
       };
   };

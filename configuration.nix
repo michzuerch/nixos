@@ -72,6 +72,15 @@
 
   programs.light.enable = true;
 
+
+
+  documentation = {
+    enable = true;
+    doc.enable = true;
+    man.enable = true;
+    info.enable = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Busingen";
 
@@ -156,6 +165,7 @@
     wget
     curl
     gh
+    tealdeer
   ];
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
