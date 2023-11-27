@@ -130,6 +130,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  users.defaultUserShell = pkgs.zsh;
 
   users.users.michzuerch = {
     isNormalUser = true;

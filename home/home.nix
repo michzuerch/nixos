@@ -9,6 +9,7 @@
     ./dunst.nix
     ./hyprland.nix
     ./sway.nix
+    ./rust.nix
   ];
 
   home.packages = [ 
