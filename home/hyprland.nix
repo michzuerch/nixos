@@ -27,7 +27,7 @@
 wayland.windowManager.hyprland = {
     enable = true;
     xwayland = { enable = true; };
-    systemdIntegration = true;
+    systemd.enable = true;
     plugins = [ ];
     settings = { };
     extraConfig = ''

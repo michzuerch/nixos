@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./git.nix
     ./shell.nix
+    ./starship.nix
     ./gtk.nix
     ./dunst.nix
     ./hyprland.nix
