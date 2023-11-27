@@ -31,6 +31,7 @@
 	  ./system/virtualisation.nix
 	  ./system/fonts.nix
 	  ./system/powermanagement.nix
+	  ./system/zsh.nix
 	  lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           {
