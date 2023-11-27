@@ -92,6 +92,8 @@
 
   services.xserver = {
     enable = true;
+    enableCtrlAltBackspace = true;
+    dpi = 96;
     layout = "us";
     xkbVariant = "";
     displayManager.lightdm.enable = true;

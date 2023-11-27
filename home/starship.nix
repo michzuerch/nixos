@@ -1,113 +1,41 @@
 { config, inputs, outputs, pkgs, lib, ... }: 
 {
   programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      format = lib.concatStrings [
-        "$username"
-        "$hostname"
-        "$localip"
-        "$shlvl"
-        "$singularity"
-        "$directory"
-        "$vcsh"
-        "$git_branch"
-        "$git_commit"
-        "$git_state"
-        "$git_metrics"
-        "$git_status"
-        "$hg_branch"
-        "$docker_context"
-        "$package"
-        "$buf"
-        "$c"
-        "$cmake"
-        "$cobol"
-        "$container"
-        "$daml"
-        "$dart"
-        "$deno"
-        "$dotnet"
-        "$elixir"
-        "$elm"
-        "$erlang"
-        "$golang"
-        "$haskell"
-        "$helm"
-        "$java"
-        "$julia"
-        "$kotlin"
-        "$lua"
-        "$nim"
-        "$nodejs"
-        "$ocaml"
-        "$perl"
-        "$php"
-        "$pulumi"
-        "$purescript"
-        "$python"
-        "$rlang"
-        "$red"
-        "$ruby"
-        "$rust"
-        "$scala"
-        "$swift"
-        "$terraform"
-        "$vlang"
-        "$vagrant"
-        "$zig"
-        "$nix_shell"
-        "$conda"
-        "$spack"
-        "$memory_usage"
-        "$aws"
-        "$gcloud"
-        "$kubernetes"
-        "$openstack"
-        "$azure"
-        "$env_var"
-        "$crystal"
-        "$custom"
-        "$sudo"
-        "$cmd_duration"
-        "$line_break"
-        "$jobs"
-        "$battery"
-        "$time"
-        "$status"
-        "$shell"
-        "$character"
-      ];
+      enable = true;
+      settings = {
+        add_newline = false;
 
-      aws = {
-        disabled = true;
+        format = lib.concatStrings [
+          "[░▒▓](#a3aed2)"
+          "[  ](bg:#a3aed2 fg:#090c0c)"
+          "[](bg:#769ff0 fg:#a3aed2)"
+          "$directory"
+          "[](fg:#769ff0 bg:#394260)"
+          "$git_branch"
+          "$git_status"
+          "[](fg:#394260 bg:#212736)"
+          "$nodejs"
+          "$rust"
+          "$golang"
+          "$php"
+          "[](fg:#212736 bg:#1d2230)"
+          "$time"
+          "[ ](fg:#1d2230)"
+          "$character"
+        ];
+
+        directory = {
+          style = "fg:#e3e5e5 bg:#769ff0";
+          format = "[ $path ]($style)";
+          truncation_length = 3;
+          truncation_symbol = "…/";
+	};
+
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+         };
+         package.disabled = true;
       };
-
-      gcloud = {
-        format = "on [$symbol$account(@$domain)|($project)](green) ";
-      };
-
-      kubernetes = {
-        disabled = false;
-        style = "green";
-        context_aliases = {
-          "gke_northbound-staging_southamerica-east1-c_cluster-1" = "staging";
-          "gke_northbound-prod_southamerica-east1-c_cluster-1" = "prod";
-        };
-      };
-
-      status = {
-        disabled = false;
-        symbol = "🔴 ";
-      };
-
-      nix_shell = {
-        format = "via [$symbol$state]($style) ";
-        impure_msg = "";
-      };
-    };
-
   };
-
 }
