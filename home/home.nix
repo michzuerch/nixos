@@ -5,6 +5,7 @@
     ./git.nix
     ./shell.nix
     ./tmux.nix
+    ./ranger.nix
     ./starship.nix
     ./gtk.nix
     ./dunst.nix
