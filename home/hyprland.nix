@@ -7,235 +7,300 @@
     size = 36;
   };
 
+  systemd.user.sessionVariables = {
+    GDK_BACKEND="wayland,x11";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    NIXOS_OZONE_WL = 1;
+    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
+
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+
+    QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    _JAVA_AWT_WM_NONREPARENTING = 1;
+  };
+
 wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-    #  (pkgs.callPackage ./hyprbars.nix { inherit hyprland-plugins; } )
-    ];
-    settings = { };
-    extraConfig = ''
-      exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
-      exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
-
-      exec-once = hyprprofile Personal
-
-      exec-once = pypr
-      exec-once = nm-applet
-      exec-once = blueman-applet
-      exec-once = GOMAXPROCS=1 syncthing --no-browser
-      exec-once = protonmail-bridge --noninteractive
-      exec-once = waybar
-      exec-once = emacs --daemon
-
-      exec-once = swayidle -w timeout 90 '${pkgs.gtklock}/bin/gtklock -d' timeout 210 'suspend-unless-render' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.gtklock}/bin/gtklock -d"
-      exec-once = obs-notification-mute-daemon
-
-      exec = ~/.swaybg-stylix
-
-      general {
-        layout = master
-        cursor_inactive_timeout = 30
-        border_size = 4
-        no_cursor_warps = false
-        col.active_border = 0xff'' + config.lib.stylix.colors.base08 + ''
-
-        col.inactive_border = 0x33'' + config.lib.stylix.colors.base00 + ''
-
-            resize_on_border = true
-            gaps_in = 7
-            gaps_out = 7
-       }
-
-       #plugin {
-       #  hyprbars {
-       #    bar_height = 0
-       #    bar_color = 0xee''+ config.lib.stylix.colors.base00 + ''
-
-       #    col.text = 0xff''+ config.lib.stylix.colors.base05 + ''
-
-       #    bar_text_font = '' + font + ''
-
-       #    bar_text_size = 12
-
-       #    buttons {
-       #      button_size = 0
-       #      col.maximize = 0xff''+ config.lib.stylix.colors.base0A +''
-
-       #      col.close = 0xff''+ config.lib.stylix.colors.base08 +''
-
-       #    }
-       #  }
-       #}
-
-       bind=SUPER,SPACE,fullscreen,1
-       bind=ALT,TAB,cyclenext
-       bind=ALT,TAB,bringactivetotop
-       bind=ALTSHIFT,TAB,cyclenext,prev
-       bind=ALTSHIFT,TAB,bringactivetotop
-       bind=SUPER,Y,workspaceopt,allfloat
-
-       bind = SUPER,R,pass,^(com\.obsproject\.Studio)$
-       bind = SUPERSHIFT,R,pass,^(com\.obsproject\.Studio)$
-
-       bind=SUPER,RETURN,exec,'' + term + ''
-
-       bind=SUPER,A,exec,'' + spawnEditor + ''
-
-       bind=SUPER,S,exec,'' + browser + ''
-
-       bind=SUPERCTRL,S,exec,container-open # qutebrowser only
-
-       bind=SUPERCTRL,R,exec,killall .waybar-wrapped && waybar & disown
-
-       bind=SUPER,code:47,exec,fuzzel
-       bind=SUPER,X,exec,fnottctl dismiss
-       bind=SUPERSHIFT,X,exec,fnottctl dismiss all
-       bind=SUPER,Q,killactive
-       bind=SUPERSHIFT,Q,exit
-       bindm=SUPER,mouse:272,movewindow
-       bindm=SUPER,mouse:273,resizewindow
-       bind=SUPER,T,togglefloating
-
-       bind=,code:107,exec,grim -g "$(slurp)"
-       bind=SHIFT,code:107,exec,grim -g "$(slurp -o)"
-       bind=SUPER,code:107,exec,grim
-       bind=CTRL,code:107,exec,grim -g "$(slurp)" - | wl-copy
-       bind=SHIFTCTRL,code:107,exec,grim -g "$(slurp -o)" - | wl-copy
-       bind=SUPERCTRL,code:107,exec,grim - | wl-copy
-
-       bind=,code:122,exec,pamixer -d 10
-       bind=,code:123,exec,pamixer -i 10
-       bind=,code:121,exec,pamixer -t
-       bind=,code:256,exec,pamixer --default-source -t
-       bind=SHIFT,code:122,exec,pamixer --default-source -d 10
-       bind=SHIFT,code:123,exec,pamixer --default-source -i 10
-       bind=,code:232,exec,brightnessctl set 15-
-       bind=,code:233,exec,brightnessctl set +15
-       bind=,code:237,exec,brightnessctl --device='asus::kbd_backlight' set 1-
-       bind=,code:238,exec,brightnessctl --device='asus::kbd_backlight' set +1
-       bind=,code:255,exec,airplane-mode
-
-       bind=SUPERSHIFT,S,exec,gtklock -d & sleep 1 && systemctl suspend
-       bind=SUPERCTRL,L,exec,gtklock -d
-
-       bind=SUPER,H,movefocus,l
-       bind=SUPER,J,movefocus,d
-       bind=SUPER,K,movefocus,u
-       bind=SUPER,L,movefocus,r
-
-       bind=SUPERSHIFT,H,movewindow,l
-       bind=SUPERSHIFT,J,movewindow,d
-       bind=SUPERSHIFT,K,movewindow,u
-       bind=SUPERSHIFT,L,movewindow,r
-
-       bind=SUPER,1,exec,hyprworkspace 1
-       bind=SUPER,2,exec,hyprworkspace 2
-       bind=SUPER,3,exec,hyprworkspace 3
-       bind=SUPER,4,exec,hyprworkspace 4
-       bind=SUPER,5,exec,hyprworkspace 5
-       bind=SUPER,6,exec,hyprworkspace 6
-       bind=SUPER,7,exec,hyprworkspace 7
-       bind=SUPER,8,exec,hyprworkspace 8
-       bind=SUPER,9,exec,hyprworkspace 9
-
-       bind=SUPERSHIFT,1,movetoworkspace,1
-       bind=SUPERSHIFT,2,movetoworkspace,2
-       bind=SUPERSHIFT,3,movetoworkspace,3
-       bind=SUPERSHIFT,4,movetoworkspace,4
-       bind=SUPERSHIFT,5,movetoworkspace,5
-       bind=SUPERSHIFT,6,movetoworkspace,6
-       bind=SUPERSHIFT,7,movetoworkspace,7
-       bind=SUPERSHIFT,8,movetoworkspace,8
-       bind=SUPERSHIFT,9,movetoworkspace,9
-
-       bind=SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop
-       bind=SUPER,F,exec,pypr toggle ranger && hyprctl dispatch bringactivetotop
-       bind=SUPER,N,exec,pypr toggle musikcube && hyprctl dispatch bringactivetotop
-       bind=SUPER,B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
-       bind=SUPER,E,exec,pypr toggle geary && hyprctl dispatch bringactivetotop
-       bind=SUPER,code:172,exec,pypr toggle pavucontrol && hyprctl dispatch bringactivetotop
-       $scratchpadsize = size 80% 85%
-
-       $scratchpad = class:^(scratchpad)$
-       windowrulev2 = float,$scratchpad
-       windowrulev2 = $scratchpadsize,$scratchpad
-       windowrulev2 = workspace special silent,$scratchpad
-       windowrulev2 = center,$scratchpad
-
-       $gearyscratchpad = class:^(geary)$
-       windowrulev2 = float,$gearyscratchpad
-       windowrulev2 = $scratchpadsize,$gearyscratchpad
-       windowrulev2 = workspace special silent,$gearyscratchpad
-       windowrulev2 = center,$gearyscratchpad
-
-       $pavucontrol = class:^(pavucontrol)$
-       windowrulev2 = float,$pavucontrol
-       windowrulev2 = size 86% 40%,$pavucontrol
-       windowrulev2 = move 50% 6%,$pavucontrol
-       windowrulev2 = workspace special silent,$pavucontrol
-       windowrulev2 = opacity 0.80,$pavucontrol
-
-       windowrulev2 = opacity 0.85,$gearyscratchpad
-       windowrulev2 = opacity 0.80,title:ORUI
-       windowrulev2 = opacity 0.80,title:Heimdall
-       windowrulev2 = opacity 0.80,title:^(LibreWolf)$
-       windowrulev2 = opacity 0.80,title:^(New Tab - LibreWolf)$
-       windowrulev2 = opacity 0.80,title:^(New Tab - Brave)$
-       windowrulev2 = opacity 0.65,title:^(My Local Dashboard Awesome Homepage - qutebrowser)$
-       windowrulev2 = opacity 0.65,title:\[.*\] - My Local Dashboard Awesome Homepage
-       windowrulev2 = opacity 0.9,class:^(org.keepassxc.KeePassXC)$
-       windowrulev2 = opacity 0.75,class:^(org.gnome.Nautilus)$
-
-       layerrule = blur,waybar
-
-       bind=SUPER,code:21,exec,pypr zoom
-       bind=SUPER,code:21,exec,hyprctl reload
-
-       bind=SUPERCTRL,right,workspace,+1
-       bind=SUPERCTRL,left,workspace,-1
-
-       bind=SUPER,I,exec,networkmanager_dmenu
-       bind=SUPER,P,exec,keepmenu
-       bind=SUPERSHIFT,P,exec,hyprprofile-dmenu
-
-       monitor=eDP-1,1920x1080,1000x1200,1
-       monitor=HDMI-A-1,1920x1200,1920x0,1
-       monitor=DP-1,1920x1200,0x0,1
-
-       xwayland {
-         force_zero_scaling = true
-       }
-
-       env = WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0
-       env = QT_QPA_PLATFORMTHEME,qt5ct
-
-       input {
-         kb_layout = us
-         kb_options = caps:escape
-         repeat_delay = 350
-         repeat_rate = 50
-         accel_profile = adaptive
-         follow_mouse = 2
-       }
-
-       misc {
-         mouse_move_enables_dpms = false
-       }
-       decoration {
-         rounding = 8
-         blur {
-           enabled = true
-           size = 5
-           passes = 2
-           ignore_opacity = true
-           contrast = 1.17
-           brightness = 0.8
-         }
-       }
-
-    '';
     xwayland = { enable = true; };
     systemdIntegration = true;
+    plugins = [ ];
+    settings = { };
+    extraConfig = ''
+       $w1 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
+       $w2 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
+       $w3 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
+       $w4 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
+       $w5 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
+       $w6 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
+       $w7 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
+       $w8 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
+
+       # █▀▀ ▀▄▀ █▀▀ █▀▀
+       # ██▄ █░█ ██▄ █▄▄
+       exec-once = hyprpaper & waybar # & ags
+       exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
+       exec-once = sleep 6 && dbus-update-activation-environment --all
+       exec-once = sleep 2 && copyq --start-server
+       exec-once = lxqt-policykit-agent & udiskie &
+       exec-once = sleep 8 && poweralertd
+       exec-once = blueman-applet
+       exec-once = nm-applet --indicator
+       
+       ############################################# misc #############################################
+       # █▀▄▀█ █▀█ █▄░█ █ ▀█▀ █▀█ █▀█
+       # █░▀░█ █▄█ █░▀█ █ ░█░ █▄█ █▀▄
+       monitor=,preferred,auto,1
+
+       # █ █▄░█ █▀█ █░█ ▀█▀
+       # █ █░▀█ █▀▀ █▄█ ░█░
+       input {
+         kb_layout = us
+         follow_mouse = 1
+         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+       }
+
+       # █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ █░░
+       # █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ █▄▄
+       general {
+         gaps_in=5
+         gaps_out=5
+         border_size=0
+         no_border_on_floating = true
+         layout = dwindle
+       }
+
+       # █▀▄▀█ █ █▀ █▀▀
+       # █░▀░█ █ ▄█ █▄▄
+       misc {
+         disable_hyprland_logo = true
+         disable_splash_rendering = true
+         mouse_move_enables_dpms = true
+         enable_swallow = true
+         swallow_regex = ^(kitty)$
+       }
+       env = XCURSOR_SIZE,24
+       env = WLR_NO_HARDWARE_CURSORS,1
+
+       # █▀▄ █▀▀ █▀▀ █▀█ █▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
+       # █▄▀ ██▄ █▄▄ █▄█ █▀▄ █▀█ ░█░ █ █▄█ █░▀█
+
+       decoration {
+         # █▀█ █▀█ █░█ █▄░█ █▀▄   █▀▀ █▀█ █▀█ █▄░█ █▀▀ █▀█
+         # █▀▄ █▄█ █▄█ █░▀█ █▄▀   █▄▄ █▄█ █▀▄ █░▀█ ██▄ █▀▄
+         rounding = 8
+         #multisample_edges = true
+
+         # █▀█ █▀█ ▄▀█ █▀▀ █ ▀█▀ █▄█
+         # █▄█ █▀▀ █▀█ █▄▄ █ ░█░ ░█░
+         active_opacity = 1.0
+         inactive_opacity = 0.7
+
+         # █▄▄ █░░ █░█ █▀█
+         # █▄█ █▄▄ █▄█ █▀▄
+         blur {
+           enabled = true
+           size = 3
+           passes = 3
+           new_optimizations = true
+           ignore_opacity = true
+         }
+
+
+         # █▀ █░█ ▄▀█ █▀▄ █▀█ █░█░█
+         # ▄█ █▀█ █▀█ █▄▀ █▄█ ▀▄▀▄▀
+         drop_shadow = true
+         shadow_ignore_window = true
+         shadow_offset = 2 2
+         shadow_range = 4
+         shadow_render_power = 2
+         col.shadow = 0x66000000
+
+         blurls = gtk-layer-shell
+         # blurls = waybar
+         blurls = lockscreen
+       }
+
+       # ▄▀█ █▄░█ █ █▀▄▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
+       # █▀█ █░▀█ █ █░▀░█ █▀█ ░█░ █ █▄█ █░▀█
+       animations {
+         enabled = true
+         # █▄▄ █▀▀ ▀█ █ █▀▀ █▀█   █▀▀ █░█ █▀█ █░█ █▀▀
+         # █▄█ ██▄ █▄ █ ██▄ █▀▄   █▄▄ █▄█ █▀▄ ▀▄▀ ██▄
+         bezier = overshot, 0.05, 0.9, 0.1, 1.05
+         bezier = smoothOut, 0.36, 0, 0.66, -0.56
+         bezier = smoothIn, 0.25, 1, 0.5, 1
+
+         animation = windows, 1, 5, overshot, slide
+         animation = windowsOut, 1, 4, smoothOut, slide
+         animation = windowsMove, 1, 4, default
+         animation = border, 1, 10, default
+         animation = fade, 1, 10, smoothIn
+         animation = fadeDim, 1, 10, smoothIn
+         animation = workspaces, 1, 6, default
+       }
+
+       # █░░ ▄▀█ █▄█ █▀█ █░█ ▀█▀ █▀
+       # █▄▄ █▀█ ░█░ █▄█ █▄█ ░█░ ▄█
+
+       dwindle {
+         no_gaps_when_only = false
+         pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+         preserve_split = true # you probably want this
+       }
+
+       # █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀█ █░█ █░░ █▀▀ █▀
+       # ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █▀▄ █▄█ █▄▄ ██▄ ▄█
+       windowrule = float, file_progress
+       windowrule = float, confirm
+       windowrule = float, dialog
+       windowrule = float, download
+       windowrule = float, notification
+       windowrule = float, error
+       windowrule = float, splash
+       windowrule = float, confirmreset
+       windowrule = float, title:Open File
+       windowrule = float, title:branchdialog
+       windowrule = float, Lxappearance
+       windowrule = float, Rofi
+       windowrule = animation none,Rofi
+       windowrule = float,viewnior
+       windowrule = float,feh
+       windowrule = float, pavucontrol-qt
+       windowrule = float, pavucontrol
+       windowrule = float, file-roller
+       windowrule = fullscreen, wlogout
+       windowrule = float, title:wlogout
+       windowrule = fullscreen, title:wlogout
+       windowrule = idleinhibit focus, mpv
+       windowrule = idleinhibit fullscreen, firefox
+       windowrule = float, title:^(Media viewer)$
+       windowrule = float, title:^(Volume Control)$
+       windowrule = float, title:^(Picture-in-Picture)$
+       windowrule = size 800 600, title:^(Volume Control)$
+       windowrule = move 75 44%, title:^(Volume Control)$
+       windowrule = float, ^(blueberry.py)$
+
+       master {
+           new_is_master = true
+       }
+
+       gestures {
+           workspace_swipe = off
+       }
+
+       # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
+       # █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀
+       bind = SUPER, P, exec, wlogout
+       bind = SUPER SHIFT, X, exec, hyprpicker -a -n
+       bind = CTRL ALT, L, exec, swaylock
+       bind = SUPER, Return, exec, alacritty
+       bind = SUPER SHIFT, Return, exec, cool-retro-term
+       bind = SUPER, E, exec, nemo
+       bind = SUPER, R, exec, wofi --show drun 
+       #bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
+       bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
+
+       bind = SUPER, X, exec, dunstctl history-pop
+       bind = SUPER, L, exec, swaylock
+       bind = SUPER, M, exec, wlogout --protocol layer-shell
+       bind = SUPER SHIFT, M, exit,
+       bind = SUPER, K, exec, lite-xl
+       bind = ,Print, exec, shotman --capture output
+
+       # █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
+       # █░▀░█ █▄█ █▄▄ ░█░ █ █░▀░█ ██▄ █▄▀ █ █▀█
+       binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+       binde=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+       binde=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+       # █▀ █▀▀ █▀█ █▀▀ █▀▀ █▄░█ █▀ █░█ █▀█ ▀█▀
+       # ▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█ ▄█ █▀█ █▄█ ░█░
+       $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
+       bind = SUPER SHIFT, S, exec, $screenshotarea
+       bind = , Print, exec, grimblast --notify --cursor copysave output
+       bind = ALT, Print, exec, grimblast --notify --cursor copysave screen
+
+       # █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀▄▀█ ▄▀█ █▄░█ ▄▀█ █▀▀ █▀▄▀█ █▀▀ █▄░█ ▀█▀
+       # ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █░▀░█ █▀█ █░▀█ █▀█ █▄█ █░▀░█ ██▄ █░▀█ ░█░
+       bind = SUPER, Q, killactive,
+       bind = SUPER SHIFT, Q, exit,
+       bind = SUPER, F, fullscreen,
+       bind = SUPER, Space, togglefloating,
+       bind = SUPER, P, pseudo, # dwindle
+       bind = SUPER, S, togglesplit, # dwindle
+
+       # █▀▀ █▀█ █▀▀ █░█ █▀
+       # █▀░ █▄█ █▄▄ █▄█ ▄█
+       bind = SUPER, left, movefocus, l
+       bind = SUPER, right, movefocus, r
+       bind = SUPER, up, movefocus, u
+       bind = SUPER, down, movefocus, d
+
+       # █▀▄▀█ █▀█ █░█ █▀▀
+       # █░▀░█ █▄█ ▀▄▀ ██▄
+       bind = SUPER SHIFT, left, movewindow, l
+       bind = SUPER SHIFT, right, movewindow, r
+       bind = SUPER SHIFT, up, movewindow, u
+       bind = SUPER SHIFT, down, movewindow, d
+
+       # █▀█ █▀▀ █▀ █ ▀█ █▀▀
+       # █▀▄ ██▄ ▄█ █ █▄ ██▄
+       bind = SUPER CTRL, left, resizeactive, -20 0
+       bind = SUPER CTRL, right, resizeactive, 20 0
+       bind = SUPER CTRL, up, resizeactive, 0 -20
+       bind = SUPER CTRL, down, resizeactive, 0 20
+
+       # ▀█▀ ▄▀█ █▄▄ █▄▄ █▀▀ █▀▄
+       # ░█░ █▀█ █▄█ █▄█ ██▄ █▄▀
+       bind= SUPER, g, togglegroup,
+       bind= SUPER, tab, changegroupactive,
+
+       # █▀ █▀█ █▀▀ █▀▀ █ ▄▀█ █░░
+       # ▄█ █▀▀ ██▄ █▄▄ █ █▀█ █▄▄
+       bind = SUPER, grave, togglespecialworkspace,
+       bind = SUPERSHIFT, grave, movetoworkspace, special
+
+       # █▀ █░█░█ █ ▀█▀ █▀▀ █░█
+       # ▄█ ▀▄▀▄▀ █ ░█░ █▄▄ █▀█
+       bind = SUPER, 1, workspace, 1
+       bind = SUPER, 2, workspace, 2
+       bind = SUPER, 3, workspace, 3
+       bind = SUPER, 4, workspace, 4
+       bind = SUPER, 5, workspace, 5
+       bind = SUPER, 6, workspace, 6
+       bind = SUPER, 7, workspace, 7
+       bind = SUPER, 8, workspace, 8
+       bind = SUPER, 9, workspace, 9
+       bind = SUPER, 0, workspace, 10
+       bind = SUPER ALT, up, workspace, e+1
+       bind = SUPER ALT, down, workspace, e-1
+
+       # █▀▄▀█ █▀█ █░█ █▀▀
+       # █░▀░█ █▄█ ▀▄▀ ██▄
+       bind = SUPER SHIFT, 1, movetoworkspace, 1
+       bind = SUPER SHIFT, 2, movetoworkspace, 2
+       bind = SUPER SHIFT, 3, movetoworkspace, 3
+       bind = SUPER SHIFT, 4, movetoworkspace, 4
+       bind = SUPER SHIFT, 5, movetoworkspace, 5
+       bind = SUPER SHIFT, 6, movetoworkspace, 6
+       bind = SUPER SHIFT, 7, movetoworkspace, 7
+       bind = SUPER SHIFT, 8, movetoworkspace, 8
+       bind = SUPER SHIFT, 9, movetoworkspace, 9
+       bind = SUPER SHIFT, 0, movetoworkspace, 10
+
+       # █▀▄▀█ █▀█ █░█ █▀ █▀▀   █▄▄ █ █▄░█ █▀▄ █ █▄░█ █▀▀
+       # █░▀░█ █▄█ █▄█ ▄█ ██▄   █▄█ █ █░▀█ █▄▀ █ █░▀█ █▄█
+       bindm = SUPER, mouse:272, movewindow
+       bindm = SUPER, mouse:273, resizewindow
+       bind = SUPER, mouse_down, workspace, e+1
+       bind = SUPER, mouse_up, workspace, e-1
+
+    '';
   };
 
 

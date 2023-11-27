@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{config, pkgs, lib, ... }:
 
 {
   imports = [ 
@@ -108,6 +108,7 @@
   services.fstrim.enable = true;
 
   # Bluetooth
+  hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   services.dbus.enable = true;
@@ -133,6 +134,7 @@
   users.users.michzuerch = {
     isNormalUser = true;
     description = "Michi";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "tss" "video" ];
     packages = with pkgs; [
     ];

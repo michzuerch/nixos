@@ -4,6 +4,8 @@
     ./alacritty.nix
     ./git.nix
     ./shell.nix
+    ./gtk.nix
+    ./dunst.nix
     ./hyprland.nix
     ./sway.nix
   ];

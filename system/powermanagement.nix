@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }: {
   powerManagement.cpuFreqGovernor = "performance";
 
+  systemd.packages = with pkgs; [ auto-cpufreq ];
+
   services = {
     thermald.enable = true;
     upower = {
