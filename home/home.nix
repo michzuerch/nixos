@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./git.nix
     ./shell.nix
+    ./tmux.nix
     ./starship.nix
     ./gtk.nix
     ./dunst.nix
