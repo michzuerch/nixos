@@ -13,16 +13,17 @@
     ./sway.nix
     ./tmux.nix
     ./waybar.nix
+    ./wofi.nix
     ./vscode.nix
   ];
 
-  home.packages = [ 
-    pkgs.brave 
-    pkgs.ffmpeg_6-full
-    pkgs.firefox 
-    pkgs.libsForQt5.dolphin
-    pkgs.libsForQt5.dolphin-plugins
-    pkgs.vlc 
+  home.packages = with pkgs; [ 
+    brave 
+    ffmpeg_6-full
+    firefox 
+    libsForQt5.dolphin
+    libsForQt5.dolphin-plugins
+    vlc 
   ];
 
   home.username = "michzuerch";
