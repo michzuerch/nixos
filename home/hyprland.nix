@@ -34,12 +34,12 @@ wayland.windowManager.hyprland = {
 
        # █▀▀ ▀▄▀ █▀▀ █▀▀
        # ██▄ █░█ ██▄ █▄▄
-       exec-once = hyprpaper & waybar # & ags
-       exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
+       exec-once = hyprpaper & waybar
+       #exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
        exec-once = sleep 6 && dbus-update-activation-environment --all
        exec-once = sleep 2 && copyq --start-server
        exec-once = lxqt-policykit-agent & udiskie &
-       exec-once = sleep 8 && poweralertd
+       #exec-once = sleep 8 && poweralertd
        exec-once = blueman-applet
        exec-once = nm-applet --indicator
        
@@ -295,17 +295,22 @@ wayland.windowManager.hyprland = {
     '';
   };
 
-
   home.packages = with pkgs; [
+    cinnamon.nemo-with-extensions
     cool-retro-term
+    copyq
     grimblast
+    hyprpaper
     hyprpicker
+    lite-xl
     lxqt.lxqt-policykit
+    networkmanagerapplet
     pamixer
     pavucontrol
     shotman
     swayidle
     swaylock-effects
+    udiskie
     wf-recorder
     wl-clipboard
     wlogout

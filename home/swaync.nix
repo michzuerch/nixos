@@ -1,10 +1,4 @@
 { pkgs, ... }: {
-  imports = [
-    ./config.nix
-    ./style.nix
-    ./configSchema.nix
-  ];
-
   home.file.".config/swaync/configSchema.json" = {
     text = ''
       {

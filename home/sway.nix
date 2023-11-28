@@ -26,7 +26,7 @@
     gaps.inner = 8;
     gaps.smartBorders = "no_gaps";
     gaps.smartGaps = true;
-    terminal = "kitty";
+    terminal = "alacritty";
     up = "j";
     down = "k";
     left = "l";
@@ -49,28 +49,21 @@
       "Mod1+v" = "splitv";
       "Mod1+w" = "layout tabbed";
       "Mod4+Shift+a" = "exec apostrophe";
-      "Mod4+Shift+b" = "exec librewolf --private-window";
       "Mod4+Shift+e" = "exec org.nickvision.tagger";
       "Mod4+Shift+f" = "exec foliate";
-      "Mod4+Shift+g" = "exec gthumb /home/ajilemondrop/Pictures/";
+      "Mod4+Shift+g" = "exec gthumb /home/michzuerch/Pictures/";
       "Mod4+Shift+s" = "exec stellarium";
-      "Mod4+Shift+t" = "exec thunderbird";
-      "Mod4+a" = "exec audacity";
-      "Mod4+b" = "exec librewolf";
-      "Mod4+c" = "exec libreoffice --calc";
-      "Mod4+e" = "exec thunar";
-      "Mod4+l" = "exec texstudio";
+      "Mod4+b" = "exec firefox";
       "Mod4+f" = "exec freetube";
       "Mod4+g" = "exec gimp";
-      "Mod4+h" = "exec kitty -e htop";
+      "Mod4+h" = "exec kitty -e gtop";
       "Mod4+k" = "exec keepassxc /home/ajilemondrop/Documents/passwords.kdbx";
       "Mod4+m" = "exec mscore";
       "Mod4+r" = "exec kitty -e ranger";
       "Mod4+s" = "exec signal-desktop";
-      "Mod4+t" = "exec kitty";
-      "Mod4+w" = "exec libreoffice --writer";
+      "Mod4+t" = "exec alacritty";
       "Mod4+z" = "exec zoom";
-      "Print" = "exec grim /home/ajilemondrop/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
+      "Print" = "exec grim /home/michzuerch/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
       "XF86AudioLowerVolume" = "exec pamixer -d 5";
       "XF86AudioMute" = "exec pamixer --toggle-mute";
       "XF86AudioRaiseVolume" = "exec pamixer -i 5";
@@ -152,11 +145,11 @@ input "type:touchpad" {
   middle_emulation enabled
 }
 input * {  
-  xkb_layout "cz"
+  xkb_layout "us"
 }
 bindswitch --reload --locked lid:on exec swaylock -f
 output * {
-  background /home/ajilemondrop/Pictures/wallpapers/dracula-tree-wallpaper.png fill
+  background /home/michzuerch/wallpapers/dracula-tree-wallpaper.png fill
 }
 for_window [title="File Operation Progress"] floating enable
 for_window [title="galculator"] floating enable
@@ -165,5 +158,7 @@ for_window [title="Volume Control"] floating enable'';
   };
 
   home.packages = with pkgs; [
+    autotiling
+    gammastep
   ];
 }
