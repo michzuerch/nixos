@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.file.".config/ranger/commands.py".source = ./ranger/commands.py;
   home.file.".config/ranger/commands_full.py".source = ./ranger/commands_full.py;
