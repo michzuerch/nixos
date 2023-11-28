@@ -2,17 +2,18 @@
 
   imports = [
     ./alacritty.nix
-    ./git.nix
-    ./shell.nix
-    ./tmux.nix
-    ./ranger.nix
-    ./starship.nix
-    ./gtk.nix
     ./dunst.nix
-    ./hyprland.nix
-    ./sway.nix
-    ./rust.nix
+    ./git.nix
+    ./gtk.nix
     ./helix.nix
+    ./hyprland.nix
+    ./ranger.nix
+    ./rust.nix
+    ./shell.nix
+    ./starship.nix
+    ./sway.nix
+    ./tmux.nix
+    ./vscode.nix
   ];
 
   home.packages = [ 

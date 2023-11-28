@@ -1,40 +1,20 @@
-{
-  config, inputs, outputs, pkgs, ... }: 
+{ config, inputs, outputs, pkgs, ... }: 
 {
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["pink"];
-        tweaks = ["rimless"];
-        size = "compact";
-        variant = "mocha";
-      };
+    cursorTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
     };
-
     iconTheme = {
-      package = pkgs.catppuccin-papirus-folders;
-      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
-    font = {
-      name = "Lexend";
-      size = 13;
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
     };
-    gtk3.extraConfig = {
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintslight";
-      gtk-xft-rgba = "rgb";
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
-    gtk2.extraConfig = ''
-      gtk-xft-antialias=1
-      gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintslight"
-      gtk-xft-rgba="rgb"
-    '';
   };
 
   home.pointerCursor = {

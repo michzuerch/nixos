@@ -1,12 +1,6 @@
 {
   config, inputs, outputs, pkgs, ... }: 
 {
-  gtk.cursorTheme = {
-    package = pkgs.quintom-cursor-theme;
-    name = "Quitom_Ink";
-    size = 36;
-  };
-
   systemd.user.sessionVariables = {
     GDK_BACKEND="wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -305,13 +299,18 @@ wayland.windowManager.hyprland = {
 
 
   home.packages = with pkgs; [
-    neofetch
-    fd
-    bat
-    direnv 
-    eza
-    cowsay
-    nix-direnv
+    cool-retro-term
+    grimblast
+    hyprpicker
+    lxqt.lxqt-policykit
+    pamixer
+    pavucontrol
+    shotman
+    swayidle
+    swaylock-effects
+    wf-recorder
+    wl-clipboard
+    wlogout
   ];
 
 }

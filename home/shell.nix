@@ -38,13 +38,17 @@
   programs.direnv.nix-direnv.enable = true;
 
   home.packages = with pkgs; [
-    neofetch
-    fd
     bat
+    cowsay
     direnv 
     eza
-    cowsay
-    nix-direnv
+    fd
+    gcc
+    gnumake
+    gtop
+    neofetch
+    sqlite
+    tealdeer
+    unzip
   ];
-
 }
