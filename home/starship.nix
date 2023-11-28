@@ -1,5 +1,4 @@
-{ config, inputs, outputs, pkgs, lib, ... }: 
-{
+{ pkgs, lib, ... }: {
   programs.starship = {
       enable = true;
       settings = {

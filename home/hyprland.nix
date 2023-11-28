@@ -1,6 +1,4 @@
-{
-  config, inputs, outputs, pkgs, ... }: 
-{
+{ pkgs, ... }: {
   systemd.user.sessionVariables = {
     GDK_BACKEND="wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -312,5 +310,4 @@ wayland.windowManager.hyprland = {
     wl-clipboard
     wlogout
   ];
-
 }

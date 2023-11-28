@@ -1,5 +1,4 @@
-{ inputs, pkgs, ...}: {
-
+{ pkgs, ... }: {
   imports = [
     ./alacritty.nix
     ./dunst.nix

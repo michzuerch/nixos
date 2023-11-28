@@ -1,6 +1,4 @@
-{
-  config, inputs, outputs, pkgs, ... }: 
-{
+{ pkgs, ... }: {
   wayland.windowManager.sway = {
   enable = true;
   config = {
