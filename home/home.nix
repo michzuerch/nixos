@@ -13,6 +13,7 @@
     ./starship.nix
     ./sway.nix
     ./tmux.nix
+    ./waybar.nix
     ./vscode.nix
   ];
 
