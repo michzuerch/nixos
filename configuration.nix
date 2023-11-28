@@ -64,7 +64,25 @@
 
   programs.git.enable = true;
 
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # so that gtk works properly
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      wl-clipboard
+      wf-recorder
+      grim
+      slurp
+    ];
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
+  };
 
   programs.hyprland.enable = true;
 
@@ -72,7 +90,7 @@
 
   programs.light.enable = true;
 
-
+  programs.mtr.enable = true;
 
   documentation = {
     enable = true;
