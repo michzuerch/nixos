@@ -11,6 +11,7 @@
     ./shell.nix
     ./starship.nix
     ./sway.nix
+    ./swaync.nix
     ./tmux.nix
     ./waybar.nix
     ./wofi.nix
