@@ -124,9 +124,9 @@
       		"on-click-right": "pamixer -t"
       	},
 
-        "network#wlp5s0": {
+        "network#wlp4s0": {
           "interval": 1,
-          "interface": "wlan0",
+          "interface": "wlp4s0",
           "format-icons": [
             "󰤯",
             "󰤟",
@@ -385,4 +385,12 @@
 
     '';
   };
+
+  home.packages = with pkgs; [
+    blueberry
+    brightnessctl
+    kitty
+    pamixer
+    pavucontrol
+  ];
 }
