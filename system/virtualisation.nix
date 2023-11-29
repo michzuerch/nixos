@@ -8,12 +8,16 @@
     libvirtd = {
       enable = true;
       qemu.ovmf.enable = true;
-      qemu.RunAsRoot = true;
+      qemu.runAsRoot = true;
       onBoot = "ignore";
       onShutdown = "shutdown";
     };
     waydroid.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ virt-manager virt-viewer qemu ];
+  environment.systemPackages = with pkgs; [ 
+    virt-manager 
+    virt-viewer 
+    qemu 
+  ];
 }
