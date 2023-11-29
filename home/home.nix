@@ -12,10 +12,12 @@
     ./starship.nix
     ./sway.nix
     ./swaync.nix
+    ./graphic.nix
     ./tmux.nix
     ./waybar.nix
     ./wofi.nix
     ./vscode.nix
+    ./wallpapers.nix
   ];
 
   home.packages = with pkgs; [ 

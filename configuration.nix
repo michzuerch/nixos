@@ -175,6 +175,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    ripgrep
     ripgrep-all
     fzf
     lazygit
