@@ -7,8 +7,8 @@
     };
     libvirtd = {
       enable = true;
-      qemuOvmf = true;
-      qemuRunAsRoot = true;
+      qemu.ovmf.enable = true;
+      qemu.RunAsRoot = true;
       onBoot = "ignore";
       onShutdown = "shutdown";
     };
