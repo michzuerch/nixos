@@ -310,7 +310,6 @@ wayland.windowManager.hyprland = {
     pavucontrol
     shotman
     swayidle
-    swaylock-effects
     udiskie
     wf-recorder
     wl-clipboard
