@@ -22,7 +22,7 @@
           family = "JetbrainsMono Nerd Font";
           style = "Bold Italic";
         };
-        size = 11.5;
+        size = 9;
       };
       
       # Padding

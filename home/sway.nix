@@ -6,7 +6,7 @@
       "*" = {
         hide_cursor = "when-typing enable";
         xcursor_theme = "Adwaita 24";
-        };
+      };
     };
     window.titlebar = false;
     floating.titlebar = false;
@@ -48,19 +48,12 @@
       "Mod1+space" = "focus mode_toggle";
       "Mod1+v" = "splitv";
       "Mod1+w" = "layout tabbed";
-      "Mod4+Shift+a" = "exec apostrophe";
-      "Mod4+Shift+e" = "exec org.nickvision.tagger";
-      "Mod4+Shift+f" = "exec foliate";
-      "Mod4+Shift+g" = "exec gthumb /home/michzuerch/Pictures/";
-      "Mod4+Shift+s" = "exec stellarium";
       "Mod4+b" = "exec firefox";
-      "Mod4+f" = "exec freetube";
       "Mod4+g" = "exec gimp";
       "Mod4+h" = "exec kitty -e gtop";
-      "Mod4+k" = "exec keepassxc /home/ajilemondrop/Documents/passwords.kdbx";
-      "Mod4+m" = "exec mscore";
       "Mod4+r" = "exec kitty -e ranger";
       "Mod4+s" = "exec signal-desktop";
+      "Mod4+return" = "exec alacritty";
       "Mod4+t" = "exec alacritty";
       "Mod4+z" = "exec zoom";
       "Print" = "exec grim /home/michzuerch/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
@@ -149,7 +142,7 @@ input * {
 }
 bindswitch --reload --locked lid:on exec swaylock -f
 output * {
-  background /home/michzuerch/wallpapers/dracula-tree-wallpaper.png fill
+  background /home/michzuerch/Wallpapers/Wolf1.jpg fill
 }
 for_window [title="File Operation Progress"] floating enable
 for_window [title="galculator"] floating enable
