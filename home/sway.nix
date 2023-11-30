@@ -52,10 +52,8 @@
       "Mod4+g" = "exec gimp";
       "Mod4+h" = "exec kitty -e gtop";
       "Mod4+r" = "exec kitty -e ranger";
-      "Mod4+s" = "exec signal-desktop";
+      "Mod4+d" = "exec wofi --show drun";
       "Mod4+return" = "exec alacritty";
-      "Mod4+t" = "exec alacritty";
-      "Mod4+z" = "exec zoom";
       "Print" = "exec grim /home/michzuerch/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
       "XF86AudioLowerVolume" = "exec pamixer -d 5";
       "XF86AudioMute" = "exec pamixer --toggle-mute";

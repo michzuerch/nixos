@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./dunst.nix
     ./git.nix
+    ./graphic.nix
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
@@ -11,13 +12,13 @@
     ./shell.nix
     ./starship.nix
     ./sway.nix
+    ./swaylock.nix
     ./swaync.nix
-    ./graphic.nix
     ./tmux.nix
-    ./waybar.nix
-    ./wofi.nix
     ./vscode.nix
     ./wallpapers.nix
+    ./waybar.nix
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [ 

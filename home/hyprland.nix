@@ -23,14 +23,14 @@ wayland.windowManager.hyprland = {
     plugins = [ ];
     settings = { };
     extraConfig = ''
-       $w1 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
-       $w2 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
-       $w3 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
-       $w4 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
-       $w5 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
-       $w6 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
-       $w7 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
-       $w8 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
+       $w1 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf1.jpg"
+       $w2 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf2.jpg"
+       $w3 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf3.jpg"
+       $w4 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf4.jpg"
+       $w5 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapaers/Wolf1.jpg"
+       $w6 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf2.jpg"
+       $w7 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf3.jpg"
+       $w8 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf4.jpg"
 
        # █▀▀ ▀▄▀ █▀▀ █▀▀
        # ██▄ █░█ ██▄ █▄▄
@@ -194,6 +194,7 @@ wayland.windowManager.hyprland = {
        bind = SUPER SHIFT, Return, exec, cool-retro-term
        bind = SUPER, E, exec, nemo
        bind = SUPER, R, exec, wofi --show drun 
+       bind = SUPER, D, exec, wofi --show drun 
        #bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
        bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
 
