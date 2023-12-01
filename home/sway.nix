@@ -1,67 +1,74 @@
 { pkgs, ... }: {
   wayland.windowManager.sway = {
-  enable = true;
-  config = {
-    seat = {
-      "*" = {
-        hide_cursor = "when-typing enable";
-        xcursor_theme = "Adwaita 24";
+    enable = true;
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
+    config = {
+      seat = {
+        "*" = {
+          hide_cursor = "when-typing enable";
+          xcursor_theme = "Adwaita 24";
+        };
       };
-    };
-    window.titlebar = false;
-    floating.titlebar = false;
-    window.border = 3;
-    floating.border = 3;
-    focus.followMouse = "no";
-    focus.wrapping = "yes";
-    startup = [
-      { command = "waybar";}
-      { command = "gammastep";}
-      { command = "nm-applet";}
-      { command = "autotiling"; always = true;}
-      { command = "wl-paste --type text --watch cliphist store"; always = true;}
-      { command = "wl-paste --type image --watch cliphist store"; always = true;}
-    ];
-    gaps.outer = 0;
-    gaps.inner = 8;
-    gaps.smartBorders = "no_gaps";
-    gaps.smartGaps = true;
-    terminal = "alacritty";
-    up = "j";
-    down = "k";
-    left = "l";
-    right = "h";
-    keybindings = {
-      "Mod1+Shift+c" = "kill";
-      "Mod1+Shift+r" = "reload";
-      "Mod1+Shift+space" = "floating toggle";
-      "Mod1+a" = "focus parent";
-      "Mod1+b" = "splith";
-      "Mod1+e" = "layout toggle split";
-      "Mod1+f" = "fullscreen";
-      "Mod1+h" = "focus left";
-      "Mod1+j" = "focus down";
-      "Mod1+k" = "focus up";
-      "Mod1+l" = "focus right";
-      "Mod1+r" = ''mode "resize"'';
-      "Mod1+s" = "layout stacking";
-      "Mod1+space" = "focus mode_toggle";
-      "Mod1+v" = "splitv";
-      "Mod1+w" = "layout tabbed";
-      "Mod4+b" = "exec firefox";
-      "Mod4+g" = "exec gimp";
-      "Mod4+h" = "exec kitty -e gtop";
-      "Mod4+r" = "exec kitty -e ranger";
-      "Mod4+d" = "exec wofi --show drun";
-      "Mod4+return" = "exec alacritty";
-      "Print" = "exec grim /home/michzuerch/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
-      "XF86AudioLowerVolume" = "exec pamixer -d 5";
-      "XF86AudioMute" = "exec pamixer --toggle-mute";
-      "XF86AudioRaiseVolume" = "exec pamixer -i 5";
-      "XF86Calculator" = "exec galculator";
-      "XF86MonBrightnessDown" = "exec brightnessctl s 2%-";
-      "XF86MonBrightnessUp" = "exec brightnessctl s +2%";
-       };
+      window.titlebar = false;
+      floating.titlebar = false;
+      window.border = 3;
+      floating.border = 3;
+      focus.followMouse = "no";
+      focus.wrapping = "yes";
+      startup = [
+        { command = "waybar";}
+        { command = "gammastep";}
+        { command = "nm-applet";}
+        { command = "autotiling"; always = true;}
+        { command = "wl-paste --type text --watch cliphist store"; always = true;}
+        { command = "wl-paste --type image --watch cliphist store"; always = true;}
+      ];
+      gaps.outer = 0;
+      gaps.inner = 8;
+      gaps.smartBorders = "no_gaps";
+      gaps.smartGaps = true;
+      terminal = "alacritty";
+      up = "j";
+      down = "k";
+      left = "l";
+      right = "h";
+      keybindings = {
+        "Mod1+Shift+c" = "kill";
+        "Mod1+Shift+r" = "reload";
+        "Mod1+Shift+space" = "floating toggle";
+        "Mod1+a" = "focus parent";
+        "Mod1+b" = "splith";
+        "Mod1+e" = "layout toggle split";
+        "Mod1+f" = "fullscreen";
+        "Mod1+h" = "focus left";
+        "Mod1+j" = "focus down";
+        "Mod1+k" = "focus up";
+        "Mod1+l" = "focus right";
+        "Mod1+r" = ''mode "resize"'';
+        "Mod1+s" = "layout stacking";
+        "Mod1+space" = "focus mode_toggle";
+        "Mod1+v" = "splitv";
+        "Mod1+w" = "layout tabbed";
+        "Mod4+b" = "exec firefox";
+        "Mod4+g" = "exec gimp";
+        "Mod4+h" = "exec kitty -e gtop";
+        "Mod4+r" = "exec kitty -e ranger";
+        "Mod4+d" = "exec wofi --show drun";
+        "Mod4+return" = "exec alacritty";
+        "Print" = "exec grim /home/michzuerch/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S-screenshot.png')";
+        "XF86AudioLowerVolume" = "exec pamixer -d 5";
+        "XF86AudioMute" = "exec pamixer --toggle-mute";
+        "XF86AudioRaiseVolume" = "exec pamixer -i 5";
+        "XF86Calculator" = "exec galculator";
+        "XF86MonBrightnessDown" = "exec brightnessctl s 2%-";
+        "XF86MonBrightnessUp" = "exec brightnessctl s +2%";
+      };
       keycodebindings = {
         "Mod1+10" = "workspace number 1";
         "Mod1+11" = "workspace number 2";
@@ -151,5 +158,11 @@ for_window [title="Volume Control"] floating enable'';
   home.packages = with pkgs; [
     autotiling
     gammastep
+    swaylock
+    swayidle
+    wl-clipboard
+    wf-recorder
+    grim
+    slurp
   ];
 }
