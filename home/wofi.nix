@@ -4,74 +4,61 @@
     settings = {
       width = 800;
       height = 400;
-      mode = "run";
+      mode = "drun";
       filter-rate = 100;
+      allow-images = true;
     };
     style = ''
       window {
-        margin: 5px;
-        background-color: #002632;
-        opacity: 1.0;
-        font-size: 15px;
-        font-family: JetBrainsMonoNL NF;
-        border-radius: 10px;
-        border: 5px solid #6c8b91;
-      }
-
-      #outer-box {
-        margin: 5px;
-        border: 5px;
-        border-radius: 10px;
+      margin: 0px;
+      border: 1px solid #bd93f9;
+      background-color: #282a36;
       }
 
       #input {
-        margin: 5px;
-        background-color: #00384d;
-        color: #a1a19a;
-        font-size: 15px;
-        border: 5px;
-        border-radius: 10px;
+      margin: 5px;
+      border: none;
+      color: #f8f8f2;
+      background-color: #44475a;
       }
 
       #inner-box {
-        background-color: #002635;
-        border: 5px;
-        border-radius: 10px;
+      margin: 5px;
+      border: none;
+      background-color: #282a36;
+      }
+
+      #outer-box {
+      margin: 5px;
+      border: none;
+      background-color: #282a36;
       }
 
       #scroll {
-        font-size: 15px;
-        color: #c43060;
-        margin: 10px;
-        border-radius: 5px;
-      }
-
-      #scroll label {
-        margin: 0px 0px;
-      }
-
-      #entry {
-        margin: 5px;
-        background-color: #00384d;
-        border-radius: 10px;
-        border: 5px;
-      }
-      #entry:selected {
-        background-color: #517f8d;
-        border: 5px solid #6c8b91;
-        border-radius: 10px;
-        border: 5px;
-      }
-
-      #img {
-        margin: 5px;
-        border-radius: 5px;
+      margin: 0px;
+      border: none;
       }
 
       #text {
-        margin: 2px;
-        border: none;
-        color: #a1a19a;
+      margin: 5px;
+      border: none;
+      color: #f8f8f2;
+      }
+
+      #entry.activatable #text {
+      color: #282a36;
+      }
+
+      #entry > * {
+      color: #f8f8f2;
+      }
+
+      #entry:selected {
+      background-color: #44475a;
+      }
+
+      #entry:selected #text {
+      font-weight: bold;
       }
     '';
   };
