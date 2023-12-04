@@ -1,20 +1,13 @@
-{ pkgs, ... }: {
-  
+{pkgs, ...}: {
   programs.wofi = {
     enable = true;
     settings = {
-      width = 500;
-      height = 300;
-      always_parse_args = true;
-      show_all = false;
-      print_command = true;
-      insensitive = true;
+      width = 800;
+      height = 400;
+      mode = "run";
+      filter-rate = 100;
     };
-
-  };
-
-  home.file.".config/wofi/style.css" = {
-    text = ''
+    style = ''
       window {
         margin: 5px;
         background-color: #002632;
