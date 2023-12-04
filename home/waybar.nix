@@ -125,8 +125,8 @@
     '';
     settings = [
       {
-        "layer" = "top";
-        "position" = "top";
+        layer = "top";
+        position = "top";
         modules-left = [
           "custom/launcher"
           "temperature"
@@ -150,58 +150,58 @@
 	  "clock"
         ];
         "custom/launcher" = {
-          "format" = " ";
-          "on-click" = "wofi --show drun";
-          "tooltip" = false;
+          format = " ";
+          on-click = "wofi --show drun";
+          tooltip = false;
         };
-        "pulseaudio" = {
-          "scroll-step" = 5;
-          "format" = "{icon} {volume}%";
-          "format-muted" = "󰖁 Muted";
-          "format-icons" = {
-            "default" = ["" "" ""];
+        pulseaudio = {
+          scroll-step = 5;
+          format = "{icon} {volume}%";
+          format-muted = "󰖁 Muted";
+          format-icons = {
+            default = ["" "" ""];
           };
-          "on-click" = "pavucontrol";
-	  "on-click-right" = "pamixer -t";
-          "tooltip" = false;
+          on-click = "pavucontrol";
+	  on-click-right = "pamixer -t";
+          tooltip = false;
         };
         "hyprland/workspaces" = {
-          "format" = "{icon}";
-          "format-icons" = {
-            "default" = "󰄰";
-            "active" = "";
+          format = "{icon}";
+          format-icons = {
+            default = "󰄰";
+            active = "";
           };
-          "on-click" = "activate";
+          on-click = "activate";
         };
         "hyprland/submap" = {
-          "format" = "{}";
-          "tooltip" = false;
+          format = "{}";
+          tooltip = false;
         };
-        "clock" = {
-          "interval" = 1;
-          "format" = "{:%H:%M }";
-	  "locale" = "de_DE.UTF-8";
-	  "timezone" = "Europe/Busingen";
-	  "format-alt" = " {:%A, %d %B} ";
-          "tooltip" = true;
-          "tooltip-format" = "{calendar}";
-	  "calendar" = {
-             "mode" = "year";
-	     "mode-mon-col" = 3;
-	     "format" = {
-               "today" = "<span color='yellow'>{}</span>";
+        clock = {
+          interval = 1;
+          format = "{:%H:%M }";
+	  locale = "de_DE.UTF-8";
+	  timezone = "Europe/Busingen";
+	  format-alt = " {:%A, %d %B} ";
+          tooltip = true;
+          tooltip-format = "{calendar}";
+	  calendar = {
+             mode = "year";
+	     mode-mon-col = 3;
+	     format = {
+               today = "<span color='yellow'>{}</span>";
 	     };
 	  };
         };
-        "battery" = {
-          "states" = {
-            "warning" = 20;
-            "critical" = 10;
+        battery = {
+          states = {
+            warning = 20;
+            critical = 10;
           };
-          "format" = " {icon} {capacity} ";
-          "format-charging" = " 󰂄 {capacity} ";
-          "format-plugged" = " 󱘖 {capacity} ";
-          "format-icons" = [
+          format = " {icon} {capacity} ";
+          format-charging = " 󰂄 {capacity} ";
+          format-plugged = " 󱘖 {capacity} ";
+          format-icons = [
             "󰁺"
             "󰁻"
             "󰁼"
@@ -213,54 +213,55 @@
             "󰂂"
             "󰁹"
           ];
-          "on-click" = "";
-          "tooltip" = false;
+          on-click = "";
+          tooltip = false;
         };
-        "memory" = {
-          "interval" = 1;
-          "format" = "󰻠 {percentage}%";
-          "states" = {
-            "warning" = 85;
+        memory = {
+          interval = 1;
+          format = "󰻠 {percentage}%";
+          states = {
+            warning = 85;
           };
         };
-        "cpu" = {
-          "interval" = 1;
-          "format" = "󰍛 {usage}%";
+        cpu = {
+          interval = 1;
+          format = "󰍛 {usage}%";
         };
-        "backlight" = {
-          "format" = " {icon} {percent} ";
-          "format-icons" = [ "󰃟" ];
-          "on-scroll-up" = "brightnessctl set +1%";
-          "on-scroll-down" = "brightnessctl set 1%-";
-          "on-click" = "brightnessctl set 0";
-          "tooltip" = false;
+        backlight = {
+          format = " {icon} {percent} ";
+          format-icons = [ "󰃟" ];
+          on-scroll-up = "brightnessctl set +1%";
+          on-scroll-down = "brightnessctl set 1%-";
+          on-click = "brightnessctl set 0";
+          tooltip = false;
         };
-        "bluetooth" = {
-          "format-disabled" = "   ";
-          "format-off" = "   ";
-          "format-on" = " 󰂯 ";
-          "format-connected" = " 󰂯 ";
-          "format-connected-battery" = " 󰂯 ";
-          "tooltip-format-connected" = " {device_alias} 󰂄{device_battery_percentage} ";
-          "on-click" = "blueberry";
-          "tooltip" = true;
+        bluetooth = {
+          format-disabled = "   ";
+          format-off = "   ";
+          format-on = " 󰂯 ";
+          format-connected = " 󰂯 ";
+          format-connected-battery = " 󰂯 ";
+          tooltip-format-connected = " {device_alias} 󰂄{device_battery_percentage} ";
+          on-click = "blueberry";
+          tooltip = true;
         };
-        "network" = {
-          "format-disconnected" = "󰯡 Disconnected";
-          "format-ethernet" = "󰒢 Connected!";
-          "format-linked" = "󰖪 {essid} (No IP)";
-          "format-wifi" = "󰖩 {essid}";
-          "interval" = 1;
-          "tooltip" = false;
+        network = {
+          format-disconnected = "󰯡 Disconnected";
+          format-ethernet = "󰒢 Connected!";
+          format-linked = "󰖪 {essid} (No IP)";
+          format-wifi = "󰖩 {essid}";
+          interval = 1;
+          tooltip = true;
+	  tooltip-format = "󰅢 {bandwidthDownBytes} /  {bandwidthUpBytes} ";
         };
         "custom/powermenu" = {
-          "format" = "";
-          "on-click" = "wlogout";
-          "tooltip" = false;
+          format = "";
+          on-click = "wlogout";
+          tooltip = false;
         };
-        "tray" = {
-          "icon-size" = 15;
-          "spacing" = 5;
+        tray = {
+          icon-size = 15;
+          spacing = 5;
         };
       }
     ];
