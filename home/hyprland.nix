@@ -202,7 +202,7 @@ wayland.windowManager.hyprland = {
        bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
 
        bind = SUPER, X, exec, dunstctl history-pop
-       bind = SUPER, L, exec, swaylock
+       bind = SUPER, L, exec, swayidle
        bind = SUPER, M, exec, wlogout --protocol layer-shell
        bind = SUPER SHIFT, M, exit,
        bind = SUPER, K, exec, lite-xl

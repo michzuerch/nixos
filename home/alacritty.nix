@@ -4,6 +4,7 @@
     settings = {
       env.TERM = "xterm-256color";
 
+
       # Font settings
       font = {
         normal = {
