@@ -201,7 +201,7 @@ wayland.windowManager.hyprland = {
        #bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
        bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
 
-       #bind = SUPER, X, exec, dunstctl history-pop
+       bind = SUPER, N, exec, swaync-client -t -sw
        bind = SUPER, L, exec, swayidle
        bind = SUPER, M, exec, wlogout --protocol layer-shell
        bind = SUPER SHIFT, M, exit,

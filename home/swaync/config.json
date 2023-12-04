@@ -44,16 +44,16 @@
     "widget-config": {
       "inhibitors": {
         "text": "Inhibitors",
-        "button-text": "Effacer",
+        "button-text": "Delete",
         "clear-all-button": true
       },
       "title": {
         "text": "Notifications",
         "clear-all-button": true,
-        "button-text": "Effacer"
+        "button-text": "Delete"
       },
       "dnd": {
-        "text": "Ne Pas Déranger"
+        "text": "Don't disturb"
       },
       "mpris": {
         "image-size": 96,
