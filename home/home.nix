@@ -13,6 +13,7 @@
     ./starship.nix
     ./sway.nix
     ./swaylock.nix
+    ./swayidle.nix
     ./swaync.nix
     ./tmux.nix
     ./vscode.nix
