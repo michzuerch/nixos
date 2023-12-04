@@ -28,6 +28,7 @@
       
       # Padding
       window = {
+        opacity = 0.8;
         padding = {
           x = 12;
           y = 12;
