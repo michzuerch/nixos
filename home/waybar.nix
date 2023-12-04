@@ -68,15 +68,10 @@
                padding-right: 6px;
                color: #7ebae4;
              }
-       #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+       #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu {
                padding-left: 10px;
                padding-right: 10px;
              }
-             /* #mode { */
-             /* 	margin-left: 10px; */
-             /* 	background-color: rgb(248, 189, 150); */
-             /*     color: rgb(26, 24, 38); */
-             /* } */
        #memory {
                color: rgb(181, 232, 224);
              }
@@ -115,20 +110,18 @@
                padding-right: 8px;
                padding-left: 10px;
              }
-       #mpd.paused {
-               color: #414868;
-               font-style: italic;
-             }
-       #mpd.stopped {
-               background: transparent;
-             }
-       #mpd {
-               color: #c0caf5;
-             }
-       #custom-cava-internal{
-               font-family: "Hack Nerd Font" ;
-               color: #33ccff;
-             }
+        #custom-notification {
+          background-color: transparent;
+          color: #a1a19a;
+          padding: 1px 8px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          margin-left: 2px;
+          margin-right: 2px;
+          border-radius: 20px;
+          transition: all 0.3s ease;
+        }
+
     '';
     settings = [
       {
@@ -161,18 +154,15 @@
           "on-click" = "wofi --show drun";
           "tooltip" = false;
         };
-        "custom/cava-internal" = {
-          "exec" = "sleep 1s && cava-internal";
-          "tooltip" = false;
-        };
         "pulseaudio" = {
-          "scroll-step" = 1;
+          "scroll-step" = 5;
           "format" = "{icon} {volume}%";
           "format-muted" = "󰖁 Muted";
           "format-icons" = {
             "default" = ["" "" ""];
           };
-          "on-click" = "pavuctrl";
+          "on-click" = "pavucontrol";
+	  "on-click-right" = "pamixer -t";
           "tooltip" = false;
         };
         "hyprland/workspaces" = {
@@ -183,15 +173,13 @@
           };
           "on-click" = "activate";
         };
-
         "hyprland/submap" = {
           "format" = "{}";
           "tooltip" = false;
         };
-
         "clock" = {
           "interval" = 1;
-          "format" = "{:%I:%M %p}";
+          "format" = "{:%H:%M }";
 	  "locale" = "de_DE.UTF-8";
 	  "timezone" = "Europe/Busingen";
 	  "format-alt" = " {:%A, %d %B} ";
@@ -201,9 +189,32 @@
              "mode" = "year";
 	     "mode-mon-col" = 3;
 	     "format" = {
-               "today" = "<span color='white'>{}</span>";
+               "today" = "<span color='yellow'>{}</span>";
 	     };
 	  };
+        };
+        "battery" = {
+          "states" = {
+            "warning" = 20;
+            "critical" = 10;
+          };
+          "format" = " {icon} {capacity} ";
+          "format-charging" = " 󰂄 {capacity} ";
+          "format-plugged" = " 󱘖 {capacity} ";
+          "format-icons" = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
+          "on-click" = "";
+          "tooltip" = false;
         };
         "memory" = {
           "interval" = 1;
@@ -234,7 +245,6 @@
           "on-click" = "blueberry";
           "tooltip" = true;
         };
-
         "network" = {
           "format-disconnected" = "󰯡 Disconnected";
           "format-ethernet" = "󰒢 Connected!";
