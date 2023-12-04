@@ -4,8 +4,8 @@
     style = ''
              * {
                font-family: "JetBrainsMono Nerd Font";
-               font-size: 12pt;
-               font-weight: bold;
+               font-size: 9pt;
+               font-weight: normal;
                border-radius: 8px;
                transition-property: background-color;
                transition-duration: 0.5s;
@@ -37,13 +37,13 @@
              }
        #workspaces {
                padding-left: 0px;
-               padding-right: 4px;
+               padding-right: 5px;
              }
        #workspaces button {
-               padding-top: 5px;
-               padding-bottom: 5px;
-               padding-left: 6px;
-               padding-right: 6px;
+               padding-top: 2px;
+               padding-bottom: 2px;
+               padding-left: 2px;
+               padding-right: 2px;
              }
        #workspaces button.active {
                background-color: rgb(181, 232, 224);
@@ -63,7 +63,7 @@
                color: rgb(217, 224, 238);
              }
        #custom-launcher {
-               font-size: 20px;
+               font-size: 10px;
                padding-left: 8px;
                padding-right: 6px;
                color: #7ebae4;
@@ -135,7 +135,6 @@
 	  "custom/notification"
         ];
         modules-center = [
-          "clock"
 	  "hyprland/window"
         ];
         modules-right = [
@@ -146,8 +145,9 @@
           "network"
 	  "bluetooth"
 	  "battery"
-          "custom/powermenu"
           "tray"
+          "custom/powermenu"
+	  "clock"
         ];
         "custom/launcher" = {
           "format" = " ";
@@ -166,7 +166,7 @@
           "tooltip" = false;
         };
         "hyprland/workspaces" = {
-          "format" = " {icon} ";
+          "format" = "{icon}";
           "format-icons" = {
             "default" = "󰄰";
             "active" = "";

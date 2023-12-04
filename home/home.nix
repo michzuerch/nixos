@@ -29,6 +29,7 @@
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     vlc 
+    transmission
   ];
 
   home.username = "michzuerch";

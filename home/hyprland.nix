@@ -196,7 +196,7 @@
       bind = SUPER, Return, exec, alacritty
       bind = SUPER SHIFT, Return, exec, cool-retro-term
       bind = SUPER, E, exec, nemo
-      bind = SUPER, D, exec, wofi --show drun
+      bind = SUPER, D, exec, wofi --show drun --allow-images
       #bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
       bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
 
@@ -319,5 +319,7 @@
     wf-recorder
     wl-clipboard
     wlogout
+    wofi-emoji
+    wtype
   ];
 }
