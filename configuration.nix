@@ -181,6 +181,7 @@
     lazygit
     ranger
     sbctl
+    killall
     wget
     curl
     gh
@@ -190,5 +191,5 @@
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

@@ -197,8 +197,10 @@
       bind = SUPER SHIFT, Return, exec, cool-retro-term
       bind = SUPER, E, exec, nemo
       bind = SUPER, D, exec, wofi --show drun --allow-images
-      #bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
-      bind = SUPER, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
+      bind = SUPER, period, exec, wofi-emoji
+
+      # Toggle Waybar
+      bind = SUPER, B, exec, killall -SIGUSR1 waybar 
 
       bind = SUPER, N, exec, swaync-client -t -sw
       bind = SUPER, L, exec, swayidle
@@ -312,6 +314,7 @@
     lxqt.lxqt-policykit
     networkmanagerapplet
     pamixer
+    sov
     pavucontrol
     shotman
     swayidle

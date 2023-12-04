@@ -129,6 +129,7 @@
         position = "top";
         modules-left = [
           "custom/launcher"
+          "custom/weather"
           "temperature"
 	  "hyprland/workspaces"
 	  "hyprland/submap"
@@ -259,6 +260,13 @@
           on-click = "wlogout";
           tooltip = false;
         };
+	"custom/weather" = {
+          format = "{} °";
+          tooltip = true;
+          interval = 3600;
+          exec = "wttrbar";
+          "return-type" = "json";
+        };
         tray = {
           icon-size = 15;
           spacing = 5;
@@ -273,5 +281,6 @@
     kitty
     pamixer
     pavucontrol
+    wttrbar
   ];
 }
