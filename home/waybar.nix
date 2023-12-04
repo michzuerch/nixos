@@ -253,7 +253,8 @@
           format-wifi = "󰖩 {essid}";
           interval = 1;
           tooltip = true;
-	  tooltip-format = "󰅢 {bandwidthDownBytes} /  {bandwidthUpBytes} ";
+	  format-alt = " {bandwidthUpBits} |  {bandwidthDownBits}";
+	  #tooltip-format = "󰅢 {bandwidthDownBytes} /  {bandwidthUpBytes} ";
         };
         "custom/powermenu" = {
           format = "";
