@@ -12,6 +12,7 @@
     ./shell.nix
     ./starship.nix
     ./sway.nix
+    ./xdg.nix
     ./swaylock.nix
     ./swayidle.nix
     ./swaync.nix
