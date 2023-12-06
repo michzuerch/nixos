@@ -266,7 +266,7 @@
           format = "{} °";
           tooltip = true;
           interval = 3600;
-          exec = "wttrbar";
+          exec = "wttrbar --location Radolfzell";
           "return-type" = "json";
         };
 	idle_inhibitor = {
