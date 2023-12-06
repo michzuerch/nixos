@@ -7,6 +7,7 @@
     ./helix.nix
     ./hyprland.nix
     ./node.nix
+    ./obs-studio.nix
     ./ranger.nix
     ./rust.nix
     ./shell.nix
