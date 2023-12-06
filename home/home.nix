@@ -5,16 +5,15 @@
     ./graphic.nix
     ./gtk.nix
     ./helix.nix
-    ./node.nix
     ./hyprland.nix
+    ./node.nix
     ./ranger.nix
     ./rust.nix
     ./shell.nix
     ./starship.nix
     ./sway.nix
-    ./xdg.nix
-    ./swaylock.nix
     ./swayidle.nix
+    ./swaylock.nix
     ./swaync.nix
     ./tmux.nix
     ./vscode.nix
