@@ -9,6 +9,7 @@
     ./node.nix
     ./obs-studio.nix
     ./ranger.nix
+    ./golang.nix
     ./rust.nix
     ./shell.nix
     ./starship.nix

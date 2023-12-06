@@ -158,6 +158,7 @@
     curl
     gh
     tealdeer
+    protonvpn-gui
   ];
 
   environment.shellAliases = {
