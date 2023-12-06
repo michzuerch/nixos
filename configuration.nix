@@ -15,7 +15,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "-delete-older-than 60d";
+      options = "-delete-older-than 14d";
     };
   };
 
@@ -53,9 +53,6 @@
 
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
-  networking.wireless.networks."Automarkt-Gast" = { psk = "010963ABCD"; };
-  networking.wireless.networks."bernhard" = { psk = "09404354992076311874"; };
-
   
   # Enable network manager applet
   programs.nm-applet.enable = true;
@@ -66,13 +63,9 @@
   };
 
   programs.git.enable = true;
-
   programs.hyprland.enable = true;
-
   programs.dconf.enable = true;
-
   programs.light.enable = true;
-
   programs.mtr.enable = true;
 
   documentation = {
@@ -109,8 +102,6 @@
     displayManager.lightdm.enable = true;
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
-    #desktopManager.plasma5.enable = true;
-    #windowManager.awesome.enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -154,9 +145,6 @@
     ];
   };
 
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
     ripgrep
@@ -171,6 +159,7 @@
     gh
     tealdeer
   ];
+
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };

@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   imports = [
     ./alacritty.nix
-    #./dunst.nix
     ./git.nix
     ./graphic.nix
     ./gtk.nix
     ./helix.nix
+    ./node.nix
     ./hyprland.nix
     ./ranger.nix
     ./rust.nix
