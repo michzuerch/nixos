@@ -53,7 +53,10 @@
 
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.wireless.networks."Automarkt-Gast" = { psk = "010963ABCD"; };
+  networking.wireless.networks."bernhard" = { psk = "09404354992076311874"; };
 
+  
   # Enable network manager applet
   programs.nm-applet.enable = true;
 
@@ -63,26 +66,6 @@
   };
 
   programs.git.enable = true;
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      wl-clipboard
-      wf-recorder
-      grim
-      slurp
-    ];
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-    '';
-  };
 
   programs.hyprland.enable = true;
 
@@ -124,9 +107,10 @@
     layout = "us";
     xkbVariant = "";
     displayManager.lightdm.enable = true;
+    displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
-    desktopManager.plasma5.enable = true;
-    windowManager.awesome.enable = true;
+    #desktopManager.plasma5.enable = true;
+    #windowManager.awesome.enable = true;
   };
 
   # Enable CUPS to print documents.

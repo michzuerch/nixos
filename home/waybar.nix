@@ -81,9 +81,6 @@
        #clock {
                color: rgb(217, 224, 238);
              }
-      /* #idle_inhibitor {
-               color: rgb(221, 182, 242);
-             }*/
        #custom-wall {
                color: #33ccff;
           }
@@ -101,6 +98,9 @@
              }
        #network.disconnected {
                color: rgb(255, 255, 255);
+             }
+       #idle_inhibitor {
+               padding-right: 4px;
              }
        #custom-powermenu {
                color: rgb(242, 143, 173);
@@ -130,6 +130,7 @@
         modules-left = [
           "custom/launcher"
           "custom/weather"
+	  "idle_inhibitor"
           "temperature"
 	  "hyprland/workspaces"
 	  "hyprland/submap"
@@ -267,6 +268,14 @@
           interval = 3600;
           exec = "wttrbar";
           "return-type" = "json";
+        };
+	idle_inhibitor = {
+          format = "{icon}";
+          "format-icons" = {
+            activated = "󰈈";
+            deactivated = "󰈉";
+          };
+          tooltip = false;
         };
         tray = {
           icon-size = 15;
