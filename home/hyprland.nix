@@ -305,6 +305,7 @@
 
   home.packages = with pkgs; [
     cinnamon.nemo-with-extensions
+    ffmpegthumbnailer
     cool-retro-term
     copyq
     grimblast

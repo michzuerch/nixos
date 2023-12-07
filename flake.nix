@@ -28,7 +28,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-	  ./system/postgres.nix
+	  #./system/postgres.nix
 	  ./system/virtualisation.nix
 	  ./system/fonts.nix
 	  ./system/powermanagement.nix

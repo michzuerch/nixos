@@ -26,11 +26,7 @@
     tmp.cleanOnBoot = true;
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot.enable = lib.mkForce false;
-    };
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
+      systemd-boot.enable = true;
     };
     kernelParams = [
       "quiet"
