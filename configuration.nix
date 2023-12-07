@@ -147,18 +147,21 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    ansible
+    curl
+    fzf
+    gh
+    killall
+    lazygit
+    protonvpn-cli
+    protonvpn-gui
+    ranger
     ripgrep
     ripgrep-all
-    fzf
-    lazygit
-    ranger
     sbctl
-    killall
-    wget
-    curl
-    gh
     tealdeer
-    protonvpn-gui
+    wget
+    wireguard-tools
   ];
 
   environment.shellAliases = {
