@@ -19,5 +19,11 @@
     virt-manager 
     virt-viewer 
     qemu 
+    podman-tui
+    podman-desktop
+    podman-compose
+    nomad_1_6
+    nomad-driver-podman
+    consul
   ];
 }
