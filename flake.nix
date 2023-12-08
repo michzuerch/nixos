@@ -8,11 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, lanzaboote } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland } @ inputs:
   let
     system = "x86_64-linux";
   
@@ -28,19 +27,18 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-	  #./system/postgres.nix
-	  ./system/virtualisation.nix
-	  ./system/fonts.nix
-	  ./system/powermanagement.nix
-	  ./system/xdg.nix
-	  ./system/zsh.nix
-	  lanzaboote.nixosModules.lanzaboote
+	        ./system/postgres.nix
+	        ./system/virtualisation.nix
+	        ./system/fonts.nix
+	        ./system/powermanagement.nix
+	        ./system/xdg.nix
+	        ./system/zsh.nix
           home-manager.nixosModules.home-manager
           {
-	    home-manager.useGlobalPkgs = true;
+	          home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;}; 
-	    home-manager.users.michzuerch = import ./home/home.nix;
+	          home-manager.users.michzuerch = import ./home/home.nix;
           }
         ];
       };
