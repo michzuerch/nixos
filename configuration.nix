@@ -144,13 +144,16 @@
   environment.systemPackages = with pkgs; [
     alacritty
     ansible
+    bottom
     curl
     fzf
+    gdu
     gh
     killall
     lazygit
     protonvpn-cli
     protonvpn-gui
+    python3
     ranger
     ripgrep
     ripgrep-all
