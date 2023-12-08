@@ -1,16 +1,14 @@
 { config, pkgs, lib, ... }: {
-  config.services.postgresql = {
+  services.postgresql = {
     enable = true;
-    package = pkgs.postgresql;
-    ensureDatabases = [ "mydatabase" ];
-    enableTCPIP = true;
-    # port = 5432;
-    authentication = pkgs.lib.mkOverride 10 ''
-      #...
-      #type database DBuser origin-address auth-method
-      # ipv4
-      host  all      all     127.0.0.1/32   trust
-    '';
+    # package = pkgs.postgresql;
+    # ensureDatabases = [ "mydatabase" ];
+    # ensureUsers = [
+    #   { name = "michzuerch";
+    #     ensurePermissions."DATABASE mydatabase" = "ALL PRIVILEGES";
+    #   }
+    # ];
+    # enableTCPIP = true;
   };
 
   environment.systemPackages = with pkgs; [ dbeaver ];
