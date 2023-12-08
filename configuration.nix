@@ -152,6 +152,7 @@
     jetbrains.jdk
     killall
     lazygit
+    nmap
     protonvpn-cli
     protonvpn-gui
     python3
