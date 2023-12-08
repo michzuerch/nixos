@@ -149,6 +149,7 @@
     fzf
     gdu
     gh
+    jetbrains.jdk
     killall
     lazygit
     protonvpn-cli
