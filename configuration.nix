@@ -136,20 +136,22 @@
     isNormalUser = true;
     description = "Michi";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "tss" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" ];
     packages = with pkgs; [
     ];
   };
 
   environment.systemPackages = with pkgs; [
+    # jetbrains.jdk
     alacritty
     ansible
     bottom
     curl
+    dotnet-sdk_8
     fzf
     gdu
     gh
-    jetbrains.jdk
+    jdk21
     killall
     lazygit
     nmap
@@ -162,6 +164,8 @@
     sbctl
     tealdeer
     wget
+    wavemon
+    wireshark
     wireguard-tools
   ];
 
