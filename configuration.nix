@@ -167,6 +167,8 @@
     wavemon
     wireshark
     wireguard-tools
+    qbittorrent
+    transmission
   ];
 
   environment.shellAliases = {
