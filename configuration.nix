@@ -147,6 +147,7 @@
     ansible
     bottom
     curl
+    cryptomator
     dotnet-sdk_8
     fzf
     gdu
@@ -158,17 +159,18 @@
     protonvpn-cli
     protonvpn-gui
     python3
+    qbittorrent
     ranger
     ripgrep
     ripgrep-all
     sbctl
     tealdeer
-    wget
-    wavemon
-    wireshark
-    wireguard-tools
-    qbittorrent
     transmission
+    veracrypt
+    wavemon
+    wget
+    wireguard-tools
+    wireshark
   ];
 
   environment.shellAliases = {
