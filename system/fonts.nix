@@ -7,13 +7,14 @@
       font-awesome
       font-awesome_4
       font-awesome_5
-      noto-fonts
-      material-design-icons
-      inter
-      material-symbols
-      rubik
+      google-fonts
       ibm-plex
+      inter
+      material-design-icons
+      material-symbols
       nerdfonts
+      noto-fonts
+      rubik
     ];
   };
 }
