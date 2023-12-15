@@ -38,13 +38,12 @@
       exec-once = waybar
       exec-once = swaync
       exec-once = swayidle -w
-      #exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
-      exec-once = copyq --start-server
-      #exec-once = lxqt-policykit-agent & udiskie &
-      exec-once = lxqt-policykit-agent
-      #exec-once = sleep 8 && poweralertd
-      exec-once = blueman-applet
-      exec-once = nm-applet --indicator
+      exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
+      exec-once = copyq --start-server &
+      exec-once = lxqt-policykit-agent & udiskie &
+      #exec-once = sleep 8 && poweralertd 
+      exec-once = blueman-applet &
+      exec-once = nm-applet --sm-disable --indicator &
       exec-once = hyprpaper
 
       ############################################# misc #############################################
@@ -56,6 +55,7 @@
       # █ █░▀█ █▀▀ █▄█ ░█░
       input {
         kb_layout = us
+        kb_options = ctrl:nocaps
         follow_mouse = 1
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
