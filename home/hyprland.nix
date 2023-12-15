@@ -40,7 +40,8 @@
       exec-once = swayidle -w
       #exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
       exec-once = copyq --start-server
-      exec-once = lxqt-policykit-agent & udiskie &
+      #exec-once = lxqt-policykit-agent & udiskie &
+      exec-once = lxqt-policykit-agent
       #exec-once = sleep 8 && poweralertd
       exec-once = blueman-applet
       exec-once = nm-applet --indicator
@@ -300,6 +301,11 @@
     '';
   };
 
+  services.udiskie = {
+    enable = true;
+    tray = "always";
+  };
+
   # Hyprpaper configuration file
   home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 
@@ -319,7 +325,6 @@
     pavucontrol
     shotman
     swayidle
-    udiskie
     wf-recorder
     wl-clipboard
     wlogout

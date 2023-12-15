@@ -7,12 +7,12 @@
       size = 24;
     };
     iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
+      package = pkgs.gnome3.adwaita-icon-theme;
+      name = "Adwaita-dark";
     };
     theme = {
-      package = pkgs.dracula-theme;
-      name = "Dracula";
+      package = pkgs.gnome3.adwaita-icon-theme;
+      name = "Adwaita-dark";
     };
   };
 
