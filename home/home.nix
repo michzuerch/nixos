@@ -26,13 +26,15 @@
   ];
 
   home.packages = with pkgs; [ 
-    brave 
+    brave
     ffmpeg_6-full
     firefox 
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
-    vlc 
+    rustdesk
+    teamviewer
     transmission
+    vlc 
   ];
 
   home.username = "michzuerch";
