@@ -98,6 +98,7 @@
     displayManager.lightdm.enable = true;
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
+    desktopManager.plasma5.enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -136,7 +137,7 @@
     isNormalUser = true;
     description = "Michi";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
     packages = with pkgs; [
     ];
   };
@@ -177,5 +178,5 @@
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; 
 }
