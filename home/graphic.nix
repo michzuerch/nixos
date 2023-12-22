@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     darktable
-    davinci-resolve
+    glaxnimate
+    opencl-info
+    #davinci-resolve didn't work because of GPU?
     digikam
     gimp-with-plugins
     gwenview

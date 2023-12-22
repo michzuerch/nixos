@@ -112,12 +112,20 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  #OpenCL
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+        intel-compute-runtime
+    ];
+  };
+
   services.dbus.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-  hardware.opengl.enable = true;
   security.rtkit.enable = true;
   security.polkit.enable = true;
   security.pam.services.swaylock = {
