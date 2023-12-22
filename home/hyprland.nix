@@ -191,7 +191,6 @@
 
       # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
       # █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀
-      bind = SUPER, P, exec, wlogout
       bind = SUPER SHIFT, X, exec, hyprpicker -a -n
       bind = CTRL ALT, L, exec, swaylock
       bind = SUPER, Return, exec, alacritty
