@@ -27,6 +27,8 @@
 
   home.packages = with pkgs; [ 
     brave
+    handbrake
+    gnome.nautilus
     ffmpeg_6-full
     firefox 
     libsForQt5.dolphin

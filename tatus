@@ -1,0 +1,467 @@
+[33mcommit 1debad4fcbbf35cb65590d34b95a6c113e1d31c2[m[33m ([m[1;36mHEAD -> [m[1;32mdevelopment[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/development[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 20 15:25:56 2023 +0100
+
+    working version with hyprland and lxqt
+
+[33mcommit a5ef0f0c0d9675f4f11228295a195e4383f4730b[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 16 20:03:09 2023 +0100
+
+    digikam
+
+[33mcommit 33017f50abc8aec9658b2a9357f53eb973a625e7[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 15 16:14:35 2023 +0100
+
+    google fonts
+
+[33mcommit 4aaf0695bd78528c6608978a86fc064bfcdf15b6[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 15 13:07:57 2023 +0100
+
+    caps ctrl swap
+
+[33mcommit bcc253a2619cca38abaa934c6045185d968ecb12[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 15 12:57:40 2023 +0100
+
+    new gtk theme, udiskie
+
+[33mcommit 1f34cfb0e3edeeaab2c46b92161dd43fc8af0120[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Dec 14 14:55:30 2023 +0100
+
+    gwenview
+
+[33mcommit c643f0bd5c3581720f7cee0e142d787770ed6030[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Dec 14 14:26:07 2023 +0100
+
+    additional tmux plugins, cryptographic tools
+
+[33mcommit e348aba428d1ac98ab4df4ddaf0286bc6d8fb31d[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Dec 12 13:22:31 2023 +0100
+
+    tuesday
+
+[33mcommit 82119eeb7890ce4e4136eb1e5067cd69668f1ad5[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 9 21:59:09 2023 +0100
+
+    nix-index
+
+[33mcommit 7c6d2ea92f54fe67b2001605f2fe9093cb4b50b0[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 9 16:24:53 2023 +0100
+
+    saturday end
+
+[33mcommit ec94ed70398a2a9656204f92227820665a12cb41[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 9 13:14:28 2023 +0100
+
+    chrome
+
+[33mcommit f4c8900a1b3df76433e5ec84965bac6ffee45055[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 8 21:43:07 2023 +0100
+
+    remove postgres, format idle_inhibitor
+
+[33mcommit df2d94405911038b0d665eefd8325fab54b820b8[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 8 20:06:42 2023 +0100
+
+    postgresql start without error
+
+[33mcommit 1d93d0dc825ecec89720cc8e4615501c228e581e[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 8 18:57:30 2023 +0100
+
+    postgresql
+
+[33mcommit c3b64797586c295ec3434f04044672614fa4c4e7[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 8 11:24:20 2023 +0100
+
+    dependencies astrovim, java jdk jetbrains
+
+[33mcommit 6245dd7c9aea077868f93c7570837092527bd753[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 8 11:09:50 2023 +0100
+
+    dependencies for astrovim
+
+[33mcommit 6029bec8734c15bf689ddc6f0c0dd42a507983a5[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Dec 7 21:34:24 2023 +0100
+
+    thumbnailer nemo, remove postgreql
+
+[33mcommit b10adc60ddb2e7f8cb1db33372b617f2db4a7a8d[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Dec 7 08:52:09 2023 +0100
+
+    nomad, consul, podman tools, postgres has a problem
+
+[33mcommit f76a535263751cd88ebcde60f735218b7b526f4f[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Dec 7 08:28:46 2023 +0100
+
+    postgresql 16
+
+[33mcommit 7d25ded1c273544f7593914e0462a2c2cd44fadd[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 19:41:20 2023 +0100
+
+    golang and protonvpn gui
+
+[33mcommit 0b0e03c09db462b874800397c772b785d5640249[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 19:35:18 2023 +0100
+
+    waybar weather fixed location Radolfzell, obs-studio working perfect
+
+[33mcommit 85ddda7b7d7a38f1bf0f7d9293870e4553d3197f[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 18:33:30 2023 +0100
+
+    obs-studio
+
+[33mcommit e21f5487b4a22bd3b961e27a4d104b4a2a443b11[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 18:21:05 2023 +0100
+
+    xdg to system
+
+[33mcommit 0a0fdffdbfcc7b3c6107e4867979779c4864b1c3[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 18:17:36 2023 +0100
+
+    xdg portal hyprland
+
+[33mcommit 53a8176abba57c53ae2a36ff620cd0694d35ca35[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 16:39:26 2023 +0100
+
+    add nodejs
+
+[33mcommit e4b1ec11d8e005200a5850936cd3fe05adf1a2c2[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Dec 6 15:26:46 2023 +0100
+
+    default session hyperland, remove awesomewm and sway, wlan psk in config
+
+[33mcommit 9eaced7ffc5d9c83c35843280e05da612cd90488[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Dec 5 00:40:37 2023 +0100
+
+    better network speed in waybar
+
+[33mcommit 97f0da669691e5e6dd5a5b057f479778a15b84db[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Dec 5 00:20:41 2023 +0100
+
+    weather to waybar
+
+[33mcommit 5cc2a6048f24cc80afb1e9e75b0971581fa50cf5[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 23:18:23 2023 +0100
+
+    Download und upload with waybar network
+
+[33mcommit bd4a0f772d1743a95e6f7d1cdbcd7331aee35caa[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 21:19:34 2023 +0100
+
+    smaller waybar
+
+[33mcommit 26296f667a096f95a4e0d9afe3482e041f2859b1[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 16:39:37 2023 +0100
+
+    better wofi style
+
+[33mcommit 78d5132813fb402c6476c692be5549b3b5e6b6d1[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 16:12:35 2023 +0100
+
+    wofi config working, wrong colors
+
+[33mcommit 3507d1f6327eb84523aa88a4814d07784d8f65d7[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 15:31:35 2023 +0100
+
+    opacity for alacritty
+
+[33mcommit edfa458d0e241421629cb8ee814cf82503fdf61b[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 15:28:39 2023 +0100
+
+    sway notification center translate to english
+
+[33mcommit bd6056723e4dfa6619aefeb7d31b4247fbc83c52[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 14:34:12 2023 +0100
+
+    swayidle
+
+[33mcommit b5c9c82234f0db63094832ea08a7d31a6280167f[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 14:30:45 2023 +0100
+
+    move to swaynotificationcenter, remove dunst
+
+[33mcommit 0e3aa708ae67448569698018fc3168fcba2cb874[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 14:11:14 2023 +0100
+
+    swaync
+
+[33mcommit 4cf92b190383535b633f5ae6c8cb22de459d8c9e[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 13:55:56 2023 +0100
+
+    best waybar config, pavu, clock, workspaces, wlogout
+
+[33mcommit 2bbd06afaf70dd105b1208e59eaf7f1362db2cee[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Dec 4 11:42:42 2023 +0100
+
+    waybar config
+
+[33mcommit 3c00b9f99362b3b0913f6e457dd2f27a33efcb98[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 2 22:51:10 2023 +0100
+
+    hyprpaper
+
+[33mcommit 5e76bfdb5bf886fbd19d6644558d921eabad625c[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 2 22:20:17 2023 +0100
+
+    swaylock config3@
+
+[33mcommit 3a4edc10f16fae284832d4b9df02c0b3ce6b8371[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Dec 2 20:05:27 2023 +0100
+
+    swaylock config2
+
+[33mcommit d3a3ac85d458ddea01aba0d0aa3e5b42d784b808[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Dec 1 12:26:53 2023 +0100
+
+    swaylock config
+
+[33mcommit 48652d0d9676dc20652315a55e2f318e17fe5350[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Nov 30 11:33:28 2023 +0100
+
+    swaylock with wolf
+
+[33mcommit 1ef3cf3c96d2c05a72bc5faf6d1adc8a0a1fe3ee[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Nov 30 11:29:37 2023 +0100
+
+    config swaylock
+
+[33mcommit 252e1e3b1e869c2a57565d5ae2d9dd93be80d0f8[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Thu Nov 30 10:16:55 2023 +0100
+
+    smaller fonts in alacritty, Return for terminal in sway
+
+[33mcommit d267fc4093469784ccdbb9172e464251b7760da9[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Nov 29 17:16:09 2023 +0100
+
+    qemu.rusAsRoot
+
+[33mcommit 7e101bbe03c071ffb375a5bdf97286d02f63a76e[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Nov 29 17:13:07 2023 +0100
+
+    Wallpapers recursive, new virtualisation syntax
+
+[33mcommit 3fcaa6667cf11e5e809f4ed7f83e872a5e37b183[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Nov 29 17:07:03 2023 +0100
+
+    Wallpapers
+
+[33mcommit ca7acc30548a07535c6e5e330c210d29267f0ace[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Wed Nov 29 16:56:48 2023 +0100
+
+    graphic with gimp,inkscape,darktable
+
+[33mcommit a99f73db18bc29360f45cc056186bce019700019[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 17:36:30 2023 +0100
+
+    better sway
+
+[33mcommit 01af653701c05b4b63feb0a7ff8ea32d125c321c[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 17:25:00 2023 +0100
+
+    error in sway
+
+[33mcommit 8bec6b7475991ccb4cf264da39c9b1225b32cfd0[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 15:12:25 2023 +0100
+
+    swaync
+
+[33mcommit 00a6ebcb8f325f04429ad99be6a7a07ec334d935[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 15:04:42 2023 +0100
+
+    move wofi
+
+[33mcommit b64645bb28834c02c1972cb7856047ee35b4a93e[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 15:03:37 2023 +0100
+
+    wofi config
+
+[33mcommit c02a0dbb453532685a3ffeecba3aee153f36bb90[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 14:06:25 2023 +0100
+
+    waybar config
+
+[33mcommit 73b7d7a3e637b36c86a9f3ec3b69595d5707b4b3[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 10:53:14 2023 +0100
+
+    config and style for waybar
+
+[33mcommit 553b7bed5954900bfc008033d7c64a605bfe09b2[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 10:34:11 2023 +0100
+
+    waybar
+
+[33mcommit 35e59b6a3190adad8bb3b92089db52d92541a1cd[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 10:30:43 2023 +0100
+
+    waybar
+
+[33mcommit 228b409f18ddf6bae61a1b3af410c7f1b67e4926[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Tue Nov 28 10:12:34 2023 +0100
+
+    vscode
+
+[33mcommit 712581a547cc666dd8e16b560d5dd4f351fbd64c[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 17:13:49 2023 +0100
+
+    ranger devicons
+
+[33mcommit 039601fda1f607c18269a02a9dbc86221d2ec2c7[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 16:56:06 2023 +0100
+
+    tmux working, sudo in starship
+
+[33mcommit d56aa2e1df25ae9eef5e804a0dc19dbb675a2afd[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 15:06:06 2023 +0100
+
+    plugins for tmux
+
+[33mcommit eb6822b105498126210981029157ddb9a5ffd205[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 14:52:19 2023 +0100
+
+    best starship theme
+
+[33mcommit fa1e34a9fbc1d89ee870634033650efd9782dcfb[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 14:45:57 2023 +0100
+
+    git style in starship
+
+[33mcommit da88710ed46e4d80a89c6e812d54bd13d5d50342[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 14:33:53 2023 +0100
+
+    better starship style
+
+[33mcommit 780334b194a50cd02ac1e5e7061a20ea295936d7[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 13:16:56 2023 +0100
+
+    helix in home
+
+[33mcommit 933112cff64c67a09a90a3592a77cbd1c7c09eaf[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 12:41:28 2023 +0100
+
+    rust in home-manager
+
+[33mcommit ecf7a2988486f4617ba4560da13f5d1cdfbcccad[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 12:34:07 2023 +0100
+
+    starship
+
+[33mcommit 0e46acb56e8fba1cb4852952b4a6643baa291830[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 12:22:22 2023 +0100
+
+    zsh in system
+
+[33mcommit ca58a96764854cda9223917138afbe0e09e479e8[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Mon Nov 27 12:17:17 2023 +0100
+
+    better hyprland config
+
+[33mcommit cf0862bd8ee29634a1ed33340f6a24056bf5bb08[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sun Nov 26 11:38:22 2023 +0100
+
+    sway and hyprland
+
+[33mcommit 6710636e305f786e3407b28aabf36fd7a2454b82[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Nov 25 12:31:09 2023 +0100
+
+    Saturday
+
+[33mcommit 293d47c83a90da8d8355dc36e1b044c9e9c0840b[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Nov 25 12:17:34 2023 +0100
+
+    virtualisation
+
+[33mcommit 20f7559f046cae665f2d7138424b7649a2de90f8[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Sat Nov 25 12:16:31 2023 +0100
+
+    system directory
+
+[33mcommit 685dc512bf8db888f5943f1ff8d8e8e7a6f72209[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Nov 24 18:13:15 2023 +0100
+
+    dolphin preview
+
+[33mcommit 637a13e17eac01eae0bba46c512b754838498e8f[m
+Author: Michael Zuercher <michzuerch@gmail.com>
+Date:   Fri Nov 24 17:48:55 2023 +0100
+
+    initial
+
+[33mcommit d4410978f6b49b7a7828b126f3a69c8a5f1369fe[m
+Author: Michael Zürcher <michzuerch@gmail.com>
+Date:   Fri Nov 24 17:37:44 2023 +0100
+
+    Initial commit
