@@ -307,7 +307,7 @@
   };
 
   # Hyprpaper configuration file
-  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper/hyprpaper.conf;
 
   home.packages = with pkgs; [
     cinnamon.nemo-with-extensions

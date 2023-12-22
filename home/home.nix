@@ -29,6 +29,7 @@
     brave
     handbrake
     gnome.nautilus
+    losslesscut-bin
     ffmpeg_6-full
     firefox 
     libsForQt5.dolphin
@@ -42,6 +43,6 @@
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
 
