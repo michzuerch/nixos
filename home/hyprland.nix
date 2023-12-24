@@ -23,15 +23,6 @@
     plugins = [];
     settings = {};
     extraConfig = ''
-      $w1 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf1.jpg"
-      $w2 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf2.jpg"
-      $w3 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf3.jpg"
-      $w4 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf4.jpg"
-      $w5 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf1.jpg"
-      $w6 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf2.jpg"
-      $w7 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf3.jpg"
-      $w8 = hyprctl hyprpaper wallpaper "eDP-1,~/Wallpapers/Wolf4.jpg"
-
       # █▀▀ ▀▄▀ █▀▀ █▀▀
       # ██▄ █░█ ██▄ █▄▄
       exec-once = dbus-update-activation-environment --all
@@ -265,21 +256,13 @@
       # █▀ █░█░█ █ ▀█▀ █▀▀ █░█
       # ▄█ ▀▄▀▄▀ █ ░█░ █▄▄ █▀█
       bind = SUPER, 1, workspace, 1
-      bind = SUPER, 1, exec, $w1 
       bind = SUPER, 2, workspace, 2
-      bind = SUPER, 2, exec, $w2 
       bind = SUPER, 3, workspace, 3
-      bind = SUPER, 3, exec, $w3 
       bind = SUPER, 4, workspace, 4
-      bind = SUPER, 4, exec, $w4 
       bind = SUPER, 5, workspace, 5
-      bind = SUPER, 5, exec, $w5 
       bind = SUPER, 6, workspace, 6
-      bind = SUPER, 6, exec, $w6 
       bind = SUPER, 7, workspace, 7
-      bind = SUPER, 7, exec, $w7 
       bind = SUPER, 8, workspace, 8
-      bind = SUPER, 8, exec, $w8 
       bind = SUPER ALT, up, workspace, e+1
       bind = SUPER ALT, down, workspace, e-1
 
