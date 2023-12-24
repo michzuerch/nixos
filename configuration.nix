@@ -173,6 +173,7 @@
     ripgrep
     ripgrep-all
     sbctl
+    pciutils
     tealdeer
     transmission
     veracrypt

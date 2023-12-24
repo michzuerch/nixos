@@ -131,7 +131,6 @@
         layer = "top";
         position = "top";
         modules-left = [
-          "custom/launcher"
           "custom/weather"
 	        "idle_inhibitor"
           "temperature"
@@ -257,7 +256,6 @@
           format-wifi = "󰖩 {essid}";
           interval = 1;
           tooltip = true;
-	        #format-alt = " {bandwidthUpBits} |  {bandwidthDownBits}";
 	        format-alt = "󰅢 {bandwidthDownBytes} /  {bandwidthUpBytes} ";
         };
         "custom/powermenu" = {
