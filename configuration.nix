@@ -95,7 +95,12 @@
     dpi = 96;
     layout = "us";
     xkbVariant = "";
-    displayManager.lightdm.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      greeters.slick = {
+        enable = true;
+      };
+    };
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
     desktopManager.plasma5.enable = true;
