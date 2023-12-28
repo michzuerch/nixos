@@ -97,14 +97,14 @@
     xkbVariant = "";
     displayManager.lightdm = {
       enable = true;
-      greeters.slick = {
-        enable = true;
-      };
+      # greeters.slick = {
+      #   enable = true;
+      # };
     };
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
     desktopManager.plasma5.enable = true;
-    desktopManager.pantheon.enable = true;
+    #desktopManager.pantheon.enable = true;
   };
 
   # Enable CUPS to print documents.

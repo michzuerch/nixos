@@ -12,8 +12,11 @@
       onBoot = "ignore";
       onShutdown = "shutdown";
     };
+    virtualbox.host.enable = true;
     waydroid.enable = true;
   };
+
+  users.extraGroups.vboxusers.members = [ "michzuerch" ];
 
   environment.systemPackages = with pkgs; [ 
     virt-manager 
