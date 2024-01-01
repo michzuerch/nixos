@@ -28,6 +28,7 @@
         modules = [
           ./configuration.nix
 	        #./system/postgres.nix
+	        ./system/cockroach.nix
 	        ./system/virtualisation.nix
 	        ./system/fonts.nix
 	        ./system/powermanagement.nix

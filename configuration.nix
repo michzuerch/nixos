@@ -185,6 +185,7 @@
     veracrypt
     wavemon
     wget
+    ventoy
     wireguard-tools
     wireshark
   ];
