@@ -1,9 +1,8 @@
 { config, pkgs, lib, ... }: {
   services.cockroachdb = {
     enable = true;
-    package - pkgs.cockroachdb;
-    settings = {
-    };
+    insecure = true;
+    package = pkgs.cockroachdb;
   };
 
   # environment.systemPackages = with pkgs; [ cockroachdb ];
