@@ -3,14 +3,15 @@
     ./alacritty.nix
     ./chrome.nix
     ./git.nix
+    ./golang.nix
     ./graphic.nix
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
+    ./multimedia.nix
     ./node.nix
     ./obs-studio.nix
     ./ranger.nix
-    ./golang.nix
     ./rust.nix
     ./shell.nix
     ./starship.nix
@@ -27,17 +28,13 @@
 
   home.packages = with pkgs; [ 
     brave
-    handbrake
     gnome.nautilus
-    losslesscut-bin
-    ffmpeg_6-full
     firefox 
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     rustdesk
     teamviewer
     transmission
-    vlc 
   ];
 
   home.username = "michzuerch";
