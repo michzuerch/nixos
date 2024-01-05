@@ -15,12 +15,12 @@
       settings = {
         battery = {
           governor = "powersave";
-	  turbo = "never";
-	};
-	charger = {
+	        turbo = "never";
+	      };
+	      charger = {
           governor = "performance";
-	  turbo = "auto";
-	};
+	        turbo = "auto";
+	      };
       };
     };
   };

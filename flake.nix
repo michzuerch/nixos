@@ -25,15 +25,16 @@
     nixosConfigurations = {
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
+        modules = [  
 	        #./system/postgres.nix
 	        ./system/cockroach.nix
-	        ./system/virtualisation.nix
 	        ./system/fonts.nix
 	        ./system/powermanagement.nix
+	        ./system/resolvedonly.nix
+	        ./system/virtualisation.nix
 	        ./system/xdg.nix
 	        ./system/zsh.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
 	          home-manager.useGlobalPkgs = true;
