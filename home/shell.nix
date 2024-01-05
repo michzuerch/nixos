@@ -4,6 +4,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    dotDir = "./config/zsh";
     initExtra = ''
     PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
      %F{green}→%f "
@@ -29,6 +30,10 @@
 
   programs.jq.enable = true;
   
+  programs.gitui.enable = true;
+
+  programs.dircolors.enable = true;
+
   #programs.command-not-found.enable = true;
   programs.nix-index = {
     enable = true;
