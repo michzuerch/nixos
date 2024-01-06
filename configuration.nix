@@ -169,10 +169,15 @@
     fzf
     gdu
     gh
+    hash-identifier
+    hashcat
+    hashcat-utils
     hping
+    iw 
     jdk21
     killall
     lazygit
+    macchanger
     metasploit
     nmap
     pciutils

@@ -19,14 +19,16 @@
   users.extraGroups.vboxusers.members = [ "michzuerch" ];
 
   environment.systemPackages = with pkgs; [ 
+    consul
+    hashi-ui
+    hashi-up
+    nomad-driver-podman
+    nomad_1_6
+    podman-compose
+    podman-desktop
+    podman-tui
+    qemu 
     virt-manager 
     virt-viewer 
-    qemu 
-    podman-tui
-    podman-desktop
-    podman-compose
-    nomad_1_6
-    nomad-driver-podman
-    consul
   ];
 }
