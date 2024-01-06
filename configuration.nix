@@ -158,19 +158,24 @@
 
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
+    aircrack-ng
     alacritty
     ansible
     bottom
-    curl
+    burpsuite
     cryptomator
+    curl
     dotnet-sdk_8
     fzf
     gdu
     gh
+    hping
     jdk21
     killall
     lazygit
+    metasploit
     nmap
+    pciutils
     protonvpn-cli
     protonvpn-gui
     python3
@@ -179,13 +184,14 @@
     ripgrep
     ripgrep-all
     sbctl
-    pciutils
+    snort
     tealdeer
     transmission
+    ventoy
     veracrypt
     wavemon
     wget
-    ventoy
+    wifite2
     wireguard-tools
     wireshark
   ];

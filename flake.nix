@@ -1,5 +1,5 @@
 {
-  description = "nixos michzuerch 2023";
+  description = "nixos michzuerch 2024";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
