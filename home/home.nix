@@ -8,6 +8,7 @@
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
+    ./messanger.nix
     ./multimedia.nix
     ./node.nix
     ./obs-studio.nix
