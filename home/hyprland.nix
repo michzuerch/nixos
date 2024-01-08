@@ -49,6 +49,8 @@
         kb_options = ctrl:nocaps
         follow_mouse = 1
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        repeat_rate = 25
+        repeat_delay = 600
       }
 
       # █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ █░░
@@ -205,6 +207,9 @@
       binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
       binde=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       binde=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      binde=, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      binde=, XF86MonBrightnessUp, exec, brightnessctl set +10% 
+      binde=, XF86MonBrightnessDown, exec, brightnessctl set 10%-
 
       # █▀ █▀▀ █▀█ █▀▀ █▀▀ █▄░█ █▀ █░█ █▀█ ▀█▀
       # ▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█ ▄█ █▀█ █▄█ ░█░

@@ -45,16 +45,16 @@
 
       # Cursor
       cursor = {
-        style = {
-          shape = "Block";
-          blicking = "Off";
-        };
+        # style = {
+        #   shape = "Block";
+        #   blicking = "Off";
+        # };
         vi_mode_style = "Block";
         unfocused_hollow = true;
         thickness = 0.15;
       };
 
-      mouse.hidden_when_typing = false;
+      # mouse.hidden_when_typing = false;
     };
   };
 }

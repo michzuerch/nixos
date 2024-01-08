@@ -33,7 +33,7 @@
       background-color: #1e1e2a;
       padding: 3px;
       padding-left:8px;
-      border: 2px none #33ccff;
+      border: 2px none #a1a19a;
     }
     #workspaces {
       padding-left: 0px;
@@ -62,19 +62,13 @@
     tooltip label {
       color: rgb(217, 224, 238);
     }
-    #custom-launcher {
-      font-size: 10px;
-      padding-left: 8px;
-      padding-right: 6px;
-      color: #7ebae4;
-    }
     #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu {
       padding-left: 10px;
       padding-right: 10px;
     }
     #idle_inhibitor {
       padding-left: 10px;
-      color: red;
+      color: #a1a19a;
     }
     #memory {
       color: rgb(181, 232, 224);
@@ -153,11 +147,6 @@
           "custom/powermenu"
 	        "clock"
         ];
-        "custom/launcher" = {
-          format = " ";
-          on-click = "wofi --show drun";
-          tooltip = false;
-        };
         pulseaudio = {
           scroll-step = 5;
           format = "{icon} {volume}%";
@@ -234,8 +223,8 @@
         backlight = {
           format = " {icon} {percent} ";
           format-icons = [ "󰃟" ];
-          on-scroll-up = "brightnessctl set +1%";
-          on-scroll-down = "brightnessctl set 1%-";
+          on-scroll-up = "brightnessctl set +10%";
+          on-scroll-down = "brightnessctl set 10%-";
           on-click = "brightnessctl set 0";
           tooltip = false;
         };
