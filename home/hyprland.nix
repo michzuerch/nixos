@@ -302,9 +302,9 @@
 
   home.packages = with pkgs; [
     cinnamon.nemo-with-extensions
-    ffmpegthumbnailer
     cool-retro-term
     copyq
+    ffmpegthumbnailer
     grimblast
     hyprpaper
     hyprpicker
@@ -312,9 +312,9 @@
     lxqt.lxqt-policykit
     networkmanagerapplet
     pamixer
-    sov
     pavucontrol
     shotman
+    sov
     swayidle
     wf-recorder
     wl-clipboard

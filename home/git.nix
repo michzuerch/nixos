@@ -35,11 +35,17 @@
       settings = {
         gui.theme = {
           lightTheme = false;
-	  activeBorderColor = [ "white" "bold" ];
-	  inactiveBorderColor = [ "white" ];
-	  selectedLineBgColor = [ "reverse" "white" ];
-	};
+      	  activeBorderColor = [ "white" "bold" ];
+	        inactiveBorderColor = [ "white" ];
+	        selectedLineBgColor = [ "reverse" "white" ];
+	      };
       };
     };
   };
+  home.packages = with pkgs; [
+    github-desktop
+    github-runner
+    octofetch
+    octosuite
+  ];
 }
