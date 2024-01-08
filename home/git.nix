@@ -46,6 +46,6 @@
     github-desktop
     github-runner
     octofetch
-    octosuite
+
   ];
 }
