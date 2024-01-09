@@ -43,6 +43,7 @@
     };
   };
   home.packages = with pkgs; [
+    act
     github-desktop
     github-runner
     octofetch
