@@ -158,28 +158,19 @@
 
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
-    aircrack-ng
     alacritty
     ansible
     bottom
-    burpsuite
     cryptomator
     curl
     dotnet-sdk_8
     fzf
     gdu
     gh
-    hash-identifier
-    hashcat
-    hashcat-utils
-    hping
     iw 
     jdk21
     killall
     lazygit
-    macchanger
-    metasploit
-    nmap
     pciutils
     protonvpn-cli
     protonvpn-gui
@@ -189,16 +180,11 @@
     ripgrep
     ripgrep-all
     sbctl
-    snort
     tealdeer
     transmission
     ventoy
-    veracrypt
     wavemon
     wget
-    wifite2
-    wireguard-tools
-    wireshark
   ];
 
   environment.shellAliases = {

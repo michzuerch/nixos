@@ -29,6 +29,7 @@
 	        #./system/postgres.nix
 	        ./system/cockroach.nix
 	        ./system/fonts.nix
+	        ./system/hacking.nix
 	        ./system/powermanagement.nix
 	        ./system/resolvedonly.nix
 	        ./system/virtualisation.nix
