@@ -7,6 +7,7 @@
     glaxnimate
     gwenview
     inkscape-with-extensions
+    hypnotix
     krita
     scribus
   ];

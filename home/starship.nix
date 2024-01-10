@@ -34,10 +34,10 @@
         "$java"
         "[](fg:#458588 bg:#665c54)"
         "$docker_context"
+        "$sudo"
         "[](fg:#665c54 bg:#3c3836)"
         "$cmd_duration"
         "[ ](fg:#3c3836)"
-        "$sudo"
         "$line_break"
         "$character"
       ];
@@ -92,7 +92,6 @@
 
       cmd_duration = {
         min_time = 500;
-        symbol = " ";
         style = "bg:#3c3836";
         format = "[[  $duration ](bold fg:#fbf1c7 bg:#3c3836)]($style)";
       };
