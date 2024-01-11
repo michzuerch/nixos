@@ -164,6 +164,8 @@
     cryptomator
     curl
     dotnet-sdk_8
+    nodePackages_latest.eslint
+    eslint_d
     fzf
     gdu
     gh
