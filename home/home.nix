@@ -22,6 +22,7 @@
     ./swaylock.nix
     ./swaync.nix
     ./tmux.nix
+    ./torrent.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix

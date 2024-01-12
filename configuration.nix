@@ -168,6 +168,7 @@
     fzf
     gdu
     gh
+    gsmartcontrol
     iw 
     jdk21
     killall
@@ -177,14 +178,14 @@
     protonvpn-cli
     protonvpn-gui
     python3
-    qbittorrent
     ranger
     ripgrep
     ripgrep-all
     sbctl
+    smartmontools
     sudo-rs
     tealdeer
-    transmission
+    tmux
     ventoy
     wavemon
     wget

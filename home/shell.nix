@@ -60,6 +60,7 @@
     krusader
     neofetch
     procs
+    pwgen
     sd
     sqlite
     tealdeer
