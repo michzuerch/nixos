@@ -164,7 +164,6 @@
     cryptomator
     curl
     dotnet-sdk_8
-    nodePackages_latest.eslint
     eslint_d
     fzf
     gdu
@@ -173,6 +172,7 @@
     jdk21
     killall
     lazygit
+    nodePackages_latest.eslint
     pciutils
     protonvpn-cli
     protonvpn-gui
@@ -182,6 +182,7 @@
     ripgrep
     ripgrep-all
     sbctl
+    sudo-rs
     tealdeer
     transmission
     ventoy

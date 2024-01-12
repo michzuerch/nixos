@@ -45,18 +45,25 @@
   programs.direnv.nix-direnv.enable = true;
 
   home.packages = with pkgs; [
-    krusader
+    bandwhich
     bat
     cowsay
+    delta
     direnv 
+    du-dust
     eza
     fd
     gcc
     gnumake
+    grex
     gtop
+    krusader
     neofetch
+    procs
+    sd
     sqlite
     tealdeer
+    tokei
     unzip
   ];
 }
