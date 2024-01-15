@@ -4,7 +4,7 @@
     shortcut = "b";
     baseIndex = 1;
     newSession = true;
-    escapeTime = 500;
+    escapeTime = 50;
     secureSocket = false;
     plugins = with pkgs; [ 
       tmuxPlugins.better-mouse-mode 
