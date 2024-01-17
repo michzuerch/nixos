@@ -1,4 +1,0 @@
-[2024-01-08 16:16:32PM] [INFO] Opened new session on ThinkpadNomad:michzuerch
-[2024-01-08 16:16:32PM] [DEBUG] Starting new HTTPS connection (1): api.github.com:443
-[2024-01-08 16:16:32PM] [DEBUG] https://api.github.com:443 "GET /repos/bellingcat/octosuite/releases/latest HTTP/1.1" 200 592
-[2024-01-08 16:18:08PM] [INFO] Session closed at 2024-01-08 16:18:08.702892.

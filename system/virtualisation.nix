@@ -19,12 +19,12 @@
   users.extraGroups.vboxusers.members = [ "michzuerch" ];
 
   environment.systemPackages = with pkgs; [ 
-    consul
+    #consul
     distrobox
     hashi-ui
     hashi-up
-    nomad-driver-podman
-    nomad_1_6
+    #nomad-driver-podman
+    #nomad_1_6
     podman-compose
     podman-desktop
     podman-tui

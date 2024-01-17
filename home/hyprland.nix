@@ -196,7 +196,6 @@
       bind = SUPER, L, exec, swayidle
       bind = SUPER, M, exec, wlogout --protocol layer-shell
       bind = SUPER SHIFT, M, exit,
-      bind = SUPER, K, exec, lite-xl
       bind = ,Print, exec, shotman --capture output
 
       # █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
@@ -305,7 +304,6 @@
     grimblast
     hyprpaper
     hyprpicker
-    lite-xl
     lxqt.lxqt-policykit
     networkmanagerapplet
     pamixer

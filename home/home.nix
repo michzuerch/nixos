@@ -36,13 +36,13 @@
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     rustdesk
-    teamviewer
+    #teamviewer
     transmission
   ];
 
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "23.11";
 }
 
