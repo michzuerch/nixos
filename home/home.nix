@@ -43,6 +43,6 @@
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "23.11";
 }
 
