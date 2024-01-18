@@ -27,7 +27,7 @@
         specialArgs = { inherit inputs; };
         modules = [  
 	        #./system/postgres.nix
-	        ./system/cockroach.nix
+	        # ./system/cockroach.nix
 	        ./system/fonts.nix
 	        ./system/hacking.nix
 	        ./system/powermanagement.nix
