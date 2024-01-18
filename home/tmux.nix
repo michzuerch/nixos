@@ -28,4 +28,8 @@
     bind - split-window -v -c "#{pane_current_path}"
     '';
   };
+
+  home.packages = with pkgs; [
+    byobu
+  ];
 }
