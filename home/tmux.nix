@@ -1,11 +1,14 @@
 { pkgs, ... }: {
   programs.tmux = {
     enable = true;
-    shortcut = "b";
+    shortcut = "a";
     baseIndex = 1;
     newSession = true;
-    escapeTime = 50;
+    escapeTime = 0;
     secureSocket = false;
+    keyMode = "vi";
+    mouse = true;
+    sensibleOnTop = true;
     plugins = with pkgs; [ 
       tmuxPlugins.better-mouse-mode 
       tmuxPlugins.resurrect
