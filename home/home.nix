@@ -8,16 +8,17 @@
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
-    ./latex.nix
-    ./messanger.nix
+    # ./i3.nix
+    # ./latex.nix
+    ./messenger.nix
     ./multimedia.nix
     ./node.nix
-    ./obs-studio.nix
+    # ./obs-studio.nix
     ./ranger.nix
     ./rust.nix
     ./shell.nix
     ./starship.nix
-    ./sway.nix
+    # ./sway.nix
     ./swayidle.nix
     ./swaylock.nix
     ./swaync.nix

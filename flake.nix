@@ -8,7 +8,10 @@
       #url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
@@ -27,10 +30,15 @@
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [  
+<<<<<<< HEAD
           #./system/postgres.nix
           #./system/cockroach.nix
+=======
+	        #./system/postgres.nix
+	        # ./system/cockroach.nix
+>>>>>>> origin/unstable
 	        ./system/fonts.nix
-	        ./system/hacking.nix
+	        # ./system/hacking.nix
 	        ./system/powermanagement.nix
 	        ./system/resolvedonly.nix
           ./system/virtualisation.nix
