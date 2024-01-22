@@ -7,11 +7,18 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.33.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, anyrun } @ inputs:
   let
     system = "x86_64-linux";
   
@@ -29,10 +36,10 @@
 	        #./system/postgres.nix
 	        # ./system/cockroach.nix
 	        ./system/fonts.nix
-	        ./system/hacking.nix
+	        # ./system/hacking.nix
 	        ./system/powermanagement.nix
-	        ./system/resolvedonly.nix
-	        ./system/virtualisation.nix
+	        # ./system/resolvedonly.nix
+	        # ./system/virtualisation.nix
 	        ./system/xdg.nix
 	        ./system/zsh.nix
           ./configuration.nix

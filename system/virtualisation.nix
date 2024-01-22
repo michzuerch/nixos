@@ -1,17 +1,17 @@
 { config, pkgs, lib, ... }: {
   virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    libvirtd = {
-      enable = true;
-      qemu.ovmf.enable = true;
-      qemu.runAsRoot = true;
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-    };
+    # podman = {
+    #   enable = true;
+    #   dockerCompat = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
+    # libvirtd = {
+    #   enable = true;
+    #   qemu.ovmf.enable = true;
+    #   qemu.runAsRoot = true;
+    #   onBoot = "ignore";
+    #   onShutdown = "shutdown";
+    # };
     # virtualbox.host.enable = true;
     # waydroid.enable = true;
   };

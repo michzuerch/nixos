@@ -41,11 +41,11 @@
     initrd.verbose = false;
   };
 
-  security = {
-    tpm2.enable = true;
-    tpm2.pkcs11.enable = true;
-    tpm2.tctiEnvironment.enable = true;
-  };
+  # security = {
+  #   tpm2.enable = true;
+  #   tpm2.pkcs11.enable = true;
+  #   tpm2.tctiEnvironment.enable = true;
+  # };
 
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -95,12 +95,16 @@
     dpi = 96;
     layout = "us";
     xkbVariant = "";
-    displayManager.lightdm = {
+    libinput.enable = true;
+
+    displayManager.sddm = {
       enable = true;
-      # greeters.slick = {
-      #   enable = true;
-      # };
     };
+
+    # displayManager.lightdm = {
+    #   enable = true;
+    # };
+
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
     desktopManager.plasma5.enable = true;
@@ -110,6 +114,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.gutenprint pkgs.hplip ];
+
+  services.gvfs.enable = true;
 
   # SSD
   services.fstrim.enable = true;
@@ -159,7 +165,7 @@
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
     alacritty
-    ansible
+    # ansible
     bottom
     cryptomator
     curl
