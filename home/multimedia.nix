@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    digikam
+    # digikam
     ffmpeg_6-full
     handbrake
     kodi-wayland
@@ -11,5 +11,6 @@
     openshot-qt
     vlc
     yt-dlp
+    tartube-yt-dlp
   ];
 }
