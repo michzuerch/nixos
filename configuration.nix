@@ -195,5 +195,5 @@
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };
 
-  system.stateVersion = "23.11"; 
+  system.stateVersion = "24.05"; 
 }

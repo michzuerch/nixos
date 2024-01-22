@@ -20,7 +20,7 @@
 
   environment.systemPackages = with pkgs; [ 
     consul
-    distrobox
+    # distrobox
     hashi-ui
     hashi-up
     nomad-driver-podman

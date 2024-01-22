@@ -8,6 +8,7 @@
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
+    ./i3.nix
     # ./latex.nix
     ./messenger.nix
     ./multimedia.nix
@@ -43,6 +44,6 @@
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
 
