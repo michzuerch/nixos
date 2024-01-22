@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      #url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -30,19 +29,13 @@
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [  
-<<<<<<< HEAD
           #./system/postgres.nix
           #./system/cockroach.nix
-=======
-	        #./system/postgres.nix
-	        # ./system/cockroach.nix
->>>>>>> origin/unstable
-	        ./system/fonts.nix
-	        # ./system/hacking.nix
+          #./system/hacking.nix
+          ./system/fonts.nix
 	        ./system/powermanagement.nix
 	        ./system/resolvedonly.nix
           ./system/virtualisation.nix
-
 	        ./system/xdg.nix
 	        ./system/zsh.nix
           ./configuration.nix
@@ -56,5 +49,5 @@
         ];
       };
     };
- };
+  };
 }
