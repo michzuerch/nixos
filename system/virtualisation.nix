@@ -12,7 +12,7 @@
       onBoot = "ignore";
       onShutdown = "shutdown";
     };
-    virtualbox.host.enable = true;
+    # virtualbox.host.enable = true;
     waydroid.enable = true;
   };
 
@@ -20,7 +20,7 @@
 
   environment.systemPackages = with pkgs; [ 
     #consul
-    distrobox
+    # distrobox
     hashi-ui
     hashi-up
     #nomad-driver-podman
