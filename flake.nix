@@ -8,17 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.33.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    anyrun = {
-      url = "github:Kirottu/anyrun";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, anyrun } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland } @ inputs:
   let
     system = "x86_64-linux";
   
@@ -38,8 +34,8 @@
 	        ./system/fonts.nix
 	        # ./system/hacking.nix
 	        ./system/powermanagement.nix
-	        # ./system/resolvedonly.nix
-	        # ./system/virtualisation.nix
+	        ./system/resolvedonly.nix
+	        ./system/virtualisation.nix
 	        ./system/xdg.nix
 	        ./system/zsh.nix
           ./configuration.nix

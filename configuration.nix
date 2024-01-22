@@ -97,13 +97,9 @@
     xkbVariant = "";
     libinput.enable = true;
 
-    displayManager.sddm = {
+    displayManager.lightdm = {
       enable = true;
     };
-
-    # displayManager.lightdm = {
-    #   enable = true;
-    # };
 
     displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
