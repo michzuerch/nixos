@@ -35,6 +35,7 @@
           ./system/fonts.nix
           ./system/powermanagement.nix
           ./system/networking.nix
+          ./system/mac-randomize.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
           ./system/zsh.nix
