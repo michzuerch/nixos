@@ -34,7 +34,7 @@
           #./system/hacking.nix
           ./system/fonts.nix
 	        ./system/powermanagement.nix
-	        ./system/resolvedonly.nix
+	        #./system/resolvedonly.nix
           ./system/virtualisation.nix
 	        ./system/xdg.nix
 	        ./system/zsh.nix
