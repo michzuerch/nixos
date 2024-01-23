@@ -5,22 +5,22 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    # virtualbox.host.enable = true;
-    # waydroid.enable = true;
+    virtualbox.host.enable = true;
+    waydroid.enable = true;
   };
 
   users.extraGroups.vboxusers.members = [ "michzuerch" ];
 
   environment.systemPackages = with pkgs; [ 
-    #consul
+    consul
     # distrobox
-    #hashi-ui
-    #nomad-driver-podman
-    #nomad_1_6
-    #podman-compose
-    #podman-desktop
-    #podman-tui
-    #virt-manager 
-    #virt-viewer 
+    hashi-ui
+    nomad-driver-podman
+    nomad_1_6
+    podman-compose
+    podman-desktop
+    podman-tui
+    virt-manager 
+    virt-viewer 
   ];
 }
