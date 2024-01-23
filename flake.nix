@@ -29,9 +29,10 @@
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [  
-          #./system/postgres.nix
+          ./system/postgres.nix
           #./system/cockroach.nix
           #./system/hacking.nix
+          ./system/database-tools.nix
           ./system/fonts.nix
           ./system/powermanagement.nix
           ./system/networking.nix
