@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  programs.google-chrome = {
+  programs.chromium = {
     enable = true;
   };
 }

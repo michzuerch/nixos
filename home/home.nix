@@ -1,18 +1,18 @@
 { pkgs, ... }: {
   imports = [
+    # ./latex.nix
     ./alacritty.nix
-    ./chrome.nix
+    ./browsers.nix
     ./git.nix
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
-    # ./latex.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
-    # ./obs-studio.nix
+    ./obs-studio.nix
     ./ranger.nix
     ./rust.nix
     ./shell.nix
@@ -29,14 +29,11 @@
   ];
 
   home.packages = with pkgs; [ 
-    brave
     gnome.nautilus
-    firefox 
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     rustdesk
-    #teamviewer
-    transmission
+    teamviewer
   ];
 
   home.username = "michzuerch";
