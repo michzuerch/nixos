@@ -147,6 +147,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  services.teamviewer.enable = true;
+
   users.defaultUserShell = pkgs.zsh;
 
   users.users.michzuerch = {
@@ -161,7 +164,6 @@
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
     alacritty
-    # ansible
     bottom
     cryptomator
     curl
@@ -187,6 +189,7 @@
     smartmontools
     sudo-rs
     tealdeer
+    teamviewer
     tmux
     ventoy
     wavemon
@@ -197,5 +200,5 @@
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };
 
-  system.stateVersion = "23.11"; 
+  system.stateVersion = "24.05"; 
 }

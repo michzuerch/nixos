@@ -33,7 +33,6 @@
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
     rustdesk
-    teamviewer
   ];
 
   home.username = "michzuerch";
