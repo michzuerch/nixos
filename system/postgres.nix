@@ -1,27 +1,20 @@
-{ config, pkgs, lib, ... }: {
-  config.services = {
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_jit;
-      ensureDatabases = [ "checkin" ];
-      authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-      '';
-      # identMap = ''
-      # # ArbitraryMapName systemUser DBUser
-      #   superuser_map      root      postgres
-      #   superuser_map      michzuerch  postgres
-      #   superuser_map      postgres  postgres
-      #   # Let other names login as themselves
-      #   superuser_map      /^(.*)$   \1
-      # '';
-      # initialScript = pkgs.writeText "backend-initScript" ''
-      #   CREATE ROLE checkin WITH LOGIN PASSWORD 'checkin' CREATEDB;
-      #   CREATE DATABASE checkin;
-      #   GRANT ALL PRIVILEGES ON DATABASE checkin TO checkinn;
-      # '';
-    };
-    postgresqlBackup.enable = true;
+{ pkgs, ... }: {
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "mydatabase" ];
+    enableTCPIP = true;
+    port = 5432;
+    authentication = pkgs.lib.mkOverride 10 ''
+      # Generated file; do not edit!
+      # TYPE  DATABASE        USER            ADDRESS                 METHOD
+      local   all             all                                     trust
+      host    all             all             127.0.0.1/32            trust
+      host    all             all             ::1/128                 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE nixcloud WITH LOGIN PASSWORD 'nixcloud' CREATEDB;
+      CREATE DATABASE nixcloud;
+      GRANT ALL PRIVILEGES ON DATABASE nixcloud TO nixcloud;
+    '';
   };
 }
