@@ -33,7 +33,7 @@
           ./system/redis.nix
           ./system/mariadb.nix
           #./system/cockroach.nix
-          #./system/hacking.nix
+          ./system/hacking.nix
           ./system/database-tools.nix
           ./system/fonts.nix
           ./system/powermanagement.nix

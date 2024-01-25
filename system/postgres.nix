@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "mydatabase" ];
+    package = pkgs.postgresql_16;
+    ensureDatabases = [ "checkin" ];
     enableTCPIP = true;
     port = 5432;
     authentication = pkgs.lib.mkOverride 10 ''
