@@ -1,5 +1,6 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     dbeaver
+    redli
   ];
 }
