@@ -6,5 +6,7 @@
     mongosh
     redli
     robo3t
+    sqlboiler
+    sqlboiler-crdb
   ];
 }
