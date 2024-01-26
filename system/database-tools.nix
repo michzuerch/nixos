@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     dbeaver
-    mongodb_compass
+    mongodb-compass
     mongodb-tools
     mongosh
     redli
