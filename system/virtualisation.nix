@@ -1,11 +1,11 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, ... }: {
   virtualisation = {
     podman = {
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    virtualbox.host.enable = true;
+    # virtualbox.host.enable = true;
     waydroid.enable = true;
   };
 
