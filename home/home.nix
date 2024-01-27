@@ -13,6 +13,7 @@
     ./multimedia.nix
     ./node.nix
     ./obs-studio.nix
+    ./pgbench.nix
     ./ranger.nix
     ./rust.nix
     ./shell.nix

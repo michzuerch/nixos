@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.variables = {
+  home.sessionVariables = {
     PGHOST="localhost";
     PGUSER="michzuerch";
     PGPASSWORD="lx0lc33a";
