@@ -1,9 +1,3 @@
-{ pkgs, lib, ... }: {
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = true;
-
 # [palettes.gruvbox_dark]
 # color_fg0 = '#fbf1c7'
 # color_bg1 = '#3c3836'
@@ -16,14 +10,20 @@
 # color_red = '#cc241d'
 # color_yellow = '#d79921'
 
+{ pkgs, lib, ... }: {
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+
       format = lib.concatStrings [
 
         "[](#d65d0e)"
-        "[  ](bg:#d65d0e fg:#fbf1c7)"
+        "[ ](bg:#d65d0e fg:#fbf1c7)"
         "$username"
-        "[](bg:#d79921 fg:#d65d0e)"
+        "[](bg:#d65d0e fg:#d65d0e)"
         "$directory"
-        "[](fg:#d79921 bg:#689d6a)"
+        "[](fg:#d65d0e bg:#689d6a)"
         "$git_branch"
         "$git_status"
         "[](fg:#689d6a bg:#458588)"
@@ -43,7 +43,7 @@
       ];
 
       directory = {
-        style = "fg:#fbf1c7 bg:#d79921";
+        style = "fg:#fbf1c7 bg:#d65d0e";
         format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
@@ -64,9 +64,9 @@
       git_status = {
         style = "bg:#689d6a";
         format = "[[($all_status$ahead_behind )](fg:#fbf1c7 bg:#689d6a)]($style)";
-	    };
+      };
 
-      nodejs = {
+	    nodejs = {
         symbol = "";
         style = "bg:#458588";
         format = "[[ $symbol ($version) ](fg:#fbf1c7 bg:#458588)]($style)";
