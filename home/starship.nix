@@ -52,7 +52,8 @@
           "Downloads" = " ";
           "Music" = " ";
           "Pictures" = " ";
-	      };
+          "Source" = " ";
+        };
       };
 
       git_branch = {
