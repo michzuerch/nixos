@@ -1,4 +1,4 @@
-{config, pkgs, lib, ... }:
+{pkgs, ... }:
 
 {
   imports = [ 
@@ -97,14 +97,30 @@
     xkbVariant = "";
     libinput.enable = true;
 
-    displayManager.lightdm = {
-      enable = true;
-    };
 
-    displayManager.defaultSession = "hyprland";
+    displayManager = {
+      defaultSession = "none+i3";
+      lightdm = {
+        enable = true;
+      };
+    };
+  
+    displayManager.xterm = false;
+    # displayManager.defaultSession = "hyprland";
     desktopManager.lxqt.enable = true;
     desktopManager.plasma5.enable = true;
     #desktopManager.pantheon.enable = true;
+
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        i3blocks
+      ];
+    };
   };
 
   # Enable CUPS to print documents.
@@ -160,6 +176,8 @@
     packages = with pkgs; [
     ];
   };
+
+  environment.pathsToLink = [ "/libexec" ];
 
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
