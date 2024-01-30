@@ -9,6 +9,7 @@
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
+    ./i3.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
