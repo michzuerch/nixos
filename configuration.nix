@@ -47,6 +47,8 @@
   #   tpm2.tctiEnvironment.enable = true;
   # };
 
+  console.keyMap = "us";
+
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
   
@@ -95,32 +97,20 @@
     dpi = 96;
     layout = "us";
     xkbVariant = "";
+    xkbOptions = "caps:swapescape";
     libinput.enable = true;
 
-
     displayManager = {
-      defaultSession = "none+i3";
+      defaultSession = "hyprland";
       lightdm = {
         enable = true;
       };
     };
   
-    displayManager.xterm = false;
-    # displayManager.defaultSession = "hyprland";
+    desktopManager.xterm.enable = false;
     desktopManager.lxqt.enable = true;
     desktopManager.plasma5.enable = true;
     #desktopManager.pantheon.enable = true;
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-        i3blocks
-      ];
-    };
   };
 
   # Enable CUPS to print documents.
@@ -173,8 +163,8 @@
     description = "Michi";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
-    packages = with pkgs; [
-    ];
+    # packages = with pkgs; [
+    # ];
   };
 
   environment.pathsToLink = [ "/libexec" ];

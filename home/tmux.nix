@@ -32,7 +32,7 @@
     '';
   };
 
-  # home.packages = with pkgs; [
-  #   byobu
-  # ];
+  home.packages = with pkgs; [
+    byobu
+  ];
 }

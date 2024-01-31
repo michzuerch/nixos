@@ -9,7 +9,6 @@
     ./gtk.nix
     ./helix.nix
     ./hyprland.nix
-    ./i3.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
@@ -28,6 +27,7 @@
     ./wallpapers.nix
     ./waybar.nix
     ./wofi.nix
+    ./zsh.nix
   ];
 
   home.packages = with pkgs; [ 
