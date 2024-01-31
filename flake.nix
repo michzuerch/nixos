@@ -41,7 +41,6 @@
           ./system/networking.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
-          ./system/zsh.nix
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
