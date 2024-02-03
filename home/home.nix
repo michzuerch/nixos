@@ -2,6 +2,7 @@
   imports = [
     # ./latex.nix
     ./alacritty.nix
+    ./kitty.nix
     ./browsers.nix
     ./git.nix
     ./golang.nix

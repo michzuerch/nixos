@@ -10,7 +10,7 @@
     enable = true;
     defaultCommand =
       "fd --type f --hidden --no-ignore --follow --exclude .git";
-    enableZshIntegration = true;
+    # enableZshIntegration = true;
     enableFishIntegration = false;
   };
 

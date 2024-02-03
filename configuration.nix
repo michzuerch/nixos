@@ -60,6 +60,7 @@
     defaultEditor = true;
   };
 
+  programs.zsh.enable = true;
   programs.git.enable = true;
   programs.hyprland.enable = true;
   programs.dconf.enable = true;
@@ -95,9 +96,11 @@
     enable = true;
     enableCtrlAltBackspace = true;
     dpi = 96;
-    layout = "us";
-    xkbVariant = "";
-    xkbOptions = "caps:swapescape";
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:swapescape";
+    };
     libinput.enable = true;
 
     displayManager = {
@@ -107,10 +110,12 @@
       };
     };
   
-    desktopManager.xterm.enable = false;
-    desktopManager.lxqt.enable = true;
-    desktopManager.plasma5.enable = true;
-    #desktopManager.pantheon.enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      lxqt.enable = true;
+      plasma5.enable = true;
+      #:pantheon.enable = true;
+    };
   };
 
   # Enable CUPS to print documents.
@@ -168,6 +173,10 @@
   };
 
   environment.pathsToLink = [ "/libexec" ];
+  
+  environment.variables = {
+
+  };
 
   environment.systemPackages = with pkgs; [
     # jetbrains.jdk
@@ -196,6 +205,7 @@
     sbctl
     smartmontools
     sudo-rs
+    st
     tealdeer
     teamviewer
     tmux
