@@ -99,7 +99,7 @@
     xkb = {
       layout = "us";
       variant = "";
-      options = "caps:swapescape";
+      options = "";
     };
     libinput.enable = true;
 
@@ -212,6 +212,7 @@
     ventoy
     wavemon
     wget
+    wev
   ];
 
   environment.shellAliases = {

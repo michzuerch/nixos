@@ -278,7 +278,6 @@
   home.packages = with pkgs; [
     blueberry
     brightnessctl
-    kitty
     pamixer
     pavucontrol
     wttrbar

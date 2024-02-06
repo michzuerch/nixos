@@ -316,5 +316,6 @@
     wlogout
     wofi-emoji
     wtype
+    squeekboard #virtual keyboard
   ];
 }

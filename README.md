@@ -1,2 +1,2 @@
 # nixos
-Nixos configuration michzuerch 2023
+Nixos configuration michzuerch 2024
