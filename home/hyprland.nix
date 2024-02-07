@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ config, lib, pkgs, ...}: {
   systemd.user.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -6,11 +6,9 @@
     CLUTTER_BACKEND = "wayland";
     NIXOS_OZONE_WL = 1;
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
-
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
-
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     _JAVA_AWT_WM_NONREPARENTING = 1;
@@ -18,46 +16,63 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland = {enable = true;};
+    xwayland = {
+      enable = true;
+    };
+
+
     systemd.enable = true;
     plugins = [];
     settings = {};
     extraConfig = ''
       # █▀▀ ▀▄▀ █▀▀ █▀▀
       # ██▄ █░█ ██▄ █▄▄
-      exec-once = dbus-update-activation-environment --all
-      exec-once = waybar
+      exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY 
       exec-once = swaync
-      exec-once = swayidle -w
+      exec-once = waybar
+      # exec-once = pypr
+      # exec-once = swayidle -w
       exec-once = sleep 4 && gnome-keyring-daemon --start --components=secrets
       exec-once = copyq --start-server &
       exec-once = lxqt-policykit-agent & udiskie &
       #exec-once = sleep 8 && poweralertd 
-      exec-once = blueman-applet &
-      exec-once = nm-applet --sm-disable --indicator &
+      exec-once = blueman-applet
+      exec-once = nm-applet 
       exec-once = hyprpaper
+      exec-once = swayidle -w timeout 90 '${config.programs.swaylock.package}/bin/swaylock -f' timeout 210 'suspend-unless-render' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${config.programs.swaylock.package}/bin/swaylock -f"
 
       ############################################# misc #############################################
       # █▀▄▀█ █▀█ █▄░█ █ ▀█▀ █▀█ █▀█
       # █░▀░█ █▄█ █░▀█ █ ░█░ █▄█ █▀▄
       monitor=,preferred,auto,1
 
+      xwayland {
+        force_zero_scaling = true
+      }
+
       # █ █▄░█ █▀█ █░█ ▀█▀
       # █ █░▀█ █▀▀ █▄█ ░█░
       input {
         kb_layout = us
-        follow_mouse = 1
-        sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        # sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        # kb_options = caps:escape
+        repeat_delay = 350
+        repeat_rate = 50
+        accel_profile = adaptive
+        follow_mouse = 2
       }
 
       # █▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ █░░
       # █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ █▄▄
       general {
-        gaps_in=5
-        gaps_out=5
-        border_size=0
-        no_border_on_floating = true
         layout = dwindle
+        gaps_in = 7
+        gaps_out = 7
+        border_size = 4
+        resize_on_border = true
+        no_cursor_warps = false
+        no_border_on_floating = true
+        cursor_inactive_timeout = 30
       }
 
       # █▀▄▀█ █ █▀ █▀▀
@@ -69,6 +84,8 @@
         enable_swallow = true
         swallow_regex = ^(kitty)$
       }
+
+      env = QT_QPA_PLATFORMTHEME,qt5ct
       env = XCURSOR_SIZE,24
       env = WLR_NO_HARDWARE_CURSORS,1
 
@@ -90,8 +107,8 @@
         # █▄█ █▄▄ █▄█ █▀▄
         blur {
           enabled = true
-          size = 3
-          passes = 3
+          size = 5
+          passes = 2
           new_optimizations = true
           ignore_opacity = true
         }
@@ -171,6 +188,22 @@
       windowrule = move 75 44%, title:^(Volume Control)$
       windowrule = float, ^(blueberry.py)$
 
+      # # scratchpad pyprland
+      # $scratchpadsize = size 80% 85%
+      # $scratchpad = class:^(scratchpad)$
+      # windowrulev2 = float,$scratchpad
+      # windowrulev2 = $scratchpadsize,$scratchpad
+      # windowrulev2 = workspace special silent,$scratchpad
+      # windowrulev2 = center,$scratchpad
+
+      $pavucontrol = class:^(pavucontrol)$
+      windowrulev2 = float,$pavucontrol
+      windowrulev2 = size 86% 40%,$pavucontrol
+      windowrulev2 = move 50% 6%,$pavucontrol
+      windowrulev2 = workspace special silent,$pavucontrol
+      windowrulev2 = opacity 0.80,$pavucontrol
+      windowrulev2 = float,title:^(Kdenlive)$
+
       master {
           new_is_master = true
       }
@@ -190,7 +223,7 @@
       bind = SUPER, period, exec, wofi-emoji
 
       # Toggle Waybar
-      bind = SUPER, B, exec, killall -SIGUSR1 waybar 
+      # bind = SUPER, B, exec, killall -SIGUSR1 waybar 
 
       bind = SUPER, N, exec, swaync-client -t -sw
       bind = SUPER, L, exec, swayidle
@@ -285,6 +318,15 @@
       bind = SUPER, mouse_down, workspace, e+1
       bind = SUPER, mouse_up, workspace, e-1
 
+      # scratchpad pyprland
+      # bind = SUPER, Z, exec, pypr toggle term && hyprctl dispatch bringactivetotop
+      # bind = SUPER SHIFT, F, exec, pypr toggle ranger && hyprctl dispatch bringactivetotop
+      # #bind = SUPER, N, exec, pypr toggle musikcube && hyprctl dispatch bringactivetotop
+      # #bind = SUPER, B, exec, pypr toggle btm && hyprctl dispatch bringactivetotop
+      # #bind = SUPER, E, exec, pypr toggle geary && hyprctl dispatch bringactivetotop
+      # #bind = SUPER, code:172, exec, pypr toggle pavucontrol && hyprctl dispatch bringactivetotop
+      # $scratchpadsize = size 80% 85%
+
     '';
   };
 
@@ -296,26 +338,66 @@
   # Hyprpaper configuration file
   home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper/hyprpaper.conf;
 
+  # home.file.".config/hypr/pyprland.json".text = ''
+  #   {
+  #     "pyprland": {
+  #       "plugins": ["scratchpads", "magnify"]
+  #     },
+  #     "scratchpads": {
+  #       "term": {
+  #         "command": "alacritty --class scratchpad",
+  #         "margin": 50
+  #       },
+  #       "ranger": {
+  #         "command": "kitty --class scratchpad -e ranger",
+  #         "margin": 50
+  #       },
+  #       "btm": {
+  #         "command": "alacritty --class scratchpad -e btm",
+  #         "margin": 50
+  #       },
+  #       "pavucontrol": {
+  #         "command": "pavucontrol",
+  #         "margin": 50,
+  #         "unfocus": "hide",
+  #         "animation": "fromTop"
+  #       }
+  #     }
+  #   }
+  # '';
+
   home.packages = with pkgs; [
+    libsForQt5.qt5.qtwayland
     cinnamon.nemo-with-extensions
     cool-retro-term
     copyq
     ffmpegthumbnailer
     grimblast
+    gsettings-desktop-schemas
     hyprpaper
     hyprpicker
+    killall
     lxqt.lxqt-policykit
     networkmanagerapplet
     pamixer
     pavucontrol
+    qt6.qtwayland
     shotman
+    slurp
     sov
+    squeekboard #virtual keyboard
     swayidle
     wf-recorder
     wl-clipboard
     wlogout
+    wlr-randr
+    wlsunset
     wofi-emoji
     wtype
-    squeekboard #virtual keyboard
+    wtype
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    xdg-utils
   ];
 }

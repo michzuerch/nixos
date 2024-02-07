@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{pkgs, lib, inputs, ... }:
 
 {
   imports = [ 
@@ -63,6 +63,7 @@
   programs.zsh.enable = true;
   programs.git.enable = true;
   programs.hyprland.enable = true;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   programs.dconf.enable = true;
   programs.light.enable = true;
   programs.mtr.enable = true;
