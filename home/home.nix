@@ -17,7 +17,7 @@
     ./pgbench.nix
     ./ranger.nix
     ./rust.nix
-    ./shell.nix
+    ./sh.nix
     ./starship.nix
     ./swayidle.nix
     ./swaylock.nix

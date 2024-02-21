@@ -368,6 +368,7 @@
 
   home.packages = with pkgs; [
     libsForQt5.qt5.qtwayland
+    libsForQt5.filelight
     cinnamon.nemo-with-extensions
     cool-retro-term
     copyq
