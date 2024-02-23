@@ -195,6 +195,8 @@
     jdk21
     killall
     lazygit
+    libsForQt5.kate
+    nil
     nodePackages_latest.eslint
     pciutils
     protonvpn-cli
@@ -205,16 +207,15 @@
     ripgrep-all
     sbctl
     smartmontools
-    sudo-rs
     st
+    sudo-rs
     tealdeer
     teamviewer
     tmux
     ventoy
     wavemon
-    wget
     wev
-    libsForQt5.kate
+    wget
   ];
 
   environment.shellAliases = {
