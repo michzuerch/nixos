@@ -214,6 +214,7 @@
     wavemon
     wget
     wev
+    libsForQt5.kate
   ];
 
   environment.shellAliases = {
