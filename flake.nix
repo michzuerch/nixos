@@ -11,15 +11,19 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/nur";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, nur } @ inputs:
   let
     system = "x86_64-linux";
   
     pkgs = import nixpkgs {
       inherit system;
+      overlay = [
+        inputs.nur.overlay
+      ];
       config = {
         allowUnfree = true;
       };
