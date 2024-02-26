@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ...}: {
+{ config, lib, pkgs, inputs, ...}: {
   systemd.user.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
-    NIXOS_OZONE_WL = 1;
+    NIXOS_OZONE_WL = "1";
     XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
@@ -12,14 +12,17 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     _JAVA_AWT_WM_NONREPARENTING = 1;
+    WLR_NO_HARDWARE_CURSORS = "1";
+    MOZ_WEBRENDERER = "1";
+
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland = {
       enable = true;
     };
-
 
     systemd.enable = true;
     plugins = [];
