@@ -38,6 +38,8 @@
     rustdesk
   ];
 
+  
+
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
 
