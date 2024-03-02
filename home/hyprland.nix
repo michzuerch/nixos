@@ -130,10 +130,83 @@ in
         "opacity 0.80,$class:^(pavucontrol)$"
         "float,title:^(Kdenlive)$"
       ];
-      "$mod" = "SUPER";
+      master = {
+        new_is_master = true;
+      };
+      gestures = {
+        workspace_swipe = "off";
+      };
+      # "$mod" = "SUPER";
+      # "$screenshotarea" = "hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
+      bind = [
+        "SUPER SHIFT, X, exec, hyprpicker -a -n"
+        "CTRL ALT, L, exec, swaylock"
+        "SUPER, Return, exec, alacritty"
+        "SUPER SHIFT, Return, exec, cool-retro-term"
+        "SUPER, E, exec, nemo"
+        "SUPER, D, exec, wofi --show drun --allow-images"
+        "SUPER, period, exec, wofi-emoji"
+        "SUPER, N, exec, swaync-client -t -sw"
+        "SUPER, L, exec, swayidle"
+        "SUPER, M, exec, wlogout --protocol layer-shell"
+        "SUPER SHIFT, M, exit,"
+        ", Print, exec, grimblast --notify --cursor copysave output"
+        "ALT, Print, exec, grimblast --notify --cursor copysave screen"
+        "SUPER, Q, killactive,"
+        "SUPER SHIFT, Q, exit,"
+        "SUPER, F, fullscreen,"
+        "SUPER, Space, togglefloating,"
+        "SUPER, P, pseudo, "
+        "SUPER, S, togglesplit, "
+        "SUPER, left, movefocus, l"
+        "SUPER, right, movefocus, r"
+        "SUPER, up, movefocus, u"
+        "SUPER, down, movefocus, d"
+        "SUPER SHIFT, left, movewindow, l"
+        "SUPER SHIFT, right, movewindow, r"
+        "SUPER SHIFT, up, movewindow, u"
+        "SUPER SHIFT, down, movewindow, d"
+        "SUPER CTRL, left, resizeactive, -20 0"
+        "SUPER CTRL, right, resizeactive, 20 0"
+        "SUPER CTRL, up, resizeactive, 0 -20"
+        "SUPER CTRL, down, resizeactive, 0 20"
+        "SUPER, g, togglegroup,"
+        "SUPER, tab, changegroupactive,"
+        "SUPER, grave, togglespecialworkspace,"
+        "SUPERSHIFT, grave, movetoworkspace, special"
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER ALT, up, workspace, e+1"
+        "SUPER ALT, down, workspace, e-1"
+        "SUPER SHIFT, 1, movetoworkspace, 1"
+        "SUPER SHIFT, 2, movetoworkspace, 2"
+        "SUPER SHIFT, 3, movetoworkspace, 3"
+        "SUPER SHIFT, 4, movetoworkspace, 4"
+        "SUPER SHIFT, 5, movetoworkspace, 5"
+        "SUPER SHIFT, 6, movetoworkspace, 6"
+        "SUPER SHIFT, 7, movetoworkspace, 7"
+        "SUPER SHIFT, 8, movetoworkspace, 8"
+        "SUPER, mouse_down, workspace, e+1"
+        "SUPER, mouse_up, workspace, e-1"
+      ];
+      binde= [
+        "XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        "XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        "XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        "XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        "XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+      ];
+
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
     };
   };
