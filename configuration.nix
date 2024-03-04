@@ -114,7 +114,7 @@
     desktopManager = {
       xterm.enable = false;
       lxqt.enable = true;
-      plasma5.enable = true;
+      plasma6.enable = true;
       #:pantheon.enable = true;
     };
   };
