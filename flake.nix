@@ -11,11 +11,15 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     nur.url = "github:nix-community/nur";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, nur } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, nur } @ inputs:
   let
     system = "x86_64-linux";
   
