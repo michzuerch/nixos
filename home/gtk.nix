@@ -1,6 +1,11 @@
 { pkgs, ... }: {
   gtk = {
     enable = true;
+    font = {
+      name = "Ubuntu";
+      size = 12;
+      package = pkgs.ubuntu_font_family;
+    };
     cursorTheme = {
       # package = pkgs.gnome.adwaita-icon-theme;
       package = pkgs.quintom-cursor-theme;
@@ -8,13 +13,19 @@
       name = "Quintom_Snow"; #Quintom_Ink
       size = 36;
     };
-    iconTheme = {
-      package = pkgs.gnome3.adwaita-icon-theme;
-      name = "Adwaita-dark";
-    };
     theme = {
       package = pkgs.gnome3.adwaita-icon-theme;
       name = "Adwaita-dark";
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme=1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme=1;
     };
   };
 

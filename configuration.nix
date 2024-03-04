@@ -97,6 +97,9 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
   };
 
   programs.zsh.enable = true;

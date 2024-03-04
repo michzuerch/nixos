@@ -8,6 +8,7 @@
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
+    ./qt.nix
     ./helix.nix
     ./hyprland.nix
     ./messenger.nix
@@ -38,11 +39,8 @@
     rustdesk
   ];
 
-  
-
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
-
   home.stateVersion = "24.05";
 }
 
