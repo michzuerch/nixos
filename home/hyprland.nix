@@ -68,7 +68,9 @@ in
         shadow_offset = "2 2";
         shadow_range = 4;
         shadow_render_power = 2;
-        col.shadow = "0x66000000";
+        # col = { 
+        #   shadow = "0xee1a1a1a"; 
+        # };
       };
       animations = {
         enabled = true;
@@ -89,7 +91,7 @@ in
       };
       dwindle = {
         no_gaps_when_only = false;
-        pseudotitle = true;
+        pseudotile = true;
         preserve_split = true;
       };
       windowrule = [
@@ -122,21 +124,19 @@ in
         "move 75 44%, title:^(Volume Control)$"
         "float, ^(blueberry.py)$"
       ];
-      windowsrulev2 = [
-        "float,class: ^(pavucontrol)$"
-        "size 86% 40%, class:^(pavucontrol)$"
-        "move 50% 6%, class:^(pavucontrol)$"
-        "workspace special silent,$class:^(pavucontrol)$"
-        "opacity 0.80,$class:^(pavucontrol)$"
-        "float,title:^(Kdenlive)$"
-      ];
+      # windowsrulev2 = [
+      #   "float,class: ^(pavucontrol)$"
+      #   "size 86% 40%, class:^(pavucontrol)$"
+      #   "move 50% 6%, class:^(pavucontrol)$"
+      #   "workspace special silent,$class:^(pavucontrol)$"
+      #   "opacity 0.80,$class:^(pavucontrol)$"
+      # ];
       master = {
         new_is_master = true;
       };
       gestures = {
         workspace_swipe = "off";
       };
-      # "$mod" = "SUPER";
       # "$screenshotarea" = "hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
       bind = [
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
@@ -196,12 +196,12 @@ in
         "SUPER, mouse_up, workspace, e-1"
       ];
       binde= [
-        "XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        "XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        "XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        "XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        "XF86MonBrightnessUp, exec, brightnessctl set +10%"
-        "XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        # "XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        # "XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        # "XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # "XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # "XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        # "XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
       bindm = [
