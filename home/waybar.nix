@@ -15,6 +15,7 @@
       }
 
       #workspaces button {
+        padding: 0 2px;
         color: #b4befe;
       }
 
@@ -32,7 +33,7 @@
         layer = "top";
         position = "top";
         modules-left = [
-          "custom/weather"
+          # "custom/weather"
           "idle_inhibitor"
           "hyprland/workspaces"
           "custom/notification"
@@ -43,12 +44,13 @@
         modules-right = [
           "pulseaudio"
           "backlight"
-          "memory"
-          "cpu"
+          # "memory"
+          # "cpu"
           "network"
           "bluetooth"
           "battery"
           "tray"
+          "custom/weather"
           "custom/powermenu"
           "clock"
         ];
