@@ -232,6 +232,7 @@
     fzf
     gdu
     gh
+    gparted
     gsmartcontrol
     iw 
     jdk21
@@ -240,6 +241,7 @@
     libsForQt5.kate
     nil
     nodePackages_latest.eslint
+    partition-manager
     pciutils
     protonvpn-cli
     protonvpn-gui

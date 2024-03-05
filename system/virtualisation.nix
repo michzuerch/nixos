@@ -24,4 +24,7 @@
     virt-manager 
     virt-viewer 
   ];
+  environment.variables = {
+    DOCKER_HOST = "unix:///var/run/podman/podman.sock";
+  };
 }

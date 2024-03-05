@@ -10,6 +10,7 @@ let
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet &
     ${pkgs.hyprpaper}/bin/hyprpaper &
+    ${pkgs.pyprland}/bin/pypr &
     ${pkgs.swayidle}/bin/swayidle -w timeout 90 '$config.programs.swaylock.package/bin/swaylock -f' timeout 210
   '';
 in 
@@ -59,7 +60,6 @@ in
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
-        keypress_enables_dpms = false;
         enable_swallow = true;
         swallow_regex = "^(alacritty)$";
       };
@@ -79,9 +79,6 @@ in
         shadow_offset = "2 2";
         shadow_range = 4;
         shadow_render_power = 2;
-        # col = { 
-        #   shadow = "0xee1a1a1a"; 
-        # };
       };
       animations = {
         enabled = true;
@@ -135,21 +132,20 @@ in
         "move 75 44%, title:^(Volume Control)$"
         "float, ^(blueberry.py)$"
       ];
-      # windowsrulev2 = [
-      #   "float,class: ^(pavucontrol)$"
-      #   "size 86% 40%, class:^(pavucontrol)$"
-      #   "move 50% 6%, class:^(pavucontrol)$"
-      #   "workspace special silent,$class:^(pavucontrol)$"
-      #   "opacity 0.80,$class:^(pavucontrol)$"
-      # ];
+      windowrulev2 = [
+        "float,class:^(scrachpad)$"
+        "size 80% 85%,class:^(scratchpad)$"
+        "workspace special silent,class:^(scratchpad)$"
+        "center,class:^(scratchpad)$"
+      ];
       master = {
         new_is_master = true;
       };
       gestures = {
         workspace_swipe = "off";
       };
-      # "$screenshotarea" = "hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
       bind = [
+        "SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop" 
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
         "CTRL ALT, L, exec, swaylock"
         "SUPER, Return, exec, alacritty"
@@ -229,6 +225,24 @@ in
   # Hyprpaper configuration file
   home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper/hyprpaper.conf;
 
+  home.file.".config/hypr/pyprland.json".text = ''
+    {
+      "pyprland": {
+        "plugins": ["scratchpads", "magnify"]
+      },
+      "scratchpads": {
+        "term": {
+          "command": "alacritty --class scratchpad",
+          "margin": 50
+        },
+        "ranger": {
+          "command": "alacritty --class scratchpad -e ranger",
+          "margin": 50
+        }
+      }
+    }
+  '';
+
   systemd.user.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -247,8 +261,6 @@ in
   };
 
   home.packages = with pkgs; [
-    libsForQt5.qt5.qtwayland
-    libsForQt5.filelight
     cinnamon.nemo-with-extensions
     cool-retro-term
     copyq
@@ -258,10 +270,13 @@ in
     hyprpaper
     hyprpicker
     killall
+    libsForQt5.filelight
+    libsForQt5.qt5.qtwayland
     lxqt.lxqt-policykit
     networkmanagerapplet
     pamixer
     pavucontrol
+    pyprland
     qt6.qtwayland
     shotman
     slurp
