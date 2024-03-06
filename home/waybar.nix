@@ -3,15 +3,40 @@
     enable = true;
     style = ''
       * {
-        border: none;
         font-family: 'Fira Code', 'Symbols Nerd Font Mono';
         font-size: 16px;
-        font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-        min-height: 45px;
       }
 
       window#waybar {
-        background: transparent;
+        background-color: #081a00;
+        opacity: 0.75;
+        border-radius: 8px;
+        color: #ffffff;
+        transition-property: background-color;
+        transition-duration: .2s;
+      }
+
+      window > box {
+        border-radius: 8px;
+        opacity: 0.94;
+      }
+
+      window#waybar.hidden {
+        opacity: 0.2;
+      }
+
+      button {
+        border: none;
+      }
+
+      button:hover {
+        background: inherit;
+      }
+
+      #workspaces button {
+          padding: 0 7px;
+          background-color: transparent;
+          color: #00d5ff;
       }
 
       #workspaces button {
@@ -19,7 +44,7 @@
         color: #b4befe;
       }
 
-      #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery {
+      #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
         border-radius: 10px;
         color: #cdd6f4;
         padding-left: 10px;
@@ -28,10 +53,13 @@
       }
 
     '';
-    settings = [
-      {
+    settings = {
+      mainbar = {
         layer = "top";
         position = "top";
+        height = 35;
+        margin = "7 7 3 7";
+        spacing = 2;
         modules-left = [
           # "custom/weather"
           "idle_inhibitor"
@@ -51,8 +79,8 @@
           "battery"
           "tray"
           "custom/weather"
-          "custom/powermenu"
           "clock"
+          "custom/powermenu"
         ];
         pulseaudio = {
           scroll-step = 5;
@@ -174,8 +202,8 @@
           icon-size = 15;
           spacing = 5;
         };
-      }
-    ];
+      };
+    };
   };
 
   home.packages = with pkgs; [

@@ -33,7 +33,7 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     gnome.nautilus
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins

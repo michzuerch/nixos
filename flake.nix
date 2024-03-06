@@ -1,6 +1,5 @@
 {
   description = "nixos michzuerch march 2024";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -15,17 +14,18 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-    };
     nur.url = "github:nix-community/nur";
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, nix-colors, nur } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, nur, sops-nix } @ inputs:
   let
     system = "x86_64-linux";
-  
+
     pkgs = import nixpkgs {
       inherit system;
       overlay = [
@@ -39,7 +39,7 @@
     nixosConfigurations = {
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [  
+        modules = [
           ./system/postgres.nix
           ./system/redis.nix
           ./system/mariadb.nix
@@ -58,7 +58,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;}; 
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.michzuerch = import ./home/home.nix;
           }
         ];

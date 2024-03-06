@@ -1,19 +1,19 @@
 { config, lib, pkgs, inputs, ...}:
-let 
+let
   startup-script = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar &
+    ${pkgs.waybar}/bin/waybar
     dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
-    ${pkgs.swaynotificationcenter}/bin/swaync &
-    ${pkgs.copyq}/bin/copyq --start-server &
-    ${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent &
-    ${pkgs.udiskie}/bin/udiskie &
-    ${pkgs.blueman}/bin/blueman-applet &
-    ${pkgs.networkmanagerapplet}/bin/nm-applet &
+    ${pkgs.swaynotificationcenter}/bin/swaync
+    ${pkgs.copyq}/bin/copyq --start-server
+    ${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent
+    ${pkgs.udiskie}/bin/udiskie
+    ${pkgs.blueman}/bin/blueman-applet
+    ${pkgs.networkmanagerapplet}/bin/nm-applet
     ${pkgs.hyprpaper}/bin/hyprpaper &
     ${pkgs.pyprland}/bin/pypr &
     ${pkgs.hypridle}/bin/hypridle
   '';
-in 
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -50,7 +50,7 @@ in
         layout = "dwindle";
         gaps_in = 7;
         gaps_out = 7;
-        border_size = 4;
+        border_size = 2;
         resize_on_border = true;
         no_cursor_warps = false;
         no_border_on_floating = true;
@@ -59,7 +59,7 @@ in
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-        mouse_move_enables_dpms = true;
+        mouse_move_enables_dpms = false;
         enable_swallow = true;
         swallow_regex = "^(alacritty)$";
       };
@@ -155,7 +155,7 @@ in
         "blur, swaync-notification-window"
       ];
       bind = [
-        "SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop" 
+        "SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop"
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
         "CTRL ALT, L, exec, hyprlock"
         "SUPER, Return, exec, alacritty"
@@ -220,8 +220,8 @@ in
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
       bindle = [
-        ", XF86MonBrigthnessUp, exec, brightnessctl -q s 2%+"
-        ", XF86MonBrigthnessDown, exec, brightnessctl -q s 2%-"
+        ", code:233, exec, brightnessctl -q s 2%+"
+        ", code:232, exec, brightnessctl -q s 2%-"
       ];
       bindm = [
         "SUPER, mouse:272, movewindow"
@@ -236,7 +236,10 @@ in
   };
 
   # Hyprpaper configuration file
-  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper/hyprpaper.conf;
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    preload = ~/Wallpapers/Wolf2.jpg
+    wallpaper = ,~/Wallpapers/Wolf2.jpg
+  '';
 
   home.file.".config/hypr/pyprland.json".text = ''
     {
@@ -267,7 +270,7 @@ in
       on-timeout = $lock_cmd
       # on-resume
     }
-      
+
     # listener {
     #   timeout = 900
     #   on-timeout = $suspend_cmd

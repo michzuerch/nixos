@@ -71,15 +71,16 @@
 
     # GENERAL
     general {
-        disable_loading_bar = true
+      grace = 30
+      disable_loading_bar = true
     }
 
     # BACKGROUND
     background {
-        monitor =
-        path = # path to PNG background
-        blur_passes = 0
-        color = $base
+      monitor =
+      path = $HOME/Wallpapers/hyprlock.png
+      blur_passes = 2
+      # color = $base
     }
 
     # TIME
@@ -93,10 +94,9 @@
         halign = right
         valign = top
     }
-
-    # DATE 
+    # DATE
     label {
-        monitor = 
+        monitor =
         text = cmd[update:43200000] echo "$(date +"%A,%e %B %Y")"
         color = $text
         font_size = 25
