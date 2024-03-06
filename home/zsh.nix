@@ -7,9 +7,5 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
-    initExtra = ''
-    bindkey "''${key[Up]}" up-line-or-search
-    '';
   };
-
 }

@@ -27,6 +27,8 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
+      timeout = 5;
+      efi.canTouchEfiVariables = true;
     };
     kernelParams = [
       "quiet"
@@ -47,6 +49,43 @@
   #   tpm2.tctiEnvironment.enable = true;
   # };
 
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      commands = [
+        {
+          command = "${pkgs.systemd}/bin/systemctl suspend";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "${pkgs.systemd}/bin/reboot";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "${pkgs.systemd}/bin/poweroff";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "/run/current-system/sw/bin/nixos-rebuild";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "${pkgs.neovim}/bin/nvim";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "${pkgs.systemd}/bin/systemctl";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "/run/current-system/sw/bin/nix-channel";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+      groups = [ "wheel" ];
+    }];
+  }; 
+
   console.keyMap = "us";
 
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
@@ -58,6 +97,9 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
   };
 
   programs.zsh.enable = true;
@@ -114,7 +156,7 @@
     desktopManager = {
       xterm.enable = false;
       lxqt.enable = true;
-      plasma5.enable = true;
+      plasma6.enable = true;
       #:pantheon.enable = true;
     };
   };
@@ -190,12 +232,16 @@
     fzf
     gdu
     gh
+    gparted
     gsmartcontrol
     iw 
     jdk21
     killall
     lazygit
+    libsForQt5.kate
+    nil
     nodePackages_latest.eslint
+    partition-manager
     pciutils
     protonvpn-cli
     protonvpn-gui
@@ -205,15 +251,15 @@
     ripgrep-all
     sbctl
     smartmontools
-    sudo-rs
     st
+    sudo-rs
     tealdeer
     teamviewer
     tmux
     ventoy
     wavemon
-    wget
     wev
+    wget
   ];
 
   environment.shellAliases = {

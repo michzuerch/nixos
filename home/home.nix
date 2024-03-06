@@ -8,8 +8,10 @@
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
+    ./qt.nix
     ./helix.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
@@ -19,8 +21,8 @@
     ./rust.nix
     ./sh.nix
     ./starship.nix
-    ./swayidle.nix
-    ./swaylock.nix
+    # ./swayidle.nix
+    # ./swaylock.nix
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
@@ -31,7 +33,7 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     gnome.nautilus
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
@@ -40,7 +42,6 @@
 
   home.username = "michzuerch";
   home.homeDirectory = "/home/michzuerch";
-
   home.stateVersion = "24.05";
 }
 
