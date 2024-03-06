@@ -11,7 +11,7 @@ let
     ${pkgs.networkmanagerapplet}/bin/nm-applet &
     ${pkgs.hyprpaper}/bin/hyprpaper &
     ${pkgs.pyprland}/bin/pypr &
-    ${pkgs.swayidle}/bin/swayidle -w timeout 90 '$config.programs.swaylock.package/bin/swaylock -f' timeout 210
+    ${pkgs.hypridle}/bin/hypridle
   '';
 in 
 {
@@ -133,7 +133,7 @@ in
         "float, ^(blueberry.py)$"
       ];
       windowrulev2 = [
-        "float,class:^(scrachpad)$"
+        "float,class:^(scratchpad)$"
         "size 80% 85%,class:^(scratchpad)$"
         "workspace special silent,class:^(scratchpad)$"
         "center,class:^(scratchpad)$"
@@ -144,17 +144,26 @@ in
       gestures = {
         workspace_swipe = "off";
       };
+      layerrule = [
+        "ignorezero, waybar"
+        "ignorezero, wofi"
+        "ignorezero, swaync-control-center"
+        "ignorezero, swaync-notification-window"
+        "blur, waybar"
+        "blur, wofi"
+        "blur, swaync-control-center"
+        "blur, swaync-notification-window"
+      ];
       bind = [
         "SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop" 
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
-        "CTRL ALT, L, exec, swaylock"
+        "CTRL ALT, L, exec, hyprlock"
         "SUPER, Return, exec, alacritty"
         "SUPER SHIFT, Return, exec, cool-retro-term"
         "SUPER, E, exec, nemo"
         "SUPER, D, exec, wofi --show drun --allow-images"
         "SUPER, period, exec, wofi-emoji"
         "SUPER, N, exec, swaync-client -t -sw"
-        "SUPER, L, exec, swayidle"
         "SUPER, M, exec, wlogout --protocol layer-shell"
         "SUPER SHIFT, M, exit,"
         ", Print, exec, grimblast --notify --cursor copysave output"
@@ -201,14 +210,18 @@ in
         "SUPER SHIFT, 8, movetoworkspace, 8"
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
-        "ALT,Tab,cyclenext"
-        "ALT,Tab,bringactivetotop"
-        ",XF86AudioRaiseVolume,exec,wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        "ALT, Tab, cyclenext"
+        "ALT, Tab, bringactivetotop"
       ];
       binde= [
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ];
+      bindle = [
+        ", XF86MonBrigthnessUp, exec, brightnessctl -q s 2%+"
+        ", XF86MonBrigthnessDown, exec, brightnessctl -q s 2%-"
       ];
       bindm = [
         "SUPER, mouse:272, movewindow"
@@ -234,13 +247,32 @@ in
         "term": {
           "command": "alacritty --class scratchpad",
           "margin": 50
-        },
-        "ranger": {
-          "command": "alacritty --class scratchpad -e ranger",
-          "margin": 50
         }
       }
     }
+  '';
+
+  home.file."config/hypr/hypridle.conf".text = ''
+    $lock_cmd = pidof hyprlock || hyprlock
+    $suspend_cmd = systemctl suspend
+
+    general {
+      lock_cmd = $lock_cmd
+      before_sleep_cmd = $lock_cmd
+      # after_sleep_cmd
+    }
+
+    listener {
+      timeout = 30
+      on-timeout = $lock_cmd
+      # on-resume
+    }
+      
+    # listener {
+    #   timeout = 900
+    #   on-timeout = $suspend_cmd
+    #   # on-resume
+    # }
   '';
 
   systemd.user.sessionVariables = {
@@ -268,6 +300,7 @@ in
     grimblast
     gsettings-desktop-schemas
     hyprpaper
+    hypridle
     hyprpicker
     killall
     libsForQt5.filelight
@@ -282,7 +315,6 @@ in
     slurp
     sov
     squeekboard #virtual keyboard
-    swayidle
     wf-recorder
     wl-clipboard
     wlogout

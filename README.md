@@ -6,3 +6,10 @@ Nixos configuration michzuerch 2024
 ''bash
 nix-shell -p git --command "nix run github:michzuerch/nixos --experimental-features nix-command - --experimental-features flakes"
 ''
+
+## nixos-install
+''bash
+nixos-install --flake .#<host>
+''
+
+

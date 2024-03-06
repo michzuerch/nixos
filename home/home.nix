@@ -11,6 +11,7 @@
     ./qt.nix
     ./helix.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
@@ -20,8 +21,8 @@
     ./rust.nix
     ./sh.nix
     ./starship.nix
-    ./swayidle.nix
-    ./swaylock.nix
+    # ./swayidle.nix
+    # ./swaylock.nix
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
