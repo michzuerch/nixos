@@ -26,14 +26,14 @@ in
     };
     systemd.enable = true;
     settings = {
-      "plugin:borders-plus-plus" = {
-        add_borders = 1;
-        "col.border_1" = "rgb(ffffff)";
-        "col.border_2" = "rgb(2222ff)";
-        border_size_1 = 3;
-        border_size_2 = -1;
-        natural_rounding = "yes";
-      };
+      # "plugin:borders-plus-plus" = {
+      #   add_borders = 1;
+      #   "col.border_1" = "rgb(ffffff)";
+      #   "col.border_2" = "rgb(2222ff)";
+      #   border_size_1 = 3;
+      #   border_size_2 = -1;
+      #   natural_rounding = "yes";
+      # };
       exec-once = ''${startup-script}/bin/start'';
       monitor = ",preferred,auto,1";
       xwayland = {
