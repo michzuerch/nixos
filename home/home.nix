@@ -21,8 +21,6 @@
     ./rust.nix
     ./sh.nix
     ./starship.nix
-    # ./swayidle.nix
-    # ./swaylock.nix
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
