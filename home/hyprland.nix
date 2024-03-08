@@ -1,26 +1,11 @@
 { config, lib, pkgs, inputs, ...}:
-let
-  startup-script = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar
-    dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
-    ${pkgs.swaynotificationcenter}/bin/swaync
-    ${pkgs.copyq}/bin/copyq --start-server
-    ${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent
-    ${pkgs.udiskie}/bin/udiskie
-    ${pkgs.blueman}/bin/blueman-applet
-    ${pkgs.networkmanagerapplet}/bin/nm-applet
-    ${pkgs.hyprpaper}/bin/hyprpaper &
-    ${pkgs.pyprland}/bin/pypr &
-    ${pkgs.hypridle}/bin/hypridle
-  '';
-in
 {
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [
-      inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
-    ];
+    # plugins = [
+    #   inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
+    # ];
     xwayland = {
       enable = true;
     };
@@ -34,7 +19,21 @@ in
       #   border_size_2 = -1;
       #   natural_rounding = "yes";
       # };
-      exec-once = ''${startup-script}/bin/start'';
+      # exec-once = ''${startup-script}/bin/start'';
+      exec-once = [
+        "waybar"
+        "swaync"
+        "copyq --start-server"
+        "lxqt-policykit-agent"
+        "udiske"
+        "blueman-applet"
+        "nm-applet"
+        "pypr"
+        "hypridle"
+      ];
+      exec = [
+        "hyprpaper"
+      ];
       monitor = ",preferred,auto,1";
       xwayland = {
         force_zero_scaling = true;
@@ -256,26 +255,26 @@ in
   '';
 
   home.file."config/hypr/hypridle.conf".text = ''
-    $lock_cmd = pidof hyprlock || hyprlock
-    $suspend_cmd = systemctl suspend
-
     general {
       lock_cmd = $lock_cmd
       before_sleep_cmd = $lock_cmd
+      ignore_dbus_inhibit = false
       # after_sleep_cmd
     }
 
+    # dpms
     listener {
-      timeout = 30
-      on-timeout = $lock_cmd
-      # on-resume
+        timeout = 300
+        on-timeout = hyprctl dispatch dpms off
+        on-resume = hyprctl dispatch dpms on
     }
 
-    # listener {
-    #   timeout = 900
-    #   on-timeout = $suspend_cmd
-    #   # on-resume
-    # }
+    # screenlock
+    listener {
+      timeout = 600
+      on-timeout = hyprlock
+      # on-resume
+    }
   '';
 
   systemd.user.sessionVariables = {

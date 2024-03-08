@@ -24,6 +24,7 @@
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
+    ./wlogout.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
