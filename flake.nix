@@ -10,27 +10,27 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    nur.url = "github:nix-community/nur";
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # nur.url = "github:nix-community/nur";
+    # sops-nix = {
+    #   url = "github:mic92/sops-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, nur, sops-nix } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland } @ inputs:
   let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
       inherit system;
-      overlay = [
-        inputs.nur.overlay
-      ];
+      # overlay = [
+      #   inputs.nur.overlay
+      # ];
       config = {
         allowUnfree = true;
       };

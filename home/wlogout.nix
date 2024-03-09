@@ -116,6 +116,12 @@ Buttons
 }
   '';
 
+
+  home.file.".config/wlogout/icons" = {
+    source = ./wlogout/icons;
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
       wlogout
   ];
