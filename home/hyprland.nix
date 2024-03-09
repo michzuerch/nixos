@@ -234,49 +234,6 @@
     tray = "always";
   };
 
-  # Hyprpaper configuration file
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/Wallpapers/Wolf2.jpg
-    wallpaper = ,~/Wallpapers/Wolf2.jpg
-  '';
-
-  home.file.".config/hypr/pyprland.json".text = ''
-    {
-      "pyprland": {
-        "plugins": ["scratchpads", "magnify"]
-      },
-      "scratchpads": {
-        "term": {
-          "command": "alacritty --class scratchpad",
-          "margin": 50
-        }
-      }
-    }
-  '';
-
-  home.file.".config/hypr/hypridle.conf".text = ''
-    general {
-      lock_cmd = $lock_cmd
-      before_sleep_cmd = $lock_cmd
-      ignore_dbus_inhibit = false
-      # after_sleep_cmd
-    }
-
-    # dpms
-    listener {
-        timeout = 300
-        on-timeout = hyprctl dispatch dpms off
-        on-resume = hyprctl dispatch dpms on
-    }
-
-    # screenlock
-    listener {
-      timeout = 600
-      on-timeout = hyprlock
-      # on-resume
-    }
-  '';
-
   systemd.user.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -301,8 +258,6 @@
     ffmpegthumbnailer
     grimblast
     gsettings-desktop-schemas
-    hyprpaper
-    hypridle
     hyprpicker
     killall
     libsForQt5.filelight
@@ -311,7 +266,6 @@
     networkmanagerapplet
     pamixer
     pavucontrol
-    pyprland
     qt6.qtwayland
     shotman
     slurp

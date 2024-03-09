@@ -2,21 +2,23 @@
   imports = [
     # ./latex.nix
     ./alacritty.nix
-    ./kitty.nix
     ./browsers.nix
     ./git.nix
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
-    ./qt.nix
     ./helix.nix
+    ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
+    ./kitty.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
+    ./qt.nix
     ./ranger.nix
     ./rust.nix
     ./sh.nix
@@ -24,10 +26,10 @@
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
-    ./wlogout.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
+    ./wlogout.nix
     ./wofi.nix
     ./zsh.nix
   ];
