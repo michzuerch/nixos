@@ -254,7 +254,7 @@
     }
   '';
 
-  home.file."config/hypr/hypridle.conf".text = ''
+  home.file.".config/hypr/hypridle.conf".text = ''
     general {
       lock_cmd = $lock_cmd
       before_sleep_cmd = $lock_cmd
