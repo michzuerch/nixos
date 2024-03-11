@@ -14,7 +14,7 @@
 }
 {
     "label" : "logout",
-    "action" : "hyprctl dispatch exit",
+    "action" : "sleep 1; hyprctl dispatch exit",
     "text" : "Exit",
     "keybind" : "e"
 }
