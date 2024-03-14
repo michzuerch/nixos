@@ -1,12 +1,14 @@
 { config, pkgs, lib, ... }: {
   powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.powertop.enable = true;
 
   systemd.packages = with pkgs; [ auto-cpufreq ];
 
   services = {
+    system76-scheduler.settings.cfsProfiles.enable = true;
     thermald.enable = true;
     upower = {
-      enable = true; 
+      enable = true;
       percentageCritical = 10;
       percentageLow = 15;
     };

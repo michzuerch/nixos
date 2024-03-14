@@ -5,17 +5,16 @@
   };
 
   programs.bat.enable = true;
-  
   programs.fzf = {
     enable = true;
     defaultCommand =
       "fd --type f --hidden --no-ignore --follow --exclude .git";
-    # enableZshIntegration = true;
+    enableZshIntegration = true;
     enableFishIntegration = false;
   };
 
   programs.jq.enable = true;
-  
+
   programs.gitui.enable = true;
 
   programs.dircolors.enable = true;
@@ -25,7 +24,7 @@
     enable = true;
     enableZshIntegration = true;
   };
-    
+
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
   programs.direnv.nix-direnv.enable = true;
@@ -35,7 +34,7 @@
     bat
     cowsay
     delta
-    direnv 
+    direnv
     du-dust
     eza
     fd

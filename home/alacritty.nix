@@ -1,58 +1,6 @@
 { pkgs, ... }: {
   programs.alacritty = {
     enable = true;
-    settings = {
-      env.TERM = "xterm-256color";
-      # Font settings
-      font = {
-        normal = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Regular";
-        };
-        bold = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Bold";
-        };
-        italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
-        };
-        bold_italic = {
-          family = "JetbrainsMono Nerd Font";
-          style = "Bold Italic";
-        };
-        size = 9;
-      };
-      
-      # Padding
-      window = {
-        opacity = 0.9;
-        padding = {
-          x = 12;
-          y = 12;
-        };
-      };
-
-      # Colors
-      colors = {
-        primary = {
-          background = "#1d2021";
-          foreground = "#ebdbb2";
-        };
-      };
-
-      # Cursor
-      cursor = {
-        # style = {
-        #   shape = "Block";
-        #   blicking = "Off";
-        # };
-        vi_mode_style = "Block";
-        unfocused_hollow = true;
-        thickness = 0.15;
-      };
-
-      # mouse.hidden_when_typing = false;
-    };
+    settings.import = [ pkgs.alacritty-theme.smoooooth ];
   };
 }

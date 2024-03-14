@@ -1,7 +1,7 @@
 {pkgs, lib, inputs, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
   ];
 
@@ -39,6 +39,12 @@
       "udev.log_priority=3"
       "acpi_backlight=native"
     ];
+    kernelModules = [
+      "v4l2loopback"
+    ];
+    extraModprobeConfig = ''
+      options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+    '';
     consoleLogLevel = 0;
     initrd.verbose = false;
   };
@@ -84,14 +90,12 @@
       ];
       groups = [ "wheel" ];
     }];
-  }; 
+  };
 
   console.keyMap = "us";
 
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
-  
-  # Enable network manager applet
   programs.nm-applet.enable = true;
 
   programs.neovim = {
@@ -112,6 +116,7 @@
 
   documentation = {
     enable = true;
+    dev.enable = true;
     doc.enable = true;
     man.enable = true;
     info.enable = true;
@@ -152,14 +157,14 @@
         enable = true;
       };
     };
-  
+
     desktopManager = {
       xterm.enable = false;
       lxqt.enable = true;
-      plasma6.enable = true;
-      #:pantheon.enable = true;
+      pantheon.enable = true;
     };
   };
+  services.desktopManager.plasma6.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -169,6 +174,8 @@
 
   # SSD
   services.fstrim.enable = true;
+
+  services.flatpak.enable = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -190,11 +197,14 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
-  };
+  security.pam.services.hyprlock.text = "auth include login";
+
+  # security.pam.services.swaylock = {
+  #   text = ''
+  #     auth include login
+  #   '';
+  # };
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -211,12 +221,10 @@
     description = "Michi";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
-    # packages = with pkgs; [
-    # ];
   };
 
   environment.pathsToLink = [ "/libexec" ];
-  
+
   environment.variables = {
 
   };
@@ -234,7 +242,7 @@
     gh
     gparted
     gsmartcontrol
-    iw 
+    iw
     jdk21
     killall
     lazygit
@@ -266,5 +274,5 @@
     rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
   };
 
-  system.stateVersion = "24.05"; 
+  system.stateVersion = "24.05";
 }

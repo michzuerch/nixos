@@ -9,8 +9,8 @@
     keyMode = "vi";
     mouse = true;
     sensibleOnTop = true;
-    plugins = with pkgs; [ 
-      tmuxPlugins.better-mouse-mode 
+    plugins = with pkgs; [
+      tmuxPlugins.better-mouse-mode
       tmuxPlugins.resurrect
       tmuxPlugins.net-speed
       tmuxPlugins.nord
