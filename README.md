@@ -16,18 +16,12 @@ nixos-install --flake .#<host>
 ## build iso for installer
 
 ''bash
-nix build .#nixosConfigurations.InstallerIso.config.system.build.isoImage
-''
-
-Alternative
-
-''bash
-nix run nixpkgs#nixos-generators -- --format iso --flake ./flake.nix#InstallerIso -o result
-''
-
-Working version
-
-''bash
 cd installer
-nix build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-configuration.nix
+nix build .#nixosConfigurations.default.config.system.build.isoImage
+''
+
+## install
+
+''bash
+nixos-install --impure --flake https://github.com/michzuerch/nixos#ThinkpadNomad
 ''

@@ -77,5 +77,11 @@
         ];
       };
     };
+    isoimage = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+        modules = [
+          ./isoimage.nix
+        ];
+      };
   };
 }
