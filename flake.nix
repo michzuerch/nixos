@@ -56,7 +56,7 @@
           ./system/postgres.nix
           ./system/redis.nix
           ./system/mariadb.nix
-          #./system/mongodb.nix
+          # ./system/mongodb.nix
           # ./system/cockroach.nix
           ./system/hacking.nix
           # ./system/cosmic.nix
@@ -76,41 +76,6 @@
           }
         ];
       };
-      InstallerIso = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ({ config, pkgs, ...}: {
-            # install the overlay
-            nixpkgs.overlays = [ alacritty-theme.overlays.default ];
-          })
-          ({ config, pkgs, ... }: {
-          })
-
-
-          ./system/postgres.nix
-          ./system/redis.nix
-          ./system/mariadb.nix
-          #./system/mongodb.nix
-          # ./system/cockroach.nix
-          ./system/hacking.nix
-          # ./system/cosmic.nix
-          ./system/database-tools.nix
-          ./system/fonts.nix
-          ./system/powermanagement.nix
-          ./system/networking.nix
-          ./system/virtualisation.nix
-          ./system/xdg.nix
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.michzuerch = import ./home/home.nix;
-          }
-        ];
-      };
-
     };
   };
 }
