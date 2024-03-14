@@ -51,8 +51,6 @@
           })
           ({ config, pkgs, ... }: {
           })
-
-
           ./system/postgres.nix
           ./system/redis.nix
           ./system/mariadb.nix
@@ -76,12 +74,12 @@
           }
         ];
       };
-    };
-    isoimage = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      isoimage = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         modules = [
           ./isoimage.nix
         ];
       };
+    };
   };
 }
