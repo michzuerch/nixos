@@ -13,10 +13,14 @@
     alacritty-theme = {
       url = "github:alexghr/alacritty-theme.nix";
     };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.alejandra.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/nur";
     };
@@ -27,7 +31,7 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, hyprland, alacritty-theme, nur } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, alacritty-theme, alejandra, nur } @ inputs:
   let
     system = "x86_64-linux";
 
@@ -45,6 +49,9 @@
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          {
+            environment.systemPackages = [alejandra.defaultPackage.${system}];
+          }
           ({ config, pkgs, ...}: {
             # install the overlay
             nixpkgs.overlays = [ alacritty-theme.overlays.default ];
