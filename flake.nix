@@ -66,6 +66,7 @@
           # ./system/cosmic.nix
           ./system/database-tools.nix
           ./system/fonts.nix
+          ./system/syncthing.nix
           ./system/powermanagement.nix
           ./system/networking.nix
           ./system/virtualisation.nix
@@ -97,6 +98,7 @@
           # ./system/cosmic.nix
           ./system/database-tools.nix
           ./system/fonts.nix
+          ./system/syncthing.nix
           ./system/powermanagement.nix
           ./system/networking.nix
           ./system/virtualisation.nix
