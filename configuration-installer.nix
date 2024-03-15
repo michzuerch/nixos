@@ -27,7 +27,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
-      timeout = 5;
+      # timeout = 5;
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [
@@ -115,17 +115,18 @@
       displayManager = {
         defaultSession = "hyprland";
         lightdm = {
-          enable = true;
+          enable = false;
         };
+        sddm.enable = true;
       };
       desktopManager = {
         xterm.enable = false;
         lxqt.enable = true;
-        pantheon.enable = true;
+        pantheon.enable = false;
       };
     };
     pipewire = {
-      enable = true;
+      enable = false;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
@@ -151,7 +152,7 @@
       ];
     };
     bluetooth.enable = true;
-    pulseaudio.enable = false;
+    pulseaudio.enable = true;
   };
 
   security = {
