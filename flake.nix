@@ -19,7 +19,7 @@
     };
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.alejandra.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
       url = "github:nix-community/nur";
@@ -52,6 +52,7 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.${system}];
           }
+          nur.nixosModules.nur
           ({ config, pkgs, ...}: {
             # install the overlay
             nixpkgs.overlays = [ alacritty-theme.overlays.default ];
