@@ -230,6 +230,7 @@
       gh
       gparted
       gsmartcontrol
+      intel-gpu-tools
       iw
       jdk21
       killall
