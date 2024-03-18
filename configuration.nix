@@ -131,7 +131,7 @@
       pulse.enable = true;
     };
     teamviewer.enable = true;
-    # desktopManager.plasma6.enable = true;
+    desktopManager.plasma6.enable = true;
     printing.enable = true;
     printing.drivers = [ pkgs.gutenprint pkgs.hplip ];
     gvfs.enable = true;

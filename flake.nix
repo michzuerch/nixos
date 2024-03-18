@@ -52,7 +52,6 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.${system}];
           }
-          nur.nixosModules.nur
           ({ config, pkgs, ...}: {
             # install the overlay
             nixpkgs.overlays = [ alacritty-theme.overlays.default ];
