@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
@@ -24,15 +24,36 @@
     nur = {
       url = "github:nix-community/nur";
     };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # sops-nix = {
     #   url = "github:mic92/sops-nix";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
 
-
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, alacritty-theme, alejandra, nur } @ inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    hyprland,
+    hyprland-plugins,
+    alacritty-theme,
+    alejandra,
+    nur,
+    nixos-hardware,
+    nixos-generators,
+    disko,
+  } @ inputs: let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
@@ -47,14 +68,18 @@
   in {
     nixosConfigurations = {
       ThinkpadNomad = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           {
             environment.systemPackages = [alejandra.defaultPackage.${system}];
           }
-          ({ config, pkgs, ...}: {
+          ({
+            config,
+            pkgs,
+            ...
+          }: {
             # install the overlay
-            nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+            nixpkgs.overlays = [alacritty-theme.overlays.default];
           })
           ./system/postgres.nix
           ./system/redis.nix
@@ -80,38 +105,125 @@
           }
         ];
       };
-      isoimage = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+      installerIso = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "x86_64-linux";
         modules = [
-          ./isoimage.nix
-          ({ config, pkgs, ...}: {
-            # install the overlay
-            nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix"
+          ({
+            pkgs,
+            lib,
+            ...
+          }: {
+            environment.systemPackages = with pkgs; [
+              _7zz
+              bash
+              bat
+              exfat
+              exfatprogs
+              fuse
+              fuse3
+              gh
+              git
+              gparted
+              hdparm
+              lm_sensors
+              lsd
+              lshw
+              neovim
+              nix-info
+              ntfs3g
+              nvme-cli
+              parted
+              pciutils
+              qemu
+              screen
+              sdparm
+              smartmontools # for diagnosing hard disks
+              socat
+              sshfs-fuse
+              tcpdump
+              tree
+              unzip
+              unzip
+              usbutils
+              vagrant
+              wget
+              xclip
+              xsel
+              zip
+              zip
+              zsh
+            ];
+            nixpkgs.config.allowUnfree = true;
+            nix.settings.experimental-features = ["nix-command" "flakes"];
+            boot.kernelPackages = pkgs.linuxPackages_latest;
+            boot.supportedFilesystems = lib.mkForce ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs"];
+            isoImage.isoBaseName = "ThinkpadNomad_installer";
+            isoImage.squashfsCompression = "lz4";
+            programs.zsh.enable = true;
+            users.defaultUserShell = pkgs.zsh;
+            fonts.packages = with pkgs; [
+              openmoji-color
+              noto-fonts-emoji
+              (nerdfonts.override { fonts = [ "FiraMono" "Go-Mono" ]; })
+            ];
+            fonts.fontconfig = {
+              enable = true;
+              defaultFonts = {
+                serif = [ "GoMono Nerd Font Mono" ];
+                sansSerif = [ "FiraCode Nerd Font Mono" ];
+                monospace = [ "FiraCode Nerd Font Mono" ];
+                emoji = [ "OpenMoji Color" "OpenMoji" "Noto Color Emoji" ];
+              };
+            };
+            fonts.fontDir.enable = true;
           })
-          ./system/postgres.nix
-          ./system/redis.nix
-          ./system/mariadb.nix
-          # ./system/mongodb.nix
-          # ./system/cockroach.nix
-          ./system/hacking.nix
-          # ./system/cosmic.nix
-          ./system/database-tools.nix
-          ./system/fonts.nix
-          ./system/syncthing.nix
-          ./system/powermanagement.nix
-          ./system/networking.nix
-          ./system/virtualisation.nix
-          ./system/xdg.nix
-          ./configuration-installer.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.michzuerch = import ./home/home.nix;
-          }
         ];
       };
+
+      diskoThinkpadNomad = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./hardware-configuration.nix
+          ./disko.nix
+          disko.nixosModules.disko
+        ];
+      };
+
+      # packages.x86_64-linux = {
+      #   vmware = nixos-generators.nixosGenerate {
+      #     system = "x86_64-linux";
+      #     modules = [
+      #       # you can include your own nixos configuration here, i.e.
+      #       # ./configuration.nix
+      #     ];
+      #     format = "vmware";
+      #
+      #     # optional arguments:
+      #     # explicit nixpkgs and lib:
+      #     # pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      #     # lib = nixpkgs.legacyPackages.x86_64-linux.lib;
+      #     # additional arguments to pass to modules:
+      #     # specialArgs = { myExtraArg = "foobar"; };
+      #
+      #     # you can also define your own custom formats
+      #     # customFormats = { "myFormat" = <myFormatModule>; ... };
+      #     # format = "myFormat";
+      #   };
+      #   vbox = nixos-generators.nixosGenerate {
+      #     system = "x86_64-linux";
+      #     format = "virtualbox";
+      #   };
+      # };
+
+      # diskoConfigurations = {
+      #   PCs = {
+      #     sda_swap = import ./disko/PCs/sda_swap.nix;
+      #   };
+      # };
     };
   };
 }

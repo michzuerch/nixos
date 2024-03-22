@@ -158,7 +158,8 @@
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
         "CTRL ALT, L, exec, hyprlock"
         "SUPER, Return, exec, alacritty"
-        "SUPER SHIFT, Return, exec, cool-retro-term"
+        "SUPER SHIFT, Return, exec, kitty"
+        "SUPER CTRL SHIFT, Return, exec, cool-retro-term"
         "SUPER, E, exec, nemo"
         "SUPER, D, exec, wofi --show drun --allow-images"
         "SUPER, period, exec, wofi-emoji"
@@ -249,6 +250,7 @@
     _JAVA_AWT_WM_NONREPARENTING = 1;
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_WEBRENDERER = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   home.packages = with pkgs; [

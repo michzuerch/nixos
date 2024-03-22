@@ -24,3 +24,8 @@ nix build .#nixosConfigurations.default.config.system.build.isoImage
 ''bash
 nixos-install --impure --flake https://github.com/michzuerch/nixos#ThinkpadNomad
 ''
+
+## installer with birdee
+
+sudo nix run github:nix-community/disko -- --mode disko --flake github:BirdeeHub/birdeeSystems#$hostname
+sudo nixos-install --flake github:BirdeeHub/birdeeSystems#$hostname

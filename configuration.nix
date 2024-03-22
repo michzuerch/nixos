@@ -1,10 +1,8 @@
 {pkgs, lib, inputs, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
   ];
-
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {
@@ -18,9 +16,7 @@
       options = "-delete-older-than 14d";
     };
   };
-
   zramSwap.enable = true;
-
   boot = {
     bootspec.enable = true;
     tmp.cleanOnBoot = true;
@@ -49,12 +45,6 @@
     initrd.verbose = false;
   };
 
-  # security = {
-  #   tpm2.enable = true;
-  #   tpm2.pkcs11.enable = true;
-  #   tpm2.tctiEnvironment.enable = true;
-  # };
-
   console.keyMap = "us";
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -82,13 +72,8 @@
     man.enable = true;
     info.enable = true;
   };
-
-  # Set your time zone.
   time.timeZone = "Europe/Busingen";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -157,6 +142,9 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+    tpm2.enable = true;
+    tpm2.pkcs11.enable = true;
+    tpm2.tctiEnvironment.enable = true;
     pam.services.hyprlock.text = "auth include login";
     sudo = {
       enable = true;
@@ -198,22 +186,13 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-
-  # security.pam.services.swaylock = {
-  #   text = ''
-  #     auth include login
-  #   '';
-  # };
-
   users.defaultUserShell = pkgs.zsh;
-
   users.users.michzuerch = {
     isNormalUser = true;
     description = "Michi";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
   };
-
   environment = {
     pathsToLink = [ "/libexec" ];
     variables = {};
