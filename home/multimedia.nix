@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # digikam
-    # ffmpeg-full
+    digikam
+    ffmpeg-full
     handbrake
     kodi-wayland
     libsForQt5.kdenlive

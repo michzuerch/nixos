@@ -16,7 +16,7 @@ nixos-install --flake .#<host>
 ## build iso for installer
 
 ''bash
-nix build .#nixosConfigurations.default.config.system.build.isoImage
+nix build .#nixosConfigurations.installerIso.config.system.build.isoImage
 ''
 
 ## install
