@@ -12,7 +12,7 @@
 
   users.extraGroups.vboxusers.members = [ "michzuerch" ];
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     consul
     # distrobox
     hashi-ui
@@ -21,8 +21,9 @@
     podman-compose
     podman-desktop
     podman-tui
-    virt-manager 
-    virt-viewer 
+    terraform
+    virt-manager
+    virt-viewer
   ];
   environment.variables = {
     DOCKER_HOST = "unix:///var/run/podman/podman.sock";

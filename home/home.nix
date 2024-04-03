@@ -24,6 +24,7 @@
     ./sh.nix
     ./starship.nix
     ./swaync.nix
+    ./timeshift.nix
     ./tmux.nix
     ./torrent.nix
     ./vscode.nix
