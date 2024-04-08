@@ -4,7 +4,9 @@
     package = pkgs.postgresql_16;
     ensureDatabases = [ "checkin" ];
     enableTCPIP = true;
-    port = 5432;
+    settings = {
+      port = 5432;
+    };
     authentication = pkgs.lib.mkOverride 10 ''
       # Generated file; do not edit!
       # TYPE  DATABASE        USER            ADDRESS                 METHOD

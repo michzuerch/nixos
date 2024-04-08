@@ -17,6 +17,9 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +55,7 @@
     hyprland,
     hyprland-plugins,
     alacritty-theme,
+    catppuccin,
     alejandra,
     nur,
     nixos-hardware,
@@ -101,6 +105,7 @@
           ./system/virtualisation.nix
           ./system/xdg.nix
           ./configuration.nix
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

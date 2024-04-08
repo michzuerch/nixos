@@ -45,6 +45,7 @@
     initrd.verbose = false;
   };
 
+  # catputtccin.flavour = "mocha";
   console.keyMap = "us";
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
