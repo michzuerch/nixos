@@ -111,7 +111,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.michzuerch = import ./home/home.nix;
+            home-manager.users.michzuerch = {
+              imports = [
+                ./home/home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
           }
         ];
       };
