@@ -43,7 +43,6 @@
     grex
     gtop
     krusader
-    neofetch
     ncdu
     procs
     pwgen

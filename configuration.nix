@@ -4,18 +4,6 @@
     ./hardware-configuration.nix
   ];
   nixpkgs.config.allowUnfree = true;
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
-      trusted-users = [ "root" "michzuerch" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "-delete-older-than 14d";
-    };
-  };
   zramSwap.enable = true;
 
   # catputtccin.flavour = "mocha";
@@ -109,7 +97,6 @@
         intel-compute-runtime
       ];
     };
-    bluetooth.enable = true;
     pulseaudio.enable = false;
   };
 
@@ -173,7 +160,6 @@
     systemPackages = with pkgs; [
       # jetbrains.jdk
       alacritty
-      bottom
       cryptomator
       curl
       dotnet-sdk_8

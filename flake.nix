@@ -1,5 +1,5 @@
 {
-  description = "nixos michzuerch march 2024";
+  description = "nixos michzuerch april 2024";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -92,6 +92,11 @@
           })
           ./system/linux-kernel.nix
           ./system/bootloader.nix
+          ./system/bluetooth.nix
+          ./system/environment-variables.nix
+          ./system/nix-settings.nix
+          ./system/gc.nix
+          ./system/info-fetchers.nix
           ./system/postgres.nix
           ./system/redis.nix
           ./system/mariadb.nix
