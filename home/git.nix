@@ -32,21 +32,12 @@
     };
     lazygit = {
       enable = true;
-      settings = {
-        gui.theme = {
-          lightTheme = false;
-      	  activeBorderColor = [ "white" "bold" ];
-	        inactiveBorderColor = [ "white" ];
-	        selectedLineBgColor = [ "reverse" "white" ];
-	      };
-      };
+      catppuccin.enable = true;
     };
   };
   home.packages = with pkgs; [
     act
     github-desktop
     github-runner
-    octofetch
-
   ];
 }

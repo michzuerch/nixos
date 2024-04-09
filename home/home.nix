@@ -18,6 +18,7 @@
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
+    ./pyprland.nix
     ./qt.nix
     ./ranger.nix
     ./rust.nix

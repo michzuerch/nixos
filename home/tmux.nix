@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.tmux = {
     enable = true;
+    catppuccin.enable = true;
     clock24 = true;
     shortcut = "a";
     baseIndex = 1;
