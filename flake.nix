@@ -90,6 +90,8 @@
             # install the overlay
             nixpkgs.overlays = [alacritty-theme.overlays.default];
           })
+          ./system/linux-kernel.nix
+          ./system/bootloader.nix
           ./system/postgres.nix
           ./system/redis.nix
           ./system/mariadb.nix

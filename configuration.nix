@@ -17,33 +17,6 @@
     };
   };
   zramSwap.enable = true;
-  boot = {
-    bootspec.enable = true;
-    tmp.cleanOnBoot = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      timeout = 5;
-      efi.canTouchEfiVariables = true;
-    };
-    kernelParams = [
-      "quiet"
-      "splash"
-      "vga=current"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-      "acpi_backlight=native"
-    ];
-    kernelModules = [
-      "v4l2loopback"
-    ];
-    extraModprobeConfig = ''
-      options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-    '';
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-  };
 
   # catputtccin.flavour = "mocha";
   console.keyMap = "us";

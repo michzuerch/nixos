@@ -35,6 +35,8 @@
     ./zsh.nix
   ];
 
+  catppuccin.flavour = "mocha";
+
   home.packages = with pkgs; [
     gnome.nautilus
     libsForQt5.dolphin

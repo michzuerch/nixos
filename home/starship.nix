@@ -1,50 +1,28 @@
-# [palettes.gruvbox_dark]
-# color_fg0 = '#fbf1c7'
-# color_bg1 = '#3c3836'
-# color_bg3 = '#665c54'
-# color_blue = '#458588'
-# color_aqua = '#689d6a'
-# color_green = '#98971a'
-# color_orange = '#d65d0e'
-# color_purple = '#b16286'
-# color_red = '#cc241d'
-# color_yellow = '#d79921'
-
 { pkgs, lib, ... }: {
   programs.starship = {
     enable = true;
+    catppuccin.enable = true;
     settings = {
       add_newline = true;
 
       format = lib.concatStrings [
-
-        "[](#d65d0e)"
-        "[ ](bg:#d65d0e fg:#fbf1c7)"
         "$username"
-        "[](bg:#d65d0e fg:#d65d0e)"
         "$directory"
-        "[](fg:#d65d0e bg:#689d6a)"
         "$git_branch"
         "$git_status"
-        "[](fg:#689d6a bg:#458588)"
         "$rust"
         "$golang"
         "$nodejs"
         "$bun"
         "$java"
-        "[](fg:#458588 bg:#665c54)"
         "$docker_context"
         "$sudo"
-        "[](fg:#665c54 bg:#3c3836)"
         "$cmd_duration"
-        "[ ](fg:#3c3836)"
         "$line_break"
         "$character"
       ];
 
       directory = {
-        style = "fg:#fbf1c7 bg:#d65d0e";
-        format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
         substitutions = {
@@ -58,8 +36,7 @@
 
       git_branch = {
         symbol = "";
-        style = "bg:#689d6a";
-        format = "[[ $symbol $branch ](fg:#fbf1c7 bg:#689d6a)]($style)";
+        format = "[[ $symbol $branch ]]($style)";
       };
 
       git_status = {
@@ -78,7 +55,7 @@
         style = "bg:#458588";
         format = "[[ $symbol ($version) ](fg:#fbf1c7 bg:#458588)]($style)";
       };
-      
+
       rust = {
         symbol = "";
         style = "bg:#458588";
