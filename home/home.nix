@@ -35,7 +35,7 @@
     ./zsh.nix
   ];
 
-  catppuccin.flavour = "mocha";
+  catppuccin.flavour = "latte";
 
   home.packages = with pkgs; [
     gnome.nautilus

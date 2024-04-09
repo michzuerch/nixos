@@ -6,7 +6,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
-      trusted-user = [ "root" "michzuerch" ];
+      trusted-users = [ "root" "michzuerch" ];
     };
   };
 }
