@@ -10,12 +10,12 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    alacritty-theme = {
-      url = "github:alexghr/alacritty-theme.nix";
-    };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
+    };
+    alacritty-theme = {
+      url = "github:alexghr/alacritty-theme.nix";
     };
     catppuccin = {
       url = "github:catppuccin/nix";

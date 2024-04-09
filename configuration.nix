@@ -173,7 +173,6 @@
       iw
       jdk21
       killall
-      lazygit
       libsForQt5.kate
       nil
       nodePackages_latest.eslint
@@ -187,11 +186,9 @@
       ripgrep-all
       sbctl
       smartmontools
-      st
       sudo-rs
       tealdeer
       teamviewer
-      tmux
       ventoy
       wavemon
       wev

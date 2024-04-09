@@ -37,21 +37,12 @@
       }
 
       window#waybar {
-        background-color: @base;
-        opacity: 0.75;
+        background-color: alpha(@base, 0.7);
+        border-top: solid alpha(@surface1, 0.7) 2;
         border-radius: 8px;
         color: @crust;
         transition-property: background-color;
         transition-duration: .2s;
-      }
-
-      window > box {
-        border-radius: 8px;
-        opacity: 0.94;
-      }
-
-      window#waybar.hidden {
-        opacity: 0.2;
       }
 
       button {
@@ -67,7 +58,7 @@
         color: @rosewater;
       }
 
-      #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
+      #window, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
         border-radius: 10px;
         color: @text;
         padding-left: 10px;
