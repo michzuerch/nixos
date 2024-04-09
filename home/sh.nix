@@ -4,7 +4,11 @@
     enableCompletion = true;
   };
 
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
   programs.fzf = {
     enable = true;
     defaultCommand =

@@ -4,12 +4,11 @@
   environment.systemPackages = with pkgs; [
     neofetch
     onefetch
-    ipfetch
+    # ipfetch
     cpufetch
-    starfetch
+    # starfetch
     octofetch
     htop
-    bottom
     gtop
     kmon
     # vulkan-tools
