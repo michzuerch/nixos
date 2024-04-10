@@ -1,10 +1,18 @@
 {
   description = "nixos michzuerch april 2024";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hardware = {
+      url = "github:NixOS/nixos-hardware/master";
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -13,9 +21,6 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
-    };
-    alacritty-theme = {
-      url = "github:alexghr/alacritty-theme.nix";
     };
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -27,61 +32,49 @@
     nur = {
       url = "github:nix-community/nur";
     };
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # sops-nix = {
-    #   url = "github:mic92/sops-nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    hyprland,
-    hyprland-plugins,
-    alacritty-theme,
-    catppuccin,
-    alejandra,
-    nur,
-    nixos-hardware,
-    nixos-generators,
-    sops,
-    disko,
-  } @ inputs: let
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
+  outputs = { self, nixpkgs, home-manager, catppuccin, alejandra, disko, ... } @ inputs:
+  let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    systems = [
+      "x86_64-linux"
+      "aarch64-darwin"
+    ];
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs systems (system: import nixpkgs {
       inherit system;
-      # overlay = [
-      #   inputs.nur.overlay
-      # ];
-      config = {
-        allowUnfree = true;
-      };
-    };
-  in {
+      config.allowUnfree = true;
+    });
+  in
+  {
+    inherit lib;
+
+    # Custom modules to enable special functionality for nixos or home-manager oriented configs.
+    # nixosModules = import ./modules/nixos;
+    # homeManagerModules = import ./modules/home-manager;
+
+    # Custom modifications/overrides to upstream packages.
+    # overlays = import ./overlays { inherit inputs outputs; };
+
+    # Your custom packages meant to be shared or upstreamed.
+    # Accessible through 'nix build', 'nix shell', etc
+    # packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+
+    # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
+    formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
+
+    # Shell configured with packages that are typically only needed when working on or with nix-config.
+    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+
     nixosConfigurations = {
-      ThinkpadNomad = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+      ThinkpadNomad = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
         modules = [
-          {
-            environment.systemPackages = [alejandra.defaultPackage.${system}];
-          }
+          # {
+          #   environment.systemPackages = [alejandra.defaultPackage.${system}];
+          # }
           ./system/linux-kernel.nix
           ./system/bootloader.nix
           ./system/bluetooth.nix
@@ -180,15 +173,15 @@
             fonts.packages = with pkgs; [
               openmoji-color
               noto-fonts-emoji
-              (nerdfonts.override { fonts = [ "FiraMono" "Go-Mono" ]; })
+              (nerdfonts.override {fonts = ["FiraMono" "Go-Mono"];})
             ];
             fonts.fontconfig = {
               enable = true;
               defaultFonts = {
-                serif = [ "GoMono Nerd Font Mono" ];
-                sansSerif = [ "FiraCode Nerd Font Mono" ];
-                monospace = [ "FiraCode Nerd Font Mono" ];
-                emoji = [ "OpenMoji Color" "OpenMoji" "Noto Color Emoji" ];
+                serif = ["GoMono Nerd Font Mono"];
+                sansSerif = ["FiraCode Nerd Font Mono"];
+                monospace = ["FiraCode Nerd Font Mono"];
+                emoji = ["OpenMoji Color" "OpenMoji" "Noto Color Emoji"];
               };
             };
             fonts.fontDir.enable = true;
