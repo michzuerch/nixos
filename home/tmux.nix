@@ -20,15 +20,15 @@
       # tmuxPlugins.tmux-fzf
     ];
     extraConfig = ''
-    set -g default-terminal "xterm-256color"
-    set -ga terminal-overrides ",*256col*:Tc"
-    set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-    set-environment -g COLORTERM "truecolor"
-    set-option -g mouse on
-    # easy-to-remember split pane commands
-    bind | split-window -h -c "#{pane_current_path}"
-    bind - split-window -v -c "#{pane_current_path}"
-    bind c new-window -c "#{pane_current_path}"
+      set -g default-terminal "xterm-256color"
+      set -ga terminal-overrides ",*256col*:Tc"
+      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+      set-environment -g COLORTERM "truecolor"
+      set-option -g mouse on
+      # easy-to-remember split pane commands
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
     '';
   };
 

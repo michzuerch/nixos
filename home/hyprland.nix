@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ...}:
+{ config, lib, pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -220,7 +220,7 @@
         "ALT, Tab, cyclenext"
         "ALT, Tab, bringactivetotop"
       ];
-      binde= [
+      binde = [
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

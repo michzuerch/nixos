@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.waybar = {
     enable = true;
     style = ''
@@ -101,7 +101,7 @@
           format = "{icon} {volume}%";
           format-muted = "󰖁 Muted";
           format-icons = {
-            default = ["" "" ""];
+            default = [ "" "" "" ];
           };
           on-click = "pavucontrol";
           on-click-right = "pamixer -t";

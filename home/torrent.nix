@@ -3,6 +3,6 @@
   home.packages = with pkgs; [
     qbittorrent
     transmission
-    transmission-remote-gtk 
+    transmission-remote-gtk
   ];
 }
