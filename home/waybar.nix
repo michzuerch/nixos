@@ -58,7 +58,7 @@
         color: @rosewater;
       }
 
-      #window, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
+      #window, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-weather, #custom-powermenu {
         border-radius: 10px;
         color: @text;
         padding-left: 10px;
