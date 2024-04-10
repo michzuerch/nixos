@@ -5,7 +5,10 @@
       enable = true;
       userName = "Michael Zuercher";
       userEmail = "michzuerch@gmail.com";
-      delta.enable = true;
+      delta = {
+        enable = true;
+        catppuccin.enable = true;
+      };
       lfs.enable = true;
       #signing = {
       #  key = "523D5DC389D273BC";
@@ -32,21 +35,12 @@
     };
     lazygit = {
       enable = true;
-      settings = {
-        gui.theme = {
-          lightTheme = false;
-      	  activeBorderColor = [ "white" "bold" ];
-	        inactiveBorderColor = [ "white" ];
-	        selectedLineBgColor = [ "reverse" "white" ];
-	      };
-      };
+      catppuccin.enable = true;
     };
   };
   home.packages = with pkgs; [
     act
     github-desktop
     github-runner
-    octofetch
-
   ];
 }

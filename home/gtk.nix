@@ -1,6 +1,10 @@
 { pkgs, ... }: {
   gtk = {
     enable = true;
+    theme = {
+      name = "adwaita-dark";
+      package = pkgs.adw-gtk3;
+    };
     font = {
       name = "Ubuntu";
       size = 12;
@@ -13,19 +17,15 @@
       name = "Quintom_Snow"; #Quintom_Ink
       size = 24;
     };
-    theme = {
-      package = pkgs.gnome3.adwaita-icon-theme;
-      name = "Adwaita-dark";
-    };
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "elementary-Xfce-dark";
+      package = pkgs.elementary-xfce-icon-theme;
     };
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 

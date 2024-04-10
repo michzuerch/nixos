@@ -1,4 +1,4 @@
-{pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -217,7 +217,7 @@
 
   environment = {
     pathsToLink = [ "/libexec" ];
-    variables = {};
+    variables = { };
     systemPackages = with pkgs; [
       # jetbrains.jdk
       alacritty

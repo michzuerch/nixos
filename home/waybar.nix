@@ -1,28 +1,48 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.waybar = {
     enable = true;
     style = ''
+      @define-color rosewater #f2d5cf;
+      @define-color flamingo #eebebe;
+      @define-color pink #f4b8e4;
+      @define-color mauve #ca9ee6;
+      @define-color red #e78284;
+      @define-color maroon #ea999c;
+      @define-color peach #ef9f76;
+      @define-color yellow #e5c890;
+      @define-color green #a6d189;
+      @define-color teal #81c8be;
+      @define-color sky #99d1db;
+      @define-color sapphire #85c1dc;
+      @define-color blue #8caaee;
+      @define-color lavender #babbf1;
+      @define-color text #c6d0f5;
+      @define-color subtext1 #b5bfe2;
+      @define-color subtext0 #a5adce;
+      @define-color overlay2 #949cbb;
+      @define-color overlay1 #838ba7;
+      @define-color overlay0 #737994;
+      @define-color surface2 #626880;
+      @define-color surface1 #51576d;
+      @define-color surface0 #414559;
+      @define-color base #303446;
+      @define-color mantle #292c3c;
+      @define-color crust #232634;
+
+
       * {
+        border: none;
         font-family: 'Fira Code', 'Symbols Nerd Font Mono';
         font-size: 16px;
       }
 
       window#waybar {
-        background-color: #081a00;
-        opacity: 0.75;
+        background-color: alpha(@base, 0.7);
+        border-top: solid alpha(@surface1, 0.7) 2;
         border-radius: 8px;
-        color: #ffffff;
+        color: @crust;
         transition-property: background-color;
         transition-duration: .2s;
-      }
-
-      window > box {
-        border-radius: 8px;
-        opacity: 0.94;
-      }
-
-      window#waybar.hidden {
-        opacity: 0.2;
       }
 
       button {
@@ -34,19 +54,13 @@
       }
 
       #workspaces button {
-          padding: 0 7px;
-          background-color: transparent;
-          color: #00d5ff;
-      }
-
-      #workspaces button {
         padding: 0 2px;
-        color: #b4befe;
+        color: @rosewater;
       }
 
-      #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
+      #window, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #idle_inhibitor, #custom-powermenu {
         border-radius: 10px;
-        color: #cdd6f4;
+        color: @text;
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 15px;
@@ -87,7 +101,7 @@
           format = "{icon} {volume}%";
           format-muted = "󰖁 Muted";
           format-icons = {
-            default = ["" "" ""];
+            default = [ "" "" "" ];
           };
           on-click = "pavucontrol";
           on-click-right = "pamixer -t";

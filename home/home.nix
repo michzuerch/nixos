@@ -18,12 +18,14 @@
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
+    ./pyprland.nix
     ./qt.nix
     ./ranger.nix
     ./rust.nix
     ./sh.nix
     ./starship.nix
     ./swaync.nix
+    ./timeshift.nix
     ./tmux.nix
     ./torrent.nix
     ./vscode.nix
@@ -33,6 +35,8 @@
     ./wofi.nix
     ./zsh.nix
   ];
+
+  catppuccin.flavour = "frappe";
 
   home.packages = with pkgs; [
     gnome.nautilus

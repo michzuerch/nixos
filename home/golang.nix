@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-      go
-      gotools
-      golangci-lint
+    go
+    gotools
+    golangci-lint
   ];
 }

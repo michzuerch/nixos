@@ -1,16 +1,27 @@
-{ config, lib, pkgs, inputs, ...}:
+{ config, lib, pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    catppuccin.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # plugins = [
-    #   inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
-    # ];
+    plugins = [
+      inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
+    ];
     xwayland = {
       enable = true;
     };
     systemd.enable = true;
     settings = {
+      "plugin:hyprexpo" = {
+        columns = 3;
+        gap_size = 5;
+        bg_col = "rgb(111111)";
+        workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+        enable_gesture = true; # laptop touchpad, 4 fingers
+        gesture_distance = 300; # how far is the "max"
+        gesture_positive = true; # positive = swipe down. Negative = swipe up.
+      };
+
       # "plugin:borders-plus-plus" = {
       #   add_borders = 1;
       #   "col.border_1" = "rgb(ffffff)";
@@ -19,7 +30,6 @@
       #   border_size_2 = -1;
       #   natural_rounding = "yes";
       # };
-      # exec-once = ''${startup-script}/bin/start'';
       exec-once = [
         "waybar"
         "swaync"
@@ -158,7 +168,8 @@
         "SUPER SHIFT, X, exec, hyprpicker -a -n"
         "CTRL ALT, L, exec, hyprlock"
         "SUPER, Return, exec, alacritty"
-        "SUPER SHIFT, Return, exec, cool-retro-term"
+        "SUPER SHIFT, Return, exec, kitty"
+        "SUPER CTRL SHIFT, Return, exec, cool-retro-term"
         "SUPER, E, exec, nemo"
         "SUPER, D, exec, wofi --show drun --allow-images"
         "SUPER, period, exec, wofi-emoji"
@@ -189,14 +200,13 @@
         "SUPER, tab, changegroupactive,"
         "SUPER, grave, togglespecialworkspace,"
         "SUPERSHIFT, grave, movetoworkspace, special"
+        "SUPER, O, hyprexpo:expo, toggle"
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
         "SUPER, 4, workspace, 4"
         "SUPER, 5, workspace, 5"
         "SUPER, 6, workspace, 6"
-        "SUPER, 7, workspace, 7"
-        "SUPER, 8, workspace, 8"
         "SUPER ALT, up, workspace, e+1"
         "SUPER ALT, down, workspace, e-1"
         "SUPER SHIFT, 1, movetoworkspace, 1"
@@ -205,14 +215,12 @@
         "SUPER SHIFT, 4, movetoworkspace, 4"
         "SUPER SHIFT, 5, movetoworkspace, 5"
         "SUPER SHIFT, 6, movetoworkspace, 6"
-        "SUPER SHIFT, 7, movetoworkspace, 7"
-        "SUPER SHIFT, 8, movetoworkspace, 8"
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
         "ALT, Tab, cyclenext"
         "ALT, Tab, bringactivetotop"
       ];
-      binde= [
+      binde = [
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -249,6 +257,7 @@
     _JAVA_AWT_WM_NONREPARENTING = 1;
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_WEBRENDERER = "1";
+    MOZ_ENABLE_WAYLAND = "1 firefox";
   };
 
   home.packages = with pkgs; [

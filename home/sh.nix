@@ -1,10 +1,14 @@
-{  pkgs, ... }: {
+{ pkgs, ... }: {
   programs.bash = {
     enable = true;
     enableCompletion = true;
   };
 
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
   programs.fzf = {
     enable = true;
     defaultCommand =
@@ -43,7 +47,6 @@
     grex
     gtop
     krusader
-    neofetch
     ncdu
     procs
     pwgen
