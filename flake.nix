@@ -82,14 +82,6 @@
           {
             environment.systemPackages = [alejandra.defaultPackage.${system}];
           }
-          ({
-            config,
-            pkgs,
-            ...
-          }: {
-            # install the overlay
-            nixpkgs.overlays = [alacritty-theme.overlays.default];
-          })
           ./system/linux-kernel.nix
           ./system/bootloader.nix
           ./system/bluetooth.nix

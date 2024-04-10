@@ -5,7 +5,10 @@
       enable = true;
       userName = "Michael Zuercher";
       userEmail = "michzuerch@gmail.com";
-      delta.enable = true;
+      delta = {
+        enable = true;
+        catppuccin.enable = true;
+      };
       lfs.enable = true;
       #signing = {
       #  key = "523D5DC389D273BC";
