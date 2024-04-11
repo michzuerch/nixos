@@ -71,6 +71,9 @@
         pantheon.enable = true;
       };
     };
+    hardware = {
+      openrgb.enable = true;
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;
