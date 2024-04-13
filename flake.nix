@@ -50,19 +50,6 @@
     in
     {
       inherit lib;
-
-      # Custom modules to enable special functionality for nixos or home-manager oriented configs.
-      # nixosModules = import ./modules/nixos;
-      # homeManagerModules = import ./modules/home-manager;
-
-      # Custom modifications/overrides to upstream packages.
-      # overlays = import ./overlays { inherit inputs outputs; };
-
-      # Your custom packages meant to be shared or upstreamed.
-      # Accessible through 'nix build', 'nix shell', etc
-      # packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-
-      # Nix formatter available through 'nix fmt' https://nix-community.github.io/nixpkgs-fmt
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
       # Shell configured with packages that are typically only needed when working on or with nix-config.

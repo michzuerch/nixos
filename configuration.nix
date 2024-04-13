@@ -59,18 +59,18 @@
         options = "";
       };
       libinput.enable = true;
-      displayManager = {
-        defaultSession = "hyprland";
-        lightdm = {
-          enable = true;
-        };
-      };
+      # displayManager = {
+      #   lightdm = {
+      #     enable = true;
+      #   };
+      # };
       desktopManager = {
         xterm.enable = false;
         lxqt.enable = true;
         pantheon.enable = true;
       };
     };
+    displayManager.defaultSession = "hyprland";
     hardware = {
       openrgb.enable = true;
     };
