@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # swaync configuration file
   #home.file.".config/swaync/config.json".source = ./swaync/config.json;
   home.file.".config/swaync/config.json".text = ''

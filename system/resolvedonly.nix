@@ -1,5 +1,10 @@
-{ config, pkgs, lib, options, ... }: {
-
+{
+  config,
+  pkgs,
+  lib,
+  options,
+  ...
+}: {
   # see https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/system/boot/resolved.nix
   # man resolved.conf
   # man systemd-resolved.service
@@ -8,7 +13,7 @@
   services.resolved = {
     enable = true;
     dnssec = "true";
-    domains = [ "~." ]; # "use as default interface for all requests"
+    domains = ["~."]; # "use as default interface for all requests"
     # (see man resolved.conf)
     # let Avahi handle mDNS publication
     extraConfig = ''

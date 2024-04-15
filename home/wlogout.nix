@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.file.".config/wlogout/layout".text = ''
     {
         "label" : "lock",
@@ -115,7 +115,6 @@
     	background-image: image(url("icons/reboot.png"));
     }
   '';
-
 
   home.file.".config/wlogout/icons" = {
     source = ./wlogout/icons;

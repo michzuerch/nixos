@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [

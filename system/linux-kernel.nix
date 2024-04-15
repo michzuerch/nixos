@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Linux Kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelParams = [
@@ -24,7 +24,7 @@
   #            '';
   # } ];
 
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
+  systemd.package = pkgs.systemd.override {withSelinux = true;};
 
   environment.systemPackages = with pkgs; [
     policycoreutils

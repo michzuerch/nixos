@@ -1,18 +1,19 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
 
-    # https://docs.helix-editor.com/languages.html 
+    # https://docs.helix-editor.com/languages.html
     languages = {
-      language = [{
-        name = "nix";
-        auto-format = false;
-        formatter.command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-      }];
+      language = [
+        {
+          name = "nix";
+          auto-format = false;
+          formatter.command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+        }
+      ];
     };
 
     settings = {
-
       editor = {
         indent-guides = {
           render = true;
@@ -31,8 +32,8 @@
       theme = "catppuccin_mocha";
 
       keys = {
-        normal = { ";" = "command_mode"; };
-        select = { ";" = "command_mode"; };
+        normal = {";" = "command_mode";};
+        select = {";" = "command_mode";};
       };
     };
   };

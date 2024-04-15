@@ -1,5 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     catppuccin.enable = true;

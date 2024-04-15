@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     #davinci-resolve didn't work because of GPU?
     darktable

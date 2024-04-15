@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     # ./latex.nix
     ./alacritty.nix
@@ -49,4 +49,3 @@
   home.homeDirectory = "/home/michzuerch";
   home.stateVersion = "24.05";
 }
-
