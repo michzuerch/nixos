@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   virtualisation = {
     podman = {
       enable = true;
@@ -10,7 +10,7 @@
     waydroid.enable = true;
   };
 
-  users.extraGroups.vboxusers.members = [ "michzuerch" ];
+  users.extraGroups.vboxusers.members = ["michzuerch"];
 
   environment.systemPackages = with pkgs; [
     consul

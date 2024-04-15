@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.cockroachdb = {
     enable = true;
     insecure = true;

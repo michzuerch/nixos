@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_16;
-    ensureDatabases = [ "checkin" ];
+    ensureDatabases = ["checkin"];
     enableTCPIP = true;
     settings = {
       port = 5432;

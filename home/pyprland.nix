@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.file.".config/hypr/pyprland.json".text = ''
     {
       "pyprland": {

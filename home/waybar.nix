@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     style = ''
@@ -101,7 +101,7 @@
           format = "{icon} {volume}%";
           format-muted = "󰖁 Muted";
           format-icons = {
-            default = [ "" "" "" ];
+            default = ["" "" ""];
           };
           on-click = "pavucontrol";
           on-click-right = "pamixer -t";
@@ -167,7 +167,7 @@
         };
         backlight = {
           format = " {icon} {percent} ";
-          format-icons = [ "󰃟" ];
+          format-icons = ["󰃟"];
           on-scroll-up = "brightnessctl set +10%";
           on-scroll-down = "brightnessctl set 10%-";
           on-click = "brightnessctl set 0";

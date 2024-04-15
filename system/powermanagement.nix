@@ -1,8 +1,13 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   powerManagement.cpuFreqGovernor = "performance";
   powerManagement.powertop.enable = true;
 
-  systemd.packages = with pkgs; [ auto-cpufreq ];
+  systemd.packages = with pkgs; [auto-cpufreq];
 
   services = {
     system76-scheduler.settings.cfsProfiles.enable = true;

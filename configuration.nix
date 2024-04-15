@@ -1,5 +1,9 @@
-{ pkgs, lib, inputs, ... }:
 {
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -83,7 +87,7 @@
     teamviewer.enable = true;
     desktopManager.plasma6.enable = true;
     printing.enable = true;
-    printing.drivers = [ pkgs.gutenprint pkgs.hplip ];
+    printing.drivers = [pkgs.gutenprint pkgs.hplip];
     gvfs.enable = true;
     fstrim.enable = true;
     flatpak.enable = true;
@@ -112,39 +116,41 @@
     pam.services.hyprlock.text = "auth include login";
     sudo = {
       enable = true;
-      extraRules = [{
-        commands = [
-          {
-            command = "${pkgs.systemd}/bin/systemctl suspend";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/poweroff";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nixos-rebuild";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.neovim}/bin/nvim";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/systemctl";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nix-channel";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-        groups = [ "wheel" ];
-      }];
+      extraRules = [
+        {
+          commands = [
+            {
+              command = "${pkgs.systemd}/bin/systemctl suspend";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/reboot";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/poweroff";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "/run/current-system/sw/bin/nixos-rebuild";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.neovim}/bin/nvim";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/systemctl";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "/run/current-system/sw/bin/nix-channel";
+              options = ["NOPASSWD"];
+            }
+          ];
+          groups = ["wheel"];
+        }
+      ];
     };
   };
 
@@ -155,11 +161,11 @@
     isNormalUser = true;
     description = "Michi";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
+    extraGroups = ["networkmanager" "wheel" "tss" "video" "wireshark" "podman"];
   };
   environment = {
-    pathsToLink = [ "/libexec" ];
-    variables = { };
+    pathsToLink = ["/libexec"];
+    variables = {};
     systemPackages = with pkgs; [
       # jetbrains.jdk
       alacritty
