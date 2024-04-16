@@ -66,31 +66,29 @@
       ThinkpadNomad = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # {
-          #   environment.systemPackages = [alejandra.defaultPackage.${system}];
-          # }
-          ./system/linux-kernel.nix
-          ./system/bootloader.nix
-          ./system/bluetooth.nix
-          ./system/environment-variables.nix
-          ./system/nix-settings.nix
-          ./system/gc.nix
-          ./system/info-fetchers.nix
-          ./system/postgres.nix
-          ./system/redis.nix
-          ./system/mariadb.nix
-          # ./system/mongodb.nix
           # ./system/cockroach.nix
-          ./system/hacking.nix
           # ./system/cosmic.nix
+          # ./system/mongodb.nix
+          ./configuration.nix
+          ./system/bluetooth.nix
+          ./system/bootloader.nix
           ./system/database-tools.nix
+          ./system/environment-variables.nix
           ./system/fonts.nix
-          ./system/syncthing.nix
-          ./system/powermanagement.nix
+          ./system/gc.nix
+          ./system/hacking.nix
+          ./system/info-fetchers.nix
+          ./system/linux-kernel.nix
+          ./system/mariadb.nix
           ./system/networking.nix
+          ./system/nix-settings.nix
+          ./system/openssh.nix
+          ./system/postgres.nix
+          ./system/powermanagement.nix
+          ./system/redis.nix
+          ./system/syncthing.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
-          ./configuration.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
@@ -193,38 +191,6 @@
           disko.nixosModules.disko
         ];
       };
-
-      # packages.x86_64-linux = {
-      #   vmware = nixos-generators.nixosGenerate {
-      #     system = "x86_64-linux";
-      #     modules = [
-      #       # you can include your own nixos configuration here, i.e.
-      #       # ./configuration.nix
-      #     ];
-      #     format = "vmware";
-      #
-      #     # optional arguments:
-      #     # explicit nixpkgs and lib:
-      #     # pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      #     # lib = nixpkgs.legacyPackages.x86_64-linux.lib;
-      #     # additional arguments to pass to modules:
-      #     # specialArgs = { myExtraArg = "foobar"; };
-      #
-      #     # you can also define your own custom formats
-      #     # customFormats = { "myFormat" = <myFormatModule>; ... };
-      #     # format = "myFormat";
-      #   };
-      #   vbox = nixos-generators.nixosGenerate {
-      #     system = "x86_64-linux";
-      #     format = "virtualbox";
-      #   };
-      # };
-
-      # diskoConfigurations = {
-      #   PCs = {
-      #     sda_swap = import ./disko/PCs/sda_swap.nix;
-      #   };
-      # };
     };
   };
 }
