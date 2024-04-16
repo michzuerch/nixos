@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   services.openssh = {
     enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = true;
-    port = 22;
-    protocol = "2";
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 }
