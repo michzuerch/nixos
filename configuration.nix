@@ -193,6 +193,7 @@
       pciutils
       protonvpn-cli
       protonvpn-gui
+      pstree
       python3
       ranger
       ripgrep
