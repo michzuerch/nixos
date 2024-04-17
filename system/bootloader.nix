@@ -13,6 +13,9 @@
       timeout = 5;
       systemd-boot.memtest86.enable = true;
       systemd-boot.enable = true;
+      # grub.enable = true;
+      # grub.efiSupport = true;
+      # grub.efiInstallAsRemovable = true;
       efi.canTouchEfiVariables = true;
     };
     plymouth = {
