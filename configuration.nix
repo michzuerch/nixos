@@ -173,6 +173,7 @@
     systemPackages = with pkgs; [
       # jetbrains.jdk
       alacritty
+      atool
       cryptomator
       curl
       dotnet-sdk_8
@@ -186,9 +187,11 @@
       iw
       jdk21
       killall
+      libarchive
       libsForQt5.kate
       nil
       nodePackages_latest.eslint
+      p7zip
       partition-manager
       pciutils
       protonvpn-cli
@@ -203,6 +206,7 @@
       sudo-rs
       tealdeer
       teamviewer
+      unrar
       ventoy
       wavemon
       wev
