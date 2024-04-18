@@ -177,7 +177,9 @@
       cryptomator
       curl
       dotnet-sdk_8
+      elinks
       eslint_d
+      exiftool
       fzf
       gdu
       gh
@@ -189,11 +191,17 @@
       killall
       libarchive
       libsForQt5.kate
+      lynx
+      mediainfo
+      mupdf
       nil
       nodePackages_latest.eslint
+      odt2txt
       p7zip
+      pandoc
       partition-manager
       pciutils
+      poppler_utils
       protonvpn-cli
       protonvpn-gui
       pstree
@@ -208,9 +216,11 @@
       teamviewer
       unrar
       ventoy
+      w3m
       wavemon
       wev
       wget
+      xlsx2csv
     ];
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
