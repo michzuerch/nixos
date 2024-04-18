@@ -11,4 +11,8 @@
   # environment.variables.CLIPBOARD_NOPROGRESS = "1";
   # environment.variables.CLIPBOARD_NOREMOTE = "1";
   environment.variables.CLIPBOARD_SILENT = "1";
+
+  environment.variables.EDITOR = "nvim";
+  environment.variables.VISUAL = "nvim";
+
 }
