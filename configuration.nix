@@ -192,7 +192,6 @@
       libarchive
       libsForQt5.kate
       lynx
-      mc
       mediainfo
       mupdf
       nil

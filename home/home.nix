@@ -13,6 +13,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./kitty.nix
+    ./mc.nix
     ./messenger.nix
     ./multimedia.nix
     ./node.nix
