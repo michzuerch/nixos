@@ -8,7 +8,7 @@
     catppuccin.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
+      # inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
     ];
     xwayland = {
       enable = true;
@@ -203,7 +203,7 @@
         "SUPER, tab, changegroupactive,"
         "SUPER, grave, togglespecialworkspace,"
         "SUPERSHIFT, grave, movetoworkspace, special"
-        "SUPER, O, hyprexpo:expo, toggle"
+        # "SUPER, O, hyprexpo:expo, toggle"
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"
