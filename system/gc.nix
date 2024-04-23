@@ -6,9 +6,9 @@
   # `nix-collect-garbage -d` for deleting old generations of user profiles
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 7d";
+  # };
 }
