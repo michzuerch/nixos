@@ -11,7 +11,7 @@
     };
     loader = {
       timeout = 5;
-      systemd-boot.memtest86.enable = true;
+      # systemd-boot.memtest86.enable = true;
       systemd-boot.enable = true;
       # grub.enable = true;
       # grub.efiSupport = true;
