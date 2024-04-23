@@ -7,9 +7,4 @@
       flake = "/home/michzuerch/Source/nixos";
     };
   };
-  # home.packages = with pkgs; [
-  #   act
-  #   github-desktop
-  #   github-runner
-  # ];
 }

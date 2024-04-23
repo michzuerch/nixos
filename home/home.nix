@@ -16,7 +16,6 @@
     ./mc.nix
     ./messenger.nix
     ./multimedia.nix
-    ./nh.nix
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix

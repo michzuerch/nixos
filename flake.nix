@@ -81,6 +81,7 @@
           ./system/linux-kernel.nix
           ./system/mariadb.nix
           ./system/networking.nix
+          ./system/nh.nix
           ./system/nix-settings.nix
           ./system/openssh.nix
           ./system/postgres.nix
