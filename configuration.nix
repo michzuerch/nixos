@@ -169,7 +169,9 @@
   };
   environment = {
     pathsToLink = ["/libexec"];
-    variables = {};
+    sessionVariables = {
+      FLAKE = "/home/michzuerch/Source/nixos";
+    };
     systemPackages = with pkgs; [
       # jetbrains.jdk
       alacritty
@@ -194,6 +196,7 @@
       lynx
       mediainfo
       mupdf
+      nh
       nil
       nodePackages_latest.eslint
       odt2txt
@@ -223,7 +226,8 @@
       xlsx2csv
     ];
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
+      # rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
+      rebuild = "nh os switch /home/michzuerch/Source/nixos";
     };
   };
 
