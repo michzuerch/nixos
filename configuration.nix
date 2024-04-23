@@ -196,7 +196,6 @@
       lynx
       mediainfo
       mupdf
-      nh
       nil
       nodePackages_latest.eslint
       odt2txt
