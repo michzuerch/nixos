@@ -29,6 +29,10 @@
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/nur";
     };
@@ -40,6 +44,8 @@
     home-manager,
     catppuccin,
     alejandra,
+    nixvim,
+    nur,
     disko,
     ...
   } @ inputs: let
@@ -99,6 +105,7 @@
             home-manager.users.michzuerch = {
               imports = [
                 ./home/home.nix
+		nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
