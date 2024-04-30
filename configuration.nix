@@ -213,6 +213,7 @@
       ripgrep-all
       sbctl
       smartmontools
+      silver-searcher
       sudo-rs
       tealdeer
       teamviewer
