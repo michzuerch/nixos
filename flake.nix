@@ -105,7 +105,7 @@
             home-manager.users.michzuerch = {
               imports = [
                 ./home/home.nix
-		nixvim.homeManagerModules.nixvim
+                nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
