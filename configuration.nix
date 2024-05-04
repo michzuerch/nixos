@@ -64,11 +64,11 @@
       };
       libinput.enable = true;
       # Default for nixos?
-      # displayManager = {
-      #   lightdm = {
-      #     enable = true;
-      #   };
-      # };
+      displayManager = {
+        sddm = {
+          enable = true;
+        };
+      };
       desktopManager = {
         xterm.enable = false;
         lxqt.enable = true;

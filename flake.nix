@@ -47,6 +47,7 @@
     nixvim,
     nur,
     disko,
+    hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -97,6 +98,7 @@
           ./system/virtualisation.nix
           ./system/xdg.nix
           catppuccin.nixosModules.catppuccin
+	  #hardware.nixosModules.???
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

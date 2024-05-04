@@ -23,10 +23,10 @@
     plugins = {
       gitsigns.enable = true;
       undotree.enable = true;
-      nvimtree.enable = true;
+      nvim-tree.enable = true;
       lightline = {
-    	enable = true;
-	colorscheme = "catppuccin";
+    		enable = true;
+				colorscheme = "catppuccin";
       };
       lsp = {
         enable = true;
@@ -42,34 +42,18 @@
       luasnip.enable = true;
       nvim-cmp = {
         enable = true;
-        autoEnableSources = true;
-        #	sources = [
-        #	  { name = "nvim_lsp"; }
-        #	  { name = "path"; }
-        #	  { name = "buffer"; }
-        #	];
-        #mapping = {
-        #  "<CR>" = "cmp.mapping.confirm({ select = true })";
-        #  "<Tab>" = {
-        #    action = ''
-        #      function(fallback)
-        #	if cmp.visible() then
-        #	  cmp.select_next_item()
-        #	elseif luasnip.expandable() then
-        #	  luasnip.expand()
-        #	elseif luasnip.expand_or_jumpable() then
-        #	  luasnip.expand_or_jump()
-        #	elseif check_backspace() then
-        #	  fallback()
-        #	else
-        #	  fallback()
-        #	end
-        #     end
-        #    '';
-        #    modes = [ "i" "s" ];
-        #  };
-        #};
-      };
+				snippet.expand = "luasnip";
+      	mapping = {
+        	"<C-d>" = "cmp.mapping.scroll_docs(-4)";
+        	"<C-f>" = "cmp.mapping.scroll_docs(4)";
+       		"<C-e>" = "cmp.mapping.close()";
+        	"<C-space>" = "cmp.mapping.complete()";
+        	"<C-y>" = {
+          	action = "cmp.mapping.confirm({
+                                select = true, behavior = cmp.ConfirmBehavior.Insert })";
+        	};
+      	};
+     	};
     };
     colorschemes.catppuccin.enable = true;
     keymaps = [
