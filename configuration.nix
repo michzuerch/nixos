@@ -53,6 +53,12 @@
   };
 
   services = {
+		libinput.enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+      };
+    };
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
@@ -62,17 +68,11 @@
         variant = "";
         options = "";
       };
-      libinput.enable = true;
       # Default for nixos?
-      displayManager = {
-        sddm = {
-          enable = true;
-        };
-      };
       desktopManager = {
         xterm.enable = false;
         lxqt.enable = true;
-        pantheon.enable = true;
+      #  pantheon.enable = true;
       };
     };
     displayManager.defaultSession = "hyprland";
