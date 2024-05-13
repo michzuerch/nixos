@@ -97,7 +97,7 @@
           ./system/syncthing.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
-					./system/nixvim
+					# ./system/nixvim
           catppuccin.nixosModules.catppuccin
 	  #hardware.nixosModules.???
           home-manager.nixosModules.home-manager

@@ -20,7 +20,7 @@
   ];
 
   # The theme doesn't work properly on MacOS using the default terminal
-  colorschemes.dracula.enable = pkgs.stdenv.isLinux;
+  #colorschemes.dracula.enable = pkgs.stdenv.isLinux;
 
   globals.mapleader = " ";
 
