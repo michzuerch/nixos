@@ -64,9 +64,7 @@
         gaps_out = 7;
         border_size = 2;
         resize_on_border = true;
-        no_cursor_warps = false;
         no_border_on_floating = true;
-        cursor_inactive_timeout = 30;
       };
       misc = {
         disable_hyprland_logo = true;

@@ -33,6 +33,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/nur";
     };
@@ -45,6 +49,7 @@
     catppuccin,
     alejandra,
     nixvim,
+    firefox-addons,
     nur,
     disko,
     hardware,
@@ -97,9 +102,10 @@
           ./system/syncthing.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
-					# ./system/nixvim
           catppuccin.nixosModules.catppuccin
 	  #hardware.nixosModules.???
+	  nixvim.nixosModules.nixvim
+          ./system/nixvim/nvim.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

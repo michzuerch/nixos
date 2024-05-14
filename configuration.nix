@@ -15,13 +15,6 @@
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withNodeJs = true;
-  };
 
   programs.zsh.enable = true;
   programs.git.enable = true;

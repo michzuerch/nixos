@@ -40,7 +40,7 @@
     },
     "devshell": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixvim",
           "nixpkgs"
@@ -100,6 +100,29 @@
         "owner": "nix-community",
         "repo": "fenix",
         "type": "github"
+      }
+    },
+    "firefox-addons": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1715659401,
+        "narHash": "sha256-pqeXE2v8b3Hvvr4BP5Qco3j/KCG2MUOdNcfZk4KcVvQ=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "78de0ad8fdb664b581614be18ce1cadf2674014b",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
       }
     },
     "flake-compat": {
@@ -169,6 +192,21 @@
       }
     },
     "flake-utils": {
+      "locked": {
+        "lastModified": 1629284811,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c5d161cc0af116a2e17f54316f0bf43f0819785c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
       "inputs": {
         "systems": "systems_2"
       },
@@ -186,7 +224,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "inputs": {
         "systems": "systems_3"
       },
@@ -340,11 +378,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1715635266,
-        "narHash": "sha256-c4l89M8/x4h0VHds7IC1W8yfu27lVN4uoeY57/OmI5Q=",
+        "lastModified": 1715690000,
+        "narHash": "sha256-IEQIHs2liZVQlZIHo+5aXnXTSCI5KCWZH2FJVBy31PY=",
         "ref": "refs/heads/main",
-        "rev": "ba696521930059aa489ac6ffabe28553edaf2fa3",
-        "revCount": 4683,
+        "rev": "1584679004435d93d5fe2dd794d2aefaa0c9574a",
+        "revCount": 4684,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -524,11 +562,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1715683131,
-        "narHash": "sha256-NaM5SNg7uaut474mdnkbTDWpyCyZmQmDcFGJxuQUxl8=",
+        "lastModified": 1715692144,
+        "narHash": "sha256-H4EQ78QCy86Sb7Q0wj7tQN7F64Ze6aq1HwW23YSM1xc=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "ce7e6b148f26ada15ea21fe6568d41d2a4801356",
+        "rev": "22c8addb8f2d310ce3c20d0ab02c41f0c9d11e67",
         "type": "github"
       },
       "original": {
@@ -540,7 +578,7 @@
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "gitignore": "gitignore",
         "nixpkgs": [
           "nixvim",
@@ -570,6 +608,7 @@
         "alejandra": "alejandra",
         "catppuccin": "catppuccin",
         "disko": "disko",
+        "firefox-addons": "firefox-addons",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
