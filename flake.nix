@@ -33,10 +33,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur = {
       url = "github:nix-community/nur";
     };
@@ -47,19 +43,14 @@
     nixpkgs,
     home-manager,
     catppuccin,
-    alejandra,
     nixvim,
-    firefox-addons,
-    nur,
     disko,
-    hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
     systems = [
       "x86_64-linux"
-      "aarch64-darwin"
     ];
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
     pkgsFor = lib.genAttrs systems (system:
@@ -103,9 +94,8 @@
           ./system/virtualisation.nix
           ./system/xdg.nix
           catppuccin.nixosModules.catppuccin
-	  #hardware.nixosModules.???
-	  nixvim.nixosModules.nixvim
-          ./system/nixvim/nvim.nix
+          #nixvim.nixosModules.nixvim
+          #./system/nixvim/nvim.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -113,9 +103,9 @@
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.michzuerch = {
               imports = [
-                ./home/home.nix
                 nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
+                ./home/home.nix
               ];
             };
           }

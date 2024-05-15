@@ -46,12 +46,7 @@
   };
 
   services = {
-		libinput.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-      };
-    };
+    libinput.enable = true;
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
@@ -61,11 +56,15 @@
         variant = "";
         options = "";
       };
-      # Default for nixos?
+      displayManager = {
+        lightdm = {
+          enable = true;
+        };
+      };
       desktopManager = {
         xterm.enable = false;
         lxqt.enable = true;
-      #  pantheon.enable = true;
+        pantheon.enable = true;
       };
     };
     displayManager.defaultSession = "hyprland";
@@ -169,6 +168,8 @@
       # jetbrains.jdk
       alacritty
       atool
+      black
+      codespell
       cryptomator
       curl
       dotnet-sdk_8
@@ -181,6 +182,7 @@
       gparted
       gsmartcontrol
       intel-gpu-tools
+      isort
       iw
       jdk21
       killall
@@ -197,6 +199,7 @@
       partition-manager
       pciutils
       poppler_utils
+      prettierd
       protonvpn-cli
       protonvpn-gui
       pstree
@@ -205,8 +208,10 @@
       ripgrep
       ripgrep-all
       sbctl
-      smartmontools
+      shfmt
       silver-searcher
+      smartmontools
+      stylua
       sudo-rs
       tealdeer
       teamviewer
