@@ -13,7 +13,8 @@
     ./treesitter.nix
     ./autopairs.nix
     ./whichkey.nix
-    ./dashboard.nix
+    ./alpha.nix
+    #./dashboard.nix
     ./efmls.nix
     ./lsp-format.nix
     ./conform.nix
@@ -53,7 +54,6 @@
 
         airline = {
           enable = true;
-          #powerline = true;
           settings = {
             theme = "catppuccin";
           };
