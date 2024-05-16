@@ -18,6 +18,7 @@
     ./efmls.nix
     ./lsp-format.nix
     ./conform.nix
+    ./gitsigns.nix
   ];
   programs = {
     nixvim = {
