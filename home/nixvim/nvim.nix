@@ -14,7 +14,7 @@
     ./autopairs.nix
     ./whichkey.nix
     ./alpha.nix
-    #./dashboard.nix
+    ./commentary.nix
     ./efmls.nix
     ./lsp-format.nix
     ./conform.nix
@@ -26,7 +26,7 @@
       globals.mapleader = " ";
       clipboard.providers.wl-copy.enable = true;
 
-      options = {
+      opts = {
         number = true;
         relativenumber = false;
         shiftwidth = 2;
