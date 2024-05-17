@@ -1,9 +1,7 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.alpha = {
     enable = true;
-       layout = [
+    layout = [
       {
         type = "padding";
         val = 4;
@@ -76,4 +74,3 @@
     ];
   };
 }
-

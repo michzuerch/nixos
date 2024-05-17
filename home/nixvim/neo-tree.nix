@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.neo-tree = {
     enable = true;
     autoCleanAfterSessionRestore = true;
@@ -28,18 +26,17 @@
       "h" = "show_help";
     };
 
-    eventHandlers =
-      {
-        neo_tree_buffer_enter = ''
-            function()
-          vim.cmd 'highlight! Cursor blend=100'
-          end
-        '';
-        neo_tree_buffer_leave = ''
-            function()
-          vim.cmd 'highlight! Cursor guibg=#5f87af blend=0'
-          end
-        '';
-      };
+    eventHandlers = {
+      neo_tree_buffer_enter = ''
+          function()
+        vim.cmd 'highlight! Cursor blend=100'
+        end
+      '';
+      neo_tree_buffer_leave = ''
+          function()
+        vim.cmd 'highlight! Cursor guibg=#5f87af blend=0'
+        end
+      '';
+    };
   };
 }

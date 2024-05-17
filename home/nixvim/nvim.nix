@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./keymaps.nix
     ./nvim-cmp.nix
@@ -8,6 +6,7 @@
     ./bufferline.nix
     ./telescope.nix
     ./neo-tree.nix
+    ./better-escape.nix
     ./prettier.nix
     ./lsp-servers.nix
     ./treesitter.nix
@@ -73,21 +72,26 @@
         telescope-ui-select-nvim
         #vim-autoformat
         vim-jsbeautify
-
       ];
 
       extraConfigLua =
-        ''if vim.g.neovide then'' + "\n" +
-        ''vim.o.guifont = "Hurmit Nerd Font:h14"'' + "\n" +
-
-        ''vim.keymap.set('n', '<C-S-s>', ':w<CR>') -- Save'' + "\n" +
-        ''vim.keymap.set('v', '<C-S-c>', '"+y') -- Copy'' + "\n" +
-        ''vim.keymap.set('n', '<C-S-v>', '"+P') -- Paste normal mode'' + "\n" +
-        ''vim.keymap.set('v', '<C-S-v>', '"+P') -- Paste visual mode'' + "\n" +
-        ''vim.keymap.set('c', '<C-S-v>', '<C-R>+') -- Paste command mode'' + "\n" +
-        ''vim.keymap.set('i', '<C-S-v>', '<ESC>l"+Pli') -- Paste insert mode'' + "\n" +
-        "end";
-
+        ''if vim.g.neovide then''
+        + "\n"
+        + ''vim.o.guifont = "Hurmit Nerd Font:h14"''
+        + "\n"
+        + ''vim.keymap.set('n', '<C-S-s>', ':w<CR>') -- Save''
+        + "\n"
+        + ''vim.keymap.set('v', '<C-S-c>', '"+y') -- Copy''
+        + "\n"
+        + ''vim.keymap.set('n', '<C-S-v>', '"+P') -- Paste normal mode''
+        + "\n"
+        + ''vim.keymap.set('v', '<C-S-v>', '"+P') -- Paste visual mode''
+        + "\n"
+        + ''vim.keymap.set('c', '<C-S-v>', '<C-R>+') -- Paste command mode''
+        + "\n"
+        + ''vim.keymap.set('i', '<C-S-v>', '<ESC>l"+Pli') -- Paste insert mode''
+        + "\n"
+        + "end";
 
       #colorschemes.kanagawa = {
       #  enable = true;
@@ -106,7 +110,6 @@
           transparentBackground = false;
         };
       };
-
     };
   };
 }

@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.which-key = {
     enable = true;
     icons = {
@@ -8,7 +6,7 @@
       group = "";
     };
     keyLabels = {
-     "<leader>" = "SPC"; 
+      "<leader>" = "SPC";
     };
     registrations = {
       "<leader>c" = "󰅙 Close Buffer";

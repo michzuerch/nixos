@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins = {
     cmp-treesitter.enable = true;
     treesitter.enable = true;

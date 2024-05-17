@@ -1,10 +1,8 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.telescope = {
     enable = true;
 
-    enabledExtensions = [ "ui-select" ];
+    enabledExtensions = ["ui-select"];
     extensions.ui-select.enable = true;
     extensions.frecency.enable = false;
     extensions.fzf-native.enable = true;

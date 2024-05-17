@@ -1,8 +1,6 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.lsp-format = {
-    enable = false; 
+    enable = false;
     lspServersToEnable = [
       "nixd"
       "efm"

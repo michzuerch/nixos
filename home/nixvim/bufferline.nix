@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins.bufferline = {
     enable = true;
     mode = "buffers";
@@ -21,58 +19,57 @@
       }
     ];
 
-    highlights =
-      {
-        indicatorSelected.fg = "#89b4fa";
-        #tabSeparatorSelected.fg = "#89b4fa";
-      };
+    highlights = {
+      indicatorSelected.fg = "#89b4fa";
+      #tabSeparatorSelected.fg = "#89b4fa";
+    };
 
     highlights = rec {
-    #  # Tab bar fill
+      #  # Tab bar fill
       #fill.bg = "#ffffff";
-    #  fill.fg = "#5a5b64";
+      #  fill.fg = "#5a5b64";
 
-    #  # Tab fill
-    #  background.fg = "#5a5b64";
-    #  background.bg = "#000000";
-    #  background.sp = fill.bg;
+      #  # Tab fill
+      #  background.fg = "#5a5b64";
+      #  background.bg = "#000000";
+      #  background.sp = fill.bg;
 
-    # Tab separator
-    #  separator = background // { fg = fill.bg; };
-    #  separatorVisible = background // { fg = fill.bg; };
+      # Tab separator
+      #  separator = background // { fg = fill.bg; };
+      #  separatorVisible = background // { fg = fill.bg; };
 
-    #  # Path name
-    #  duplicate = background // { fg = "#5a5b64"; };
+      #  # Path name
+      #  duplicate = background // { fg = "#5a5b64"; };
 
-    #  # buffer = { fg = "#5a5b64"; } // background;
-    #  #modified = background // { fg = "#f38ba8"; };
-    #  closeButton = background;
+      #  # buffer = { fg = "#5a5b64"; } // background;
+      #  #modified = background // { fg = "#f38ba8"; };
+      #  closeButton = background;
 
-    # duplicate.bg = "#21222a";
-    #pick.bg = "#89b4fa";
-    #  hint.bg = "#000000";
-    #error.bg = "#f38ba8";
-    #warning.bg = "#eba0ac";
-    #info.bg = "#f9e2af";
-    # hint.bg = "#21222a";
-    #  hintDiagnostic.bg = "#89b4fa";
-    #  infoDiagnostic.bg = "#f9e2af";
-    #  errorDiagnostic.bg = "#f38ba8";
-    #  warningDiagnostic.bg = "#eba0ac";
-    # numbers.bg = "#21222a";
+      # duplicate.bg = "#21222a";
+      #pick.bg = "#89b4fa";
+      #  hint.bg = "#000000";
+      #error.bg = "#f38ba8";
+      #warning.bg = "#eba0ac";
+      #info.bg = "#f9e2af";
+      # hint.bg = "#21222a";
+      #  hintDiagnostic.bg = "#89b4fa";
+      #  infoDiagnostic.bg = "#f9e2af";
+      #  errorDiagnostic.bg = "#f38ba8";
+      #  warningDiagnostic.bg = "#eba0ac";
+      # numbers.bg = "#21222a";
 
-    # icon = background;
-    #  bufferSelected.fg = "#ecedfa";
-    #  separatorSelected.fg = separator.fg;
-    # separatorSelected.fg = "#000000";
-    #  closeButtonSelected.fg = "#ecedfa";
+      # icon = background;
+      #  bufferSelected.fg = "#ecedfa";
+      #  separatorSelected.fg = separator.fg;
+      # separatorSelected.fg = "#000000";
+      #  closeButtonSelected.fg = "#ecedfa";
 
-    # nameVisible.fg = "#ecedfa";
-    #  modifiedSelected.fg = "#f38ba8";
-    #  modified.bg = "#000000";
+      # nameVisible.fg = "#ecedfa";
+      #  modifiedSelected.fg = "#f38ba8";
+      #  modified.bg = "#000000";
 
-    #  bufferVisible.fg = "#5a5b64";
-    #  infoVisible.fg = "#eba0ac";
+      #  bufferVisible.fg = "#5a5b64";
+      #  infoVisible.fg = "#eba0ac";
     };
     diagnosticsIndicator = ''
       function(count, level)
@@ -89,4 +86,3 @@
     #};
   };
 }
-
