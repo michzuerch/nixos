@@ -226,7 +226,7 @@
     shellAliases = {
       # rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
-			rebuild-old = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
+      rebuild-old = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
     };
   };
 

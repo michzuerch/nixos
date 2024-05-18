@@ -56,6 +56,15 @@
           enable = true;
           settings = {
             theme = "catppuccin";
+            powerlineFonts = true;
+            symbols = {
+              branch = "";
+              colnr = " ℅:";
+              readonly = "";
+              linenr = " :";
+              maxlinenr = "☰ ";
+              dirty= "⚡";
+            };
           };
         };
       };
