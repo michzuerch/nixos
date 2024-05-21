@@ -12,9 +12,9 @@
       "<leader>c" = "󰅙 Close Buffer";
       "<leader>t" = "󰙅 FileExplorer";
       "<leader>f" = " Telescope";
-      "<leader>w" = " WhichKey?!";
+      "<leader>w" = "  WhichKey?!";
       "<leader>ff" = " Find Files";
-      "<leader>l" = " LSP";
+      "<leader>l" = "  LSP";
       "<leader>lf" = "󰉡 Format Buffer";
     };
   };

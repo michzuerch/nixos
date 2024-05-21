@@ -46,7 +46,7 @@
 
         notify = {
           enable = true;
-          #backgroundColour = "#000000";
+          backgroundColour = "#000000";
           timeout = 2000;
           fps = 120;
           stages = "fade";
@@ -114,6 +114,7 @@
 
       colorschemes.catppuccin = {
         enable = true;
+        terminalColors = true;
         settings = {
           flavour = "mocha";
           transparentBackground = false;

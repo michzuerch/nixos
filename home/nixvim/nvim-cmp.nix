@@ -8,6 +8,7 @@
         {name = "buffer";}
         {name = "luasnip";}
         {name = "cmdline";}
+        {name = "npm";}
       ];
 
       settings.mapping = {

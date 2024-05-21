@@ -14,6 +14,11 @@
         lsp.servers.tsserver.enable = false;
         lsp.servers.yamlls.enable = true;
         lsp.servers.efm.enable = true;
+
+        #michzuerch new servers
+        lsp.servers.astro.enable = true;
+        lsp.servers.cmake.enable = true;
+        lsp.servers.docker-compose-language-service.enable = true;
       };
     };
   };
