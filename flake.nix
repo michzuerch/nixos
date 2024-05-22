@@ -15,6 +15,7 @@
       url = "github:NixOS/nixos-hardware/master";
     };
     hyprland = {
+      # url = "github:hyprwm/Hyprland";
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -30,8 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:michzuerch/nixvim-config";
     };
     nur = {
       url = "github:nix-community/nur";
@@ -94,8 +94,6 @@
           ./system/virtualisation.nix
           ./system/xdg.nix
           catppuccin.nixosModules.catppuccin
-          #nixvim.nixosModules.nixvim
-          #./system/nixvim/nvim.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -103,7 +101,7 @@
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.michzuerch = {
               imports = [
-                nixvim.homeManagerModules.nixvim
+                # nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
                 ./home/home.nix
               ];
