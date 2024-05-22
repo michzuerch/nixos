@@ -29,7 +29,22 @@
       opts = {
         number = true;
         relativenumber = false;
+        splitbelow = true;
+        splitright = true;
         shiftwidth = 2;
+        scrolloff = 4;
+        autoindent = true;
+        clipboard = "unnamedplus";
+        expandtab = true;
+        smartindent = true;
+        tabstop = 2;
+        ignorecase = true;
+        incsearch = true;
+        smartcase = true;
+        wildmode = "list:longest";
+        swapfile = false;
+        undofile = true;
+        termguicolors = true;
       };
       plugins = {
         nix.enable = true;

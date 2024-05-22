@@ -192,6 +192,7 @@
       mediainfo
       mupdf
       nil
+      gopls
       nodePackages_latest.eslint
       odt2txt
       p7zip

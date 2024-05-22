@@ -19,6 +19,19 @@
         lsp.servers.astro.enable = true;
         lsp.servers.cmake.enable = true;
         lsp.servers.docker-compose-language-service.enable = true;
+        lsp.servers.dockerls.enable = true;
+        lsp.servers.emmet_ls.enable = true;
+        lsp.servers.gopls.enable = true;
+        lsp.servers.golangci-lint-ls.enable = true;
+        lsp.servers.graphql.enable = true;
+        lsp.servers.html.enable = true;
+        lsp.servers.htmx.enable = true;
+        lsp.servers.sqls.enable = true;
+        lsp.servers.svelte.enable = true;
+        lsp.servers.tailwindcss.enable = true;
+        lsp.servers.terraformls.enable = true;
+
+
       };
     };
   };

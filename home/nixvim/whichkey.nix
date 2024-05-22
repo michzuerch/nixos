@@ -14,6 +14,8 @@
       "<leader>f" = " Telescope";
       "<leader>w" = "  WhichKey?!";
       "<leader>ff" = " Find Files";
+      "<leader>fg" = " Live grep";
+      "<leader>fs" = " Grep string";
       "<leader>l" = "  LSP";
       "<leader>lf" = "󰉡 Format Buffer";
     };

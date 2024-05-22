@@ -17,7 +17,7 @@
     ./mc.nix
     ./messenger.nix
     ./multimedia.nix
-    ./nixvim/nvim.nix
+    ./nixvim2/nixvim.nix
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
@@ -39,7 +39,7 @@
     ./zsh.nix
   ];
 
-  catppuccin.flavour = "frappe";
+  # catppuccin.flavour = "frappe";
 
   home.packages = with pkgs; [
     gnome.nautilus
