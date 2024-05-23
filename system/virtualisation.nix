@@ -6,7 +6,7 @@
       defaultNetwork.settings.dns_enabled = true;
     };
     libvirtd.enable = true;
-    virtualbox.host.enable = true;
+    # virtualbox.host.enable = true;
     waydroid.enable = true;
   };
 
@@ -18,7 +18,7 @@
     boxbuddy
     hashi-ui
     nomad-driver-podman
-    nomad_1_6
+    nomad
     podman-compose
     podman-desktop
     podman-tui
