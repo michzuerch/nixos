@@ -13,6 +13,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./kitty.nix
+    ./neovim/neovim.nix
     ./lf.nix
     ./mc.nix
     ./messenger.nix
