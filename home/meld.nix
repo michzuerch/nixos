@@ -1,5 +1,5 @@
-{
-  programs.meld = {
-    enable = true;
-  };
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    meld
+  ];
 }
