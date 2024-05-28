@@ -13,11 +13,12 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./kitty.nix
-    ./neovim/neovim.nix
     ./lf.nix
     ./mc.nix
+    ./meld.nix
     ./messenger.nix
     ./multimedia.nix
+    ./neovim/neovim.nix
     ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
