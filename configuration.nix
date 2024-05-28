@@ -14,15 +14,16 @@
   console.keyMap = "us";
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
-  programs.nm-applet.enable = true;
-
-  programs.zsh.enable = true;
-  programs.git.enable = true;
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  programs.dconf.enable = true;
-  programs.light.enable = true;
-  programs.mtr.enable = true;
+  programs = {
+    nm-applet.enable = true;
+    zsh.enable = true;
+    git.enable = true;
+    dconf.enable = true;
+    light.enable = true;
+    mtr.enable = true;
+    hyprland.enable = true;
+    hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  };
 
   documentation = {
     enable = true;
@@ -103,9 +104,11 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    tpm2.enable = true;
-    tpm2.pkcs11.enable = true;
-    tpm2.tctiEnvironment.enable = true;
+    tpm2 = {
+      enable = true;
+      pkcs11.enable = true;
+      tctiEnvironment.enable = true;
+    };
     pam.services.hyprlock.text = "auth include login";
     sudo = {
       enable = true;
@@ -129,15 +132,7 @@
               options = ["NOPASSWD"];
             }
             {
-              command = "${pkgs.neovim}/bin/nvim";
-              options = ["NOPASSWD"];
-            }
-            {
               command = "${pkgs.systemd}/bin/systemctl";
-              options = ["NOPASSWD"];
-            }
-            {
-              command = "/run/current-system/sw/bin/nix-channel";
               options = ["NOPASSWD"];
             }
           ];
@@ -166,9 +161,6 @@
     };
     systemPackages = [
       # jetbrains.jdk
-
-      inputs.nixvim.packages."x86_64-linux".default
-
       pkgs.alacritty
       pkgs.atool
       pkgs.black
@@ -182,6 +174,7 @@
       pkgs.fzf
       pkgs.gdu
       pkgs.gh
+      pkgs.gopls
       pkgs.gparted
       pkgs.gsmartcontrol
       pkgs.intel-gpu-tools
@@ -195,7 +188,6 @@
       pkgs.mediainfo
       pkgs.mupdf
       pkgs.nil
-      pkgs.gopls
       pkgs.nodePackages_latest.eslint
       pkgs.odt2txt
       pkgs.p7zip
