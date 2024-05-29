@@ -23,6 +23,12 @@
     mtr.enable = true;
     hyprland.enable = true;
     hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    nix-ld = {
+      dev.enable = true;
+      libraries = [
+        pkgs.lua-language-server
+      ];
+    };
   };
 
   documentation = {
@@ -184,6 +190,8 @@
       pkgs.killall
       pkgs.libarchive
       pkgs.libsForQt5.kate
+      pkgs.lua-language-server
+      pkgs.luajitPackages.luarocks
       pkgs.lynx
       pkgs.mediainfo
       pkgs.mupdf

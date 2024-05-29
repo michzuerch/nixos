@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
@@ -34,6 +38,7 @@
   outputs = {
     self,
     nixpkgs,
+    nix-ld,
     home-manager,
     catppuccin,
     ...
@@ -54,7 +59,7 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     # Shell configured with packages that are typically only needed when working on or with nix-config.
-    # devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
+    devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
 
     nixosConfigurations = {
       ThinkpadNomad = lib.nixosSystem {
@@ -84,6 +89,7 @@
           ./system/syncthing.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
+          nix-ld.nixosModules.nix-ld
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
