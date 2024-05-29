@@ -23,6 +23,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -40,6 +44,7 @@
     nixpkgs,
     nix-ld,
     home-manager,
+    nixvim,
     catppuccin,
     ...
   } @ inputs: let
@@ -98,7 +103,7 @@
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.michzuerch = {
               imports = [
-                # nixvim.homeManagerModules.nixvim
+                nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
                 ./home/home.nix
               ];

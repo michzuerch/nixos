@@ -26,7 +26,7 @@
     nix-ld = {
       dev.enable = true;
       libraries = [
-        pkgs.lua-language-server
+        # pkgs.lua-language-server
       ];
     };
   };
@@ -70,13 +70,14 @@
       };
       desktopManager = {
         xterm.enable = false;
-        lxqt.enable = true;
-        pantheon.enable = true;
+        # lxqt.enable = true;
+        # pantheon.enable = true;
       };
     };
+    # desktopManager.plasma6.enable = true;
     displayManager.defaultSession = "hyprland";
     hardware = {
-      openrgb.enable = true;
+      # openrgb.enable = true;
     };
     pipewire = {
       enable = true;
@@ -84,10 +85,9 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    teamviewer.enable = true;
-    desktopManager.plasma6.enable = true;
-    printing.enable = true;
-    printing.drivers = [pkgs.gutenprint pkgs.hplip];
+    # teamviewer.enable = true;
+    # printing.enable = true;
+    # printing.drivers = [pkgs.gutenprint pkgs.hplip];
     gvfs.enable = true;
     fstrim.enable = true;
     flatpak.enable = true;
@@ -228,7 +228,6 @@
       pkgs.xlsx2csv
     ];
     shellAliases = {
-      # rebuild = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
       rebuild-old = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
     };
