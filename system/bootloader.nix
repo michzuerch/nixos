@@ -1,21 +1,22 @@
 {pkgs, ...}: {
   # Bootloader.
   boot = {
-    bootspec.enable = true;
-    tmp.cleanOnBoot = true;
-    consoleLogLevel = 0;
+    #bootspec.enable = true;
+    #tmp.cleanOnBoot = true;
+    #consoleLogLevel = 0;
     initrd = {
       enable = true;
       systemd.enable = true;
       verbose = false;
+      availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
+      kernelModules = [];
     };
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
     loader = {
-      timeout = 5;
+      # timeout = 5;
       # systemd-boot.memtest86.enable = true;
       systemd-boot.enable = true;
-      # grub.enable = true;
-      # grub.efiSupport = true;
-      # grub.efiInstallAsRemovable = true;
       efi.canTouchEfiVariables = true;
     };
     plymouth = {
