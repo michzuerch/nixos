@@ -97,13 +97,14 @@
           nix-ld.nixosModules.nix-ld
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          nixvim.nixosModules.nixvim
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.michzuerch = {
               imports = [
-                nixvim.homeManagerModules.nixvim
+                #nixvim.homeManagerModules.nixvim
                 catppuccin.homeManagerModules.catppuccin
                 ./home/home.nix
               ];
