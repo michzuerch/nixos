@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   # Bootloader.
   boot = {
-    #bootspec.enable = true;
-    #tmp.cleanOnBoot = true;
-    #consoleLogLevel = 0;
+    bootspec.enable = true;
+    tmp.cleanOnBoot = true;
+    consoleLogLevel = 0;
     initrd = {
       enable = true;
       systemd.enable = true;
@@ -14,9 +14,9 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     loader = {
-      # timeout = 5;
-      # systemd-boot.memtest86.enable = true;
       systemd-boot.enable = true;
+      timeout = 5;
+      systemd-boot.memtest86.enable = true;
       efi.canTouchEfiVariables = true;
     };
     plymouth = {
