@@ -8,11 +8,11 @@
       enable = true;
       systemd.enable = true;
       verbose = false;
-      availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
+      availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
       kernelModules = [];
     };
-    kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
     loader = {
       systemd-boot.enable = true;
       timeout = 5;
