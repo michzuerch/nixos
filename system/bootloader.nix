@@ -15,7 +15,6 @@
     extraModulePackages = [];
     loader = {
       systemd-boot.enable = true;
-      timeout = 5;
       systemd-boot.memtest86.enable = true;
       efi.canTouchEfiVariables = true;
     };
