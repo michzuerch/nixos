@@ -1,17 +1,18 @@
 {
   imports = [
-    ./lualine.nix
-    ./transparent.nix
-    ./gitsigns.nix
-    ./neotree.nix
-    ./mini.nix
+    ./barbar.nix
+    ./cmp.nix
     ./comment.nix
     ./floaterm.nix
-    ./telescope.nix
-    ./barbar.nix
-    ./nix.nix
+    ./gitsigns.nix
+    ./illuminate.nix
     ./lsp.nix
-    ./cmp.nix
+    ./lualine.nix
+    ./mini.nix
+    ./neotree.nix
+    ./nix.nix
+    ./telescope.nix
+    ./transparent.nix
     ./whichkey.nix
   ];
 }
