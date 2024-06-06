@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./opts.nix
@@ -11,5 +13,8 @@
 
     defaultEditor = true;
     colorschemes.oxocarbon.enable = true;
+    extraPlugins = with pkgs.vimPlugins; [
+    nvim-web-devicons
+  ];
   };
 }

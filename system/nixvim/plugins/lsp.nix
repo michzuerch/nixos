@@ -1,6 +1,5 @@
 {
   programs.nixvim.plugins = {
-
     treesitter = {
       enable = true;
       nixvimInjections = true;
@@ -39,7 +38,21 @@
     lsp = {
       enable = true;
       servers = {
-        nil_ls.enable = true;
+        nil-ls.enable = true;
+        nixd.enable = true;
+        java-language-server.enable = true;
+        jsonls.enable = true;
+        lua-ls.enable = true;
+        #lsp.servers.pylsp.enable = true;
+        rust-analyzer.enable = true;
+        rust-analyzer.installCargo = false;
+        rust-analyzer.installRustc = false;
+        tsserver.enable = true;
+        yamlls.enable = true;
+        astro.enable = true;
+        bashls.enable = true;
+        cssls.enable = true;
+        docker-compose-language-service.enable = true;
       };
     };
   };

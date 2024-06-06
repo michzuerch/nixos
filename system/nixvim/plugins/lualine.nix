@@ -1,6 +1,5 @@
 {
   programs.nixvim.plugins.lualine = {
-
     enable = true;
     globalstatus = true;
 
@@ -16,7 +15,7 @@
       lualine_x = [
         "diagnostics"
 
-       # Show active language server
+        # Show active language server
         {
           name.__raw = ''
             function()
