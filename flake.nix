@@ -76,6 +76,7 @@
           ./configuration.nix
           ./system/bluetooth.nix
           ./system/bootloader.nix
+          ./system/cachix.nix
           ./system/database-tools.nix
           ./system/environment-variables.nix
           ./system/fonts.nix

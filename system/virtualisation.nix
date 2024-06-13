@@ -22,7 +22,8 @@
     podman-compose
     podman-desktop
     podman-tui
-    terraform
+    # terraform
+    opentofu
     virt-manager
     virt-viewer
   ];

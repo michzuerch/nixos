@@ -226,6 +226,7 @@
       pkgs.wev
       pkgs.wget
       pkgs.xlsx2csv
+      pkgs.godot_4
     ];
     shellAliases = {
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
