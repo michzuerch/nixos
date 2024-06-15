@@ -88,7 +88,7 @@
           ./system/networking.nix
           ./system/nh.nix
           ./system/nix-settings.nix
-          ./system/nixvim2/config/nixvim.nix
+          ./system/nixvim3/nixvim.nix
           ./system/openssh.nix
           ./system/postgres.nix
           ./system/powermanagement.nix
