@@ -18,7 +18,7 @@
     ./meld.nix
     ./messenger.nix
     ./multimedia.nix
-    ./node.nix
+    # ./node.nix
     ./obs-studio.nix
     ./pgbench.nix
     ./pyprland.nix
