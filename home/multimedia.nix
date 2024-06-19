@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     digikam
     jellyfin-ffmpeg
-    # handbrake
+    handbrake
     kodi-wayland
     libsForQt5.kdenlive
     losslesscut-bin
