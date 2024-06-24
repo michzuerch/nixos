@@ -8,22 +8,22 @@
     catppuccin.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
+      # inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
     ];
     xwayland = {
       enable = true;
     };
     systemd.enable = true;
     settings = {
-      "plugin:hyprexpo" = {
-        columns = 3;
-        gap_size = 5;
-        bg_col = "rgb(111111)";
-        workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-        enable_gesture = true; # laptop touchpad, 4 fingers
-        gesture_distance = 300; # how far is the "max"
-        gesture_positive = true; # positive = swipe down. Negative = swipe up.
-      };
+      # "plugin:hyprexpo" = {
+      #   columns = 3;
+      #   gap_size = 5;
+      #   bg_col = "rgb(111111)";
+      #   workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+      #   enable_gesture = true; # laptop touchpad, 4 fingers
+      #   gesture_distance = 300; # how far is the "max"
+      #   gesture_positive = true; # positive = swipe down. Negative = swipe up.
+      # };
 
       # "plugin:borders-plus-plus" = {
       #   add_borders = 1;
@@ -201,7 +201,7 @@
         "SUPER, tab, changegroupactive,"
         "SUPER, grave, togglespecialworkspace,"
         "SUPERSHIFT, grave, movetoworkspace, special"
-        "SUPER, O, hyprexpo:expo, toggle"
+        # "SUPER, O, hyprexpo:expo, toggle"
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
         "SUPER, 3, workspace, 3"

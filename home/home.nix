@@ -36,6 +36,7 @@
     ./waybar.nix
     ./wlogout.nix
     ./wofi.nix
+    ./zed-editor.nix
     ./zsh.nix
   ];
 
