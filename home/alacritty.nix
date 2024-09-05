@@ -3,9 +3,7 @@
     enable = true;
     catppuccin.enable = true;
     settings = {
-      font = {
-        size = 12;
-      };
+      font = {size = 12;};
       window = {
         opacity = 0.7;
         padding = {
@@ -13,9 +11,7 @@
           y = 15;
         };
       };
-      selection = {
-        save_to_clipboard = true;
-      };
+      selection = {save_to_clipboard = true;};
     };
   };
 }
