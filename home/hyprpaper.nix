@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Hyprpaper configuration file
   # preload = ~/Wallpapers/Wolf2.jpg
   # wallpaper = ,~/Wallpapers/Wolf2.jpg
@@ -7,5 +13,5 @@
     wallpaper = ,~/Wallpapers/nixos-wallpaper-catppuccin-mocha.jpg
   '';
 
-  home.packages = [ pkgs.hyprpaper ];
+  home.packages = [pkgs.hyprpaper];
 }

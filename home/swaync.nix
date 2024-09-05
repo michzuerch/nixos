@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home = {
     file.".config/swaync/config.json".text = ''
       {
@@ -430,6 +430,6 @@
        }
     '';
 
-    packages = with pkgs; [ swaynotificationcenter ];
+    packages = with pkgs; [swaynotificationcenter];
   };
 }
