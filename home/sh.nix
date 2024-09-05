@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs = {
     bash = {
       enable = true;
@@ -13,8 +13,7 @@
     fzf = {
       enable = true;
       catppuccin.enable = true;
-      defaultCommand =
-        "fd --type f --hidden --no-ignore --follow --exclude .git";
+      defaultCommand = "fd --type f --hidden --no-ignore --follow --exclude .git";
       enableZshIntegration = true;
       enableFishIntegration = false;
     };
@@ -43,6 +42,7 @@
   home.packages = with pkgs; [
     # bandwhich
     bat
+    chatgpt
     cowsay
     # delta
     direnv

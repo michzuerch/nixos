@@ -38,7 +38,7 @@
     ./wezterm.nix
     ./wlogout.nix
     ./wofi.nix
-    ./zed-editor.nix
+    # ./zed-editor.nix
     ./zellij.nix
     ./zsh.nix
   ];
