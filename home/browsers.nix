@@ -1,14 +1,8 @@
 _: {
-  programs.chromium = {
-    enable = true;
-  };
-  programs.brave = {
-    enable = true;
-  };
-  programs.firefox = {
-    enable = true;
-  };
-  programs.qutebrowser = {
-    enable = false;
+  programs = {
+    chromium = {enable = true;};
+    brave = {enable = true;};
+    firefox = {enable = true;};
+    qutebrowser = {enable = false;};
   };
 }

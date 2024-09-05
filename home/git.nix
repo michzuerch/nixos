@@ -23,9 +23,11 @@
       extraConfig = {
         branch.autosetuprebase = "always";
         color.ui = true;
-        core.editor = "nvim";
-        core.symlinks = "false";
-        core.askPass = ""; # needs to be empty to use terminal for ask pass
+        core = {
+          editor = "nvim";
+          symlinks = "false";
+          askPass = ""; # needs to be empty to use terminal for ask pass
+        };
         credential.helper = "libsecret"; # want to make this more secure
         github.user = "michzuerch";
         pull.rebase = "false";
@@ -38,9 +40,5 @@
       catppuccin.enable = true;
     };
   };
-  home.packages = with pkgs; [
-    act
-    github-desktop
-    github-runner
-  ];
+  home.packages = with pkgs; [act github-desktop github-runner];
 }
