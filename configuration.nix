@@ -211,6 +211,7 @@
     ];
     shellAliases = {
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
+      rebuild-git = "nh os switch github:michzuerch/nixos";
       rebuild-old =
         "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
       # nvim = "nix run github:michzuerch/nixvim";
