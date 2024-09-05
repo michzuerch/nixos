@@ -38,10 +38,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = { url = "github:nix-community/nur"; };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, rust-overlay, nixvim, nixos-cosmic
-    , catppuccin, nsearch, ... }@inputs:
+    , catppuccin, nsearch, sops-nix, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -94,6 +98,7 @@
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             nixos-cosmic.nixosModules.default
+            sops-nix.nixosModules.sops
             {
               home-manager = {
                 useGlobalPkgs = true;
