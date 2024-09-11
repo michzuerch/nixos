@@ -1,6 +1,10 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
-  nixpkgs.config = { allowUnfree = true; };
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix];
+  nixpkgs.config = {allowUnfree = true;};
 
   zramSwap.enable = true;
   console.keyMap = "us";
@@ -49,7 +53,7 @@
         variant = "";
         options = "";
       };
-      displayManager = { lightdm = { enable = true; }; };
+      displayManager = {lightdm = {enable = true;};};
       desktopManager = {
         xterm.enable = false;
         # lxqt.enable = true;
@@ -62,7 +66,7 @@
     };
 
     displayManager.defaultSession = "hyprland";
-    hardware = { };
+    hardware = {};
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -71,7 +75,7 @@
     };
     teamviewer.enable = false;
     printing.enable = true;
-    printing.drivers = [ pkgs.gutenprint pkgs.hplip ];
+    printing.drivers = [pkgs.gutenprint pkgs.hplip];
     gvfs.enable = true;
     fstrim.enable = true;
     flatpak.enable = true;
@@ -83,7 +87,7 @@
   hardware = {
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [ intel-compute-runtime ];
+      extraPackages = with pkgs; [intel-compute-runtime];
     };
     pulseaudio.enable = false;
   };
@@ -99,31 +103,33 @@
     pam.services.hyprlock.text = "auth include login";
     sudo = {
       enable = true;
-      extraRules = [{
-        commands = [
-          {
-            command = "${pkgs.systemd}/bin/systemctl suspend";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/poweroff";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nixos-rebuild";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "${pkgs.systemd}/bin/systemctl";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-        groups = [ "wheel" ];
-      }];
+      extraRules = [
+        {
+          commands = [
+            {
+              command = "${pkgs.systemd}/bin/systemctl suspend";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/reboot";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/poweroff";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "/run/current-system/sw/bin/nixos-rebuild";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "${pkgs.systemd}/bin/systemctl";
+              options = ["NOPASSWD"];
+            }
+          ];
+          groups = ["wheel"];
+        }
+      ];
     };
   };
 
@@ -133,8 +139,7 @@
       isNormalUser = true;
       description = "Michi";
       shell = pkgs.zsh;
-      extraGroups =
-        [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
+      extraGroups = ["networkmanager" "wheel" "tss" "video" "wireshark" "podman"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILsyEfMjNUlwrf4NG3f6BWpP4uSzCfpC7V5jMqtiLfSQ michzuerch@localhost"
       ];
@@ -143,13 +148,17 @@
       isNormalUser = true;
       description = "Troublemaker";
       shell = pkgs.zsh;
-      extraGroups =
-        [ "networkmanager" "wheel" "tss" "video" "wireshark" "podman" ];
+      extraGroups = ["networkmanager" "wheel" "tss" "video" "wireshark" "podman"];
     };
   };
 
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+  };
+
   environment = {
-    pathsToLink = [ "/libexec" ];
+    pathsToLink = ["/libexec"];
     sessionVariables = {
       FLAKE = "/home/michzuerch/Source/nixos";
       DIRENV_LOG_FORMAT = "";
@@ -224,8 +233,7 @@
     shellAliases = {
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
       rebuild-git = "nh os switch github:michzuerch/nixos";
-      rebuild-old =
-        "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
+      rebuild-old = "sudo nixos-rebuild switch --flake /home/michzuerch/Source/nixos --show-trace";
       # nvim = "nix run github:michzuerch/nixvim";
     };
   };
