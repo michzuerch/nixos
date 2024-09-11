@@ -2,19 +2,19 @@
   imports = [
     ./alacritty.nix
     ./browsers.nix
-    ./f3.nix
+    #./f3.nix
     ./fastfetch.nix
     ./git.nix
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
-    ./helix.nix
+    #./helix.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./kitty.nix
-    ./latex.nix
+    #./kitty.nix
+    #./latex.nix
     ./lf.nix
     ./mc.nix
     ./meld.nix
@@ -22,7 +22,7 @@
     ./mission-center.nix
     ./multimedia.nix
     ./node.nix
-    ./obs-studio.nix
+    #./obs-studio.nix
     ./pgbench.nix
     ./pyprland.nix
     ./qt.nix
@@ -31,11 +31,11 @@
     ./starship.nix
     ./swaync.nix
     ./tmux.nix
-    ./torrent.nix
+    #./torrent.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
-    ./wezterm.nix
+    #./wezterm.nix
     ./wlogout.nix
     ./wofi.nix
     # ./zed-editor.nix

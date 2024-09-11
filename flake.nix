@@ -106,7 +106,7 @@
           ./system/xdg.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
-          nixos-cosmic.nixosModules.default
+          #nixos-cosmic.nixosModules.default
           sops-nix.nixosModules.sops
           {
             home-manager = {

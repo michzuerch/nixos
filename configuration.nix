@@ -61,8 +61,8 @@
       };
     };
     desktopManager = {
-      plasma6.enable = true;
-      cosmic.enable = true;
+      plasma6.enable = false;
+      #cosmic.enable = false;
     };
 
     displayManager.defaultSession = "hyprland";
@@ -73,7 +73,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    teamviewer.enable = true;
+    teamviewer.enable = false;
     printing.enable = true;
     printing.drivers = [pkgs.gutenprint pkgs.hplip];
     gvfs.enable = true;
@@ -213,6 +213,8 @@
       pkgs.wget
       pkgs.xlsx2csv
       pkgs.yamllint
+      pkgs.age
+      pkgs.sops
     ];
     shellAliases = {
       rebuild = "nh os switch /home/michzuerch/Source/nixos";
