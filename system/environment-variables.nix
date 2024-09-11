@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # Setup Env Variables
   environment.variables = {
     SPOTIFY_PATH = "${pkgs.spotify}/";
@@ -12,6 +16,8 @@
     # environment.variables.CLIPBOARD_NOPROGRESS = "1";
     # environment.variables.CLIPBOARD_NOREMOTE = "1";
     CLIPBOARD_SILENT = "1";
+
+    OPENAI_API_KEY = config.sops.secrets.chatgpt_api_key.path;
 
     EDITOR = "nvim";
     VISUAL = "nvim";

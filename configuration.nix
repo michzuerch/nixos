@@ -156,8 +156,9 @@
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/michzuerch/.config/sops/age/keys.txt";
-    secrets.example_key = {};
-    secrets."myservice/mysubdir/mysecret" = {};
+    secrets.chatgpt_api_key = {};
+    # secrets.example_key = {};
+    # secrets."myservice/mysubdir/mysecret" = {};
   };
 
   environment = {
