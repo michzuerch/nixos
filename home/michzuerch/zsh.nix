@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -13,5 +13,4 @@
       fi
     '';
   };
-
 }
