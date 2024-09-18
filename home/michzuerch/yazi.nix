@@ -3,10 +3,13 @@ let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "...";
+    rev = "49137feda8e140ebd7870292030d89c221cacce8";
     hash = "sha256-...";
   };
 in {
+
+  home.packages = [ pkgs.ueberzugpp ];
+
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
@@ -20,34 +23,34 @@ in {
       };
     };
 
-    plugins = {
-      chmod = "${yazi-plugins}/chmod.yazi";
-      full-border = "${yazi-plugins}/full-border.yazi";
-      max-preview = "${yazi-plugins}/max-preview.yazi";
-      starship = pkgs.fetchFromGitHub {
-        owner = "Rolv-Apneseth";
-        repo = "starship.yazi";
-        rev = "...";
-        sha256 = "sha256-...";
-      };
-    };
-
-    initLua =
-      "	require(\"full-border\"):setup()\n	require(\"starship\"):setup()\n";
-
-    keymap = {
-      manager.prepend_keymap = [
-        {
-          on = "T";
-          run = "plugin --sync max-preview";
-          desc = "Maximize or restore the preview pane";
-        }
-        {
-          on = [ "c" "m" ];
-          run = "plugin chmod";
-          desc = "Chmod on selected files";
-        }
-      ];
-    };
+    # plugins = {
+    #   chmod = "${yazi-plugins}/chmod.yazi";
+    #   full-border = "${yazi-plugins}/full-border.yazi";
+    #   max-preview = "${yazi-plugins}/max-preview.yazi";
+    #   starship = pkgs.fetchFromGitHub {
+    #     owner = "Rolv-Apneseth";
+    #     repo = "starship.yazi";
+    #     rev = "...";
+    #     sha256 = "sha256-...";
+    #   };
+    # };
+    #
+    # initLua =
+    #   "	require(\"full-border\"):setup()\n	require(\"starship\"):setup()\n";
+    #
+    # keymap = {
+    #   manager.prepend_keymap = [
+    #     {
+    #       on = "T";
+    #       run = "plugin --sync max-preview";
+    #       desc = "Maximize or restore the preview pane";
+    #     }
+    #     {
+    #       on = [ "c" "m" ];
+    #       run = "plugin chmod";
+    #       desc = "Chmod on selected files";
+    #     }
+    #   ];
+    # };
   };
 }

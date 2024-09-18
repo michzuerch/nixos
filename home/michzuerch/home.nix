@@ -42,6 +42,7 @@
     # ./zed-editor.nix
     ./zellij.nix
     ./zsh.nix
+    ./zoxide.nix
   ];
 
   home = {

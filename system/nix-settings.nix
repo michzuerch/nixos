@@ -2,21 +2,9 @@ _: {
   # Nix Configuration
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
-      trusted-users = ["root" "michzuerch"];
-
-      # substituters = [
-      #   "https://hyprland.cachix.org"
-      #   "https://cache.nixos.org"
-      #   "https://nixpkgs-wayland.cachix.org"
-      # ];
-      #
-      # trusted-public-keys = [
-      #   "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      #   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      #   "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-      # ];
+      trusted-users = [ "root" "michzuerch" ];
       substituters = [
         "https://cuda-maintainers.cachix.org"
         "https://cache.nixos.org/"
@@ -29,11 +17,11 @@ _: {
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];
       extra-substituters = [
         "https://nix-community.cachix.org"
-      ];
-      extra-trusted-public-keys = [
+        "https://yazi.cachix.org"
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };

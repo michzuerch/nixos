@@ -246,6 +246,8 @@
       # nvim = "nix run github:michzuerch/nixvim";
       eslint = "eslint_d";
       prettier = "prettierd";
+
+      # z = "zoxide";
     };
 
   };
