@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./alacritty.nix
     ./browsers.nix
@@ -13,7 +13,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    #./kitty.nix
+    ./kitty.nix
     #./latex.nix
     ./lf.nix
     ./mc.nix
@@ -31,11 +31,12 @@
     ./starship.nix
     ./swaync.nix
     ./tmux.nix
+    ./yazi.nix
     #./torrent.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
-    #./wezterm.nix
+    ./wezterm.nix
     ./wlogout.nix
     ./wofi.nix
     # ./zed-editor.nix

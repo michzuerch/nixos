@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     darktable
     # font-manager
@@ -9,5 +9,6 @@
     hypnotix
     # krita
     scribus
+    imagemagick
   ];
 }

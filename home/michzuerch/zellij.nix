@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.zellij = {
     enable = true;
     package = pkgs.zellij;
@@ -9,6 +9,7 @@
       theme = "catppuccin-mocha";
       default_shell = "zsh";
       copy_command = "wl-copy";
+      copy_on_select = true;
     };
   };
 }

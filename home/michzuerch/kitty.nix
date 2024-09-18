@@ -1,5 +1,4 @@
-{
-  # Better terminal, with good rendering.
+_: {
   programs.kitty = {
     enable = true;
     catppuccin.enable = true;
