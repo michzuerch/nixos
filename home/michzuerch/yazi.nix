@@ -1,14 +1,5 @@
-{ pkgs, ... }:
-let
-  yazi-plugins = pkgs.fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "plugins";
-    rev = "49137feda8e140ebd7870292030d89c221cacce8";
-    hash = "sha256-...";
-  };
-in {
-
-  home.packages = [ pkgs.ueberzugpp ];
+{ pkgs, ... }: {
+  home.packages = [ pkgs.ueberzugpp pkgs.libsixel ];
 
   programs.yazi = {
     enable = true;

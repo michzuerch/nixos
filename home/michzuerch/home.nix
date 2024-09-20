@@ -13,7 +13,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./kitty.nix
+    # ./kitty.nix
     #./latex.nix
     ./lf.nix
     ./mc.nix
@@ -36,7 +36,7 @@
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
-    ./wezterm.nix
+    # ./wezterm.nix
     ./wlogout.nix
     ./wofi.nix
     # ./zed-editor.nix
