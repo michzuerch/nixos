@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = [ pkgs.ueberzugpp pkgs.libsixel ];
+{pkgs, ...}: {
+  home.packages = [pkgs.ueberzugpp pkgs.libsixel];
 
   programs.yazi = {
     enable = true;
@@ -7,7 +7,7 @@
     shellWrapperName = "y";
 
     settings = {
-      manager = { show_hidden = true; };
+      manager = {show_hidden = true;};
       preview = {
         max_width = 1000;
         max_height = 1000;
