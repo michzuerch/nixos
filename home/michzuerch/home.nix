@@ -1,20 +1,25 @@
 {pkgs, ...}: {
   imports = [
+    # ./kitty.nix
+    # ./wezterm.nix
+    # ./zed-editor.nix
+    #./f3.nix
+    #./helix.nix
+    #./latex.nix
+    #./obs-studio.nix
+    #./torrent.nix
     ./alacritty.nix
     ./browsers.nix
-    #./f3.nix
     ./fastfetch.nix
     ./git.nix
     ./golang.nix
     ./graphic.nix
     ./gtk.nix
-    #./helix.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    # ./kitty.nix
-    #./latex.nix
+    ./language-servers.nix
     ./lf.nix
     ./mc.nix
     ./meld.nix
@@ -22,7 +27,6 @@
     ./mission-center.nix
     ./multimedia.nix
     ./node.nix
-    #./obs-studio.nix
     ./pgbench.nix
     ./pyprland.nix
     ./qt.nix
@@ -31,18 +35,16 @@
     ./starship.nix
     ./swaync.nix
     ./tmux.nix
-    ./yazi.nix
-    #./torrent.nix
+    ./typescript.nix
     ./vscode.nix
     ./wallpapers.nix
     ./waybar.nix
-    # ./wezterm.nix
     ./wlogout.nix
     ./wofi.nix
-    # ./zed-editor.nix
+    ./yazi.nix
     ./zellij.nix
-    ./zsh.nix
     ./zoxide.nix
+    ./zsh.nix
   ];
 
   home = {

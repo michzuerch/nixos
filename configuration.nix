@@ -177,17 +177,18 @@
       inputs.nsearch.packages.${pkgs.system}.default
       inputs.nixvim.packages.${pkgs.system}.default
 
+      # pkgs.cryptomator
+      # pkgs.rustdesk
       # pkgs.ventoy
+      pkgs.age
       pkgs.alacritty
       pkgs.atool
       pkgs.black
       pkgs.cht-sh
       pkgs.codespell
-      # pkgs.cryptomator
       pkgs.curl
       pkgs.dotnet-sdk_8
       pkgs.elinks
-      pkgs.eslint_d
       pkgs.exiftool
       pkgs.fzf
       pkgs.gdu
@@ -215,17 +216,16 @@
       pkgs.partition-manager
       pkgs.pciutils
       pkgs.poppler_utils
-      pkgs.prettierd
       pkgs.proton-pass
       pkgs.protonvpn-cli
       pkgs.protonvpn-gui
       pkgs.pstree
       pkgs.ranger
       pkgs.ripgrep
-      # pkgs.rustdesk
       pkgs.sbctl
       pkgs.shfmt
       pkgs.smartmontools
+      pkgs.sops
       pkgs.sox
       pkgs.stylua
       pkgs.sudo-rs
@@ -237,8 +237,6 @@
       pkgs.wget
       pkgs.xlsx2csv
       pkgs.yamllint
-      pkgs.age
-      pkgs.sops
     ];
     shellAliases = {
       rebuild-gc = "nh clean all";
