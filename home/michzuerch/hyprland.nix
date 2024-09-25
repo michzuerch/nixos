@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{ pkgs, inputs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     catppuccin.enable = true;
@@ -13,7 +9,7 @@
     plugins = [
       # inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
     ];
-    xwayland = {enable = true;};
+    xwayland = { enable = true; };
     systemd.enable = true;
     settings = {
       # "plugin:hyprexpo" = {
@@ -44,10 +40,12 @@
         "nm-applet"
         "pypr"
         "hypridle"
+        "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
+        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
       ];
-      exec = ["hyprpaper"];
+      exec = [ "hyprpaper" ];
       monitor = ",preferred,auto,1";
-      xwayland = {force_zero_scaling = true;};
+      xwayland = { force_zero_scaling = true; };
       input = {
         kb_layout = "us";
         repeat_delay = 350;
@@ -156,7 +154,7 @@
       master = {
         #  new_is_master = true;
       };
-      gestures = {workspace_swipe = "off";};
+      gestures = { workspace_swipe = "off"; };
       layerrule = [
         "ignorezero, waybar"
         "ignorezero, wofi"
@@ -173,7 +171,6 @@
         "CTRL ALT, L, exec, hyprlock"
         "SUPER, Return, exec, alacritty"
         "SUPER SHIFT, Return, exec, kitty"
-        "SUPER CTRL SHIFT, Return, exec, cool-retro-term"
         "SUPER, E, exec, nemo"
         "SUPER, D, exec, wofi --show drun --allow-images"
         "SUPER, period, exec, wofi-emoji"
@@ -234,7 +231,8 @@
         ", code:233, exec, brightnessctl -q s 2%+"
         ", code:232, exec, brightnessctl -q s 2%-"
       ];
-      bindm = ["SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow"];
+      bindm =
+        [ "SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow" ];
     };
   };
 
@@ -246,6 +244,7 @@
   systemd.user.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORM_THEME = "qt6ct";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     NIXOS_OZONE_WL = "1";
@@ -259,11 +258,13 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_WEBRENDERER = "1";
     MOZ_ENABLE_WAYLAND = "1 firefox";
+    HYPRCURSORSIZE = 128;
+    XCURSORSIZE = 128;
+
   };
 
   home.packages = with pkgs; [
     nemo-with-extensions
-    cool-retro-term
     copyq
     ffmpegthumbnailer
     grimblast
@@ -290,7 +291,6 @@
     wtype
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    #xdg-desktop-portal-hyprland
     xdg-utils
   ];
 }

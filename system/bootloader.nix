@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Bootloader.
   boot = {
     bootspec.enable = true;
@@ -8,15 +8,15 @@
       enable = true;
       systemd.enable = true;
       verbose = false;
-      availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
-      kernelModules = [];
+      availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
+      kernelModules = [ ];
     };
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
     loader = {
       systemd-boot.enable = true;
-      # systemd-boot.memtest86.enable = true;
-      efi.canTouchEfiVariables = true;
+      systemd-boot.memtest86.enable = true;
+      efi.canTouchEfiVariables = false;
     };
     # plymouth = {
     #   enable = true;
