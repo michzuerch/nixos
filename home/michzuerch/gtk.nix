@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   gtk = {
     enable = true;
     theme = {
-      name = "adwaita-dark";
-      package = pkgs.adw-gtk3;
+      name = "Flat-Remix-GTK-Grey-Darkest";
+      package = pkgs.flat-remix-gtk;
     };
     font = {
       name = "Ubuntu";
@@ -14,12 +15,12 @@
       # package = pkgs.gnome.adwaita-icon-theme;
       package = pkgs.quintom-cursor-theme;
       # name = "Adwaita";
-      name = "Quintom_Snow"; #Quintom_Ink
+      name = "Quintom_Snow"; # Quintom_Ink
       size = 24;
     };
     iconTheme = {
-      name = "elementary-Xfce-dark";
-      package = pkgs.elementary-xfce-icon-theme;
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
@@ -34,7 +35,7 @@
     name = "Bibata-Modern-Classic";
     size = 24;
     gtk.enable = true;
-    x11.enable = true;
+    # x11.enable = true;
   };
 
   home.sessionVariables = {
