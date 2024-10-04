@@ -1,7 +1,12 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    qt6ct
+    qt5ct
+    ttf-hack
+    kvantum
+    breeze-qt5
+    breeze
+    qt6ct-kde
   ];
 
   qt = {
