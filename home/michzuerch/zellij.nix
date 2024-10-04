@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zellij = {
-    enable = true;
+    enable = false;
     package = pkgs.zellij;
     catppuccin.enable = true;
     enableZshIntegration = true;

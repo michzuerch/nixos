@@ -1,20 +1,15 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    qt5ct
-    ttf-hack
-    kvantum
-    breeze-qt5
-    breeze
-    qt6ct-kde
+    libsForQt5.qtstyleplugin-kvantum
   ];
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt6;
-    };
+    # platformTheme.name = "qt5ct";
+    # style = {
+    #   name = "adwaita-dark";
+    #   package = pkgs.adwaita-qt6;
+    # };
   };
 }

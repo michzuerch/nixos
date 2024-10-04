@@ -2,18 +2,20 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland = {
     enable = true;
     catppuccin.enable = true;
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    package =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     plugins = [
       # inputs.hyprland-plugins.packages."${pkgs.system}".hyprexpo
     ];
-    xwayland = {enable = true;};
+    xwayland = {
+      enable = true;
+    };
     systemd.enable = true;
     settings = {
       # "plugin:hyprexpo" = {
@@ -47,9 +49,11 @@
         "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
       ];
-      exec = ["hyprpaper"];
+      exec = [ "hyprpaper" ];
       monitor = ",preferred,auto,1";
-      xwayland = {force_zero_scaling = true;};
+      xwayland = {
+        force_zero_scaling = true;
+      };
       input = {
         kb_layout = "us";
         repeat_delay = 350;
@@ -158,7 +162,9 @@
       master = {
         #  new_is_master = true;
       };
-      gestures = {workspace_swipe = "off";};
+      gestures = {
+        workspace_swipe = "off";
+      };
       layerrule = [
         "ignorezero, waybar"
         "ignorezero, wofi"
@@ -235,7 +241,10 @@
         ", code:233, exec, brightnessctl -q s 2%+"
         ", code:232, exec, brightnessctl -q s 2%-"
       ];
-      bindm = ["SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow"];
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
     };
   };
 
@@ -248,6 +257,7 @@
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_QPA_PLATFORM_THEME = "qt6ct";
+    QT_STYLE_OVERRIDE = "kvantum";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     NIXOS_OZONE_WL = "1";
