@@ -2,9 +2,12 @@
   pkgs,
   inputs,
   ...
-}: {
-  imports = [./hardware-configuration.nix];
-  nixpkgs.config = {allowUnfree = true;};
+}:
+{
+  imports = [ ./hardware-configuration.nix ];
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   zramSwap.enable = true;
   console.keyMap = "us";
@@ -53,7 +56,11 @@
         variant = "";
         options = "";
       };
-      displayManager = {lightdm = {enable = true;};};
+      displayManager = {
+        lightdm = {
+          enable = true;
+        };
+      };
       desktopManager = {
         xterm.enable = false;
         # lxqt.enable = true;
@@ -66,7 +73,7 @@
     };
 
     displayManager.defaultSession = "hyprland";
-    hardware = {};
+    hardware = { };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -75,7 +82,10 @@
     };
     teamviewer.enable = false;
     printing.enable = true;
-    printing.drivers = [pkgs.gutenprint pkgs.hplip];
+    printing.drivers = [
+      pkgs.gutenprint
+      pkgs.hplip
+    ];
     gvfs.enable = true;
     fstrim.enable = true;
     flatpak.enable = true;
@@ -87,7 +97,7 @@
   hardware = {
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [intel-compute-runtime];
+      extraPackages = with pkgs; [ intel-compute-runtime ];
     };
     pulseaudio.enable = false;
   };
@@ -108,26 +118,26 @@
           commands = [
             {
               command = "${pkgs.systemd}/bin/systemctl suspend";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
             {
               command = "${pkgs.systemd}/bin/reboot";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
             {
               command = "${pkgs.systemd}/bin/poweroff";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
             {
               command = "/run/current-system/sw/bin/nixos-rebuild";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
             {
               command = "${pkgs.systemd}/bin/systemctl";
-              options = ["NOPASSWD"];
+              options = [ "NOPASSWD" ];
             }
           ];
-          groups = ["wheel"];
+          groups = [ "wheel" ];
         }
       ];
     };
@@ -139,7 +149,14 @@
       isNormalUser = true;
       description = "Michi";
       shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "tss" "video" "wireshark" "podman"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "tss"
+        "video"
+        "wireshark"
+        "podman"
+      ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILsyEfMjNUlwrf4NG3f6BWpP4uSzCfpC7V5jMqtiLfSQ michzuerch@localhost"
       ];
@@ -149,7 +166,14 @@
       # hashedPassword = config.sec
       description = "Troublemaker";
       shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "tss" "video" "wireshark" "podman"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "tss"
+        "video"
+        "wireshark"
+        "podman"
+      ];
     };
   };
 
@@ -163,12 +187,12 @@
         mode = "0440";
         owner = "michzuerch";
       };
-      troublemaker_pw = {};
+      troublemaker_pw = { };
     };
   };
 
   environment = {
-    pathsToLink = ["/libexec"];
+    pathsToLink = [ "/libexec" ];
     sessionVariables = {
       FLAKE = "/home/michzuerch/Source/nixos";
       DIRENV_LOG_FORMAT = "";

@@ -20,7 +20,6 @@
     };
     iconTheme = {
       name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
@@ -30,15 +29,39 @@
     };
   };
 
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    gtk.enable = true;
-    # x11.enable = true;
-  };
+  # Sample from Github HeinzDev
+  # gtk = {
+  #   enable = true;
+  #   iconTheme = {
+  #     name = "Yaru-magenta-dark";
+  #     package = pkgs.yaru-theme;
+  #   };
+  #
+  #   theme = {
+  #     name = "Tokyonight-Dark-B-LB";
+  #     package = pkgs.tokyo-night-gtk;
+  #   };
+  #
+  #   cursorTheme = {
+  #     name = "Bibata-Modern-Classic";
+  #     package = pkgs.bibata-cursors;
 
-  home.sessionVariables = {
-    XCURSOR_SIZE = "24";
+  home = {
+    pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+      gtk.enable = true;
+      # x11.enable = true;
+    };
+
+    packages = with pkgs; [
+      gnome.adwaita-icon-theme
+      libsForQt5.qt5ct
+    ];
+
+    sessionVariables = {
+      XCURSOR_SIZE = "24";
+    };
   };
 }
