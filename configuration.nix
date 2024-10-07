@@ -198,7 +198,7 @@
     };
     systemPackages = [
       inputs.nsearch.packages.${pkgs.system}.default
-      inputs.nixvim.packages.${pkgs.system}.default
+      inputs.nvix.packages.${pkgs.system}.default
 
       # pkgs.cryptomator
       # pkgs.rustdesk
