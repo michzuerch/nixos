@@ -2,9 +2,8 @@
   pkgs,
   inputs,
   ...
-}:
-{
-  imports = [ ./hardware-configuration.nix ];
+}: {
+  imports = [./hardware-configuration.nix];
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -73,7 +72,7 @@
     };
 
     displayManager.defaultSession = "hyprland";
-    hardware = { };
+    hardware = {};
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -97,7 +96,7 @@
   hardware = {
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [ intel-compute-runtime ];
+      extraPackages = with pkgs; [intel-compute-runtime];
     };
     pulseaudio.enable = false;
   };
@@ -118,26 +117,26 @@
           commands = [
             {
               command = "${pkgs.systemd}/bin/systemctl suspend";
-              options = [ "NOPASSWD" ];
+              options = ["NOPASSWD"];
             }
             {
               command = "${pkgs.systemd}/bin/reboot";
-              options = [ "NOPASSWD" ];
+              options = ["NOPASSWD"];
             }
             {
               command = "${pkgs.systemd}/bin/poweroff";
-              options = [ "NOPASSWD" ];
+              options = ["NOPASSWD"];
             }
             {
               command = "/run/current-system/sw/bin/nixos-rebuild";
-              options = [ "NOPASSWD" ];
+              options = ["NOPASSWD"];
             }
             {
               command = "${pkgs.systemd}/bin/systemctl";
-              options = [ "NOPASSWD" ];
+              options = ["NOPASSWD"];
             }
           ];
-          groups = [ "wheel" ];
+          groups = ["wheel"];
         }
       ];
     };
@@ -187,12 +186,12 @@
         mode = "0440";
         owner = "michzuerch";
       };
-      troublemaker_pw = { };
+      troublemaker_pw = {};
     };
   };
 
   environment = {
-    pathsToLink = [ "/libexec" ];
+    pathsToLink = ["/libexec"];
     sessionVariables = {
       FLAKE = "/home/michzuerch/Source/nixos";
       DIRENV_LOG_FORMAT = "";
@@ -252,6 +251,7 @@
       pkgs.sops
       pkgs.sox
       pkgs.stylua
+      pkgs.hclfmt
       pkgs.sudo-rs
       pkgs.tealdeer
       pkgs.unrar
