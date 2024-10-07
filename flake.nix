@@ -86,6 +86,7 @@
         };
         modules = [
           ./configuration.nix
+          ./system/audio.nix
           ./system/bluetooth.nix
           ./system/bootloader.nix
           ./system/cachix.nix
@@ -93,7 +94,9 @@
           # ./system/database-tools.nix
           ./system/environment-variables.nix
           ./system/fonts.nix
+          ./system/fwupd.nix
           ./system/gc.nix
+          ./system/graphics.nix
           ./system/hacking.nix
           ./system/info-fetchers.nix
           ./system/linux-kernel.nix

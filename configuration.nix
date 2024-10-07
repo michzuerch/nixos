@@ -88,17 +88,7 @@
     gvfs.enable = true;
     fstrim.enable = true;
     flatpak.enable = true;
-    blueman.enable = true;
     dbus.enable = true;
-  };
-
-  #OpenCL
-  hardware = {
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [intel-compute-runtime];
-    };
-    pulseaudio.enable = false;
   };
 
   security = {
