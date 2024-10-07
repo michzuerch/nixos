@@ -23,6 +23,8 @@
     podman-desktop
     podman-tui
     # terraform
+    just
+    openstackclient
     opentofu
     virt-manager
     virt-viewer
