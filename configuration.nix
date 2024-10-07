@@ -261,6 +261,7 @@
       pkgs.wget
       pkgs.xlsx2csv
       pkgs.yamllint
+      pkgs.yamlfmt
     ];
     shellAliases = {
       rebuild-gc = "nh clean all";
