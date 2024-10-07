@@ -1,5 +1,4 @@
-
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.pipewire = {
     enable = true;
 
@@ -12,11 +11,10 @@
 
     wireplumber = {
       enable = true;
-      extraConfig."10-disable-camera"."wireplumber.profiles".main."monitor.libcamera" =
-        "disabled";
+      extraConfig."10-disable-camera"."wireplumber.profiles".main."monitor.libcamera" = "disabled";
     };
   };
 
   hardware.pulseaudio.enable = false;
-  environment.systemPackages = with pkgs; [ pavucontrol ];
+  environment.systemPackages = with pkgs; [pavucontrol];
 }

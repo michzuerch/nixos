@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     catppuccin.enable = true;
@@ -49,7 +48,7 @@
         "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
       ];
-      exec = [ "hyprpaper" ];
+      exec = ["hyprpaper"];
       monitor = ",preferred,auto,1";
       xwayland = {
         force_zero_scaling = true;

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.zellij = {
     enable = false;
     package = pkgs.zellij;

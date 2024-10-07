@@ -5,11 +5,11 @@
 #   services.blueman.enable = true;
 # }
 #
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # persist.dir = [
   #   "/var/lib/bluetooth"
   # ];
-  environment.systemPackages = with pkgs; [ bluez ];
+  environment.systemPackages = with pkgs; [bluez];
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
