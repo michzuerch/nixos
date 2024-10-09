@@ -43,9 +43,98 @@
       binds = {
         allow_workspace_cycles = false;
         focus_preferred_method = 1;
-
         workspace_center_on = 1;
       };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+        no_gaps_when_only = false;
+        use_active_for_splits = true;
+      };
+
+      input = {
+        kb_layout = "us";
+        follow_mouse = 1;
+        repeat_rate = 50;
+        repeat_delay = 350;
+        float_switch_override_focus = 1;
+        mouse_refocus = true;
+        sensitivity = 0.6; # -1.0 - 1.0, 0 means no modification.
+      };
+
+      general = {
+        layout = "dwindle";
+        gaps_in = 2;
+        gaps_out = 4;
+        border_size = 2;
+        resize_on_border = true;
+        "col.active_border" = "rgba(0, 0, 0, 0)";
+        "col.inactive_border" = "rgba(145, 190, 165, 0.32)";
+        no_border_on_floating = true;
+      };
+
+      decoration = {
+        rounding = 10;
+        active_opacity = 0.9;
+        inactive_opacity = 0.7;
+        blur = {
+          size = 7;
+          passes = 3;
+          new_optimizations = "on";
+          xray = false;
+          ignore_opacity = true;
+          popups = true;
+        };
+        drop_shadow = true;
+        shadow_range = 10;
+        shadow_render_power = 1;
+        shadow_scale = 6;
+        shadow_offset = "2 6";
+        shadow_ignore_window = true;
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
+          "linear, 1, 1, 1, 1"
+        ];
+        animation = [
+          "windows, 1, 6, wind, slide"
+          "windowsIn, 1, 6, winIn, popin"
+          "windowsOut, 1, 5, winOut, slide"
+          "windowsMove, 1, 5, wind, slide"
+          "fade, 1, 10, default"
+          "workspaces, 1, 5, wind"
+        ];
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_forever = false;
+      };
+
+      misc = {
+        disable_hyprland_logo = false;
+        focus_on_active = true;
+        layers_hog_keyboard_focus = true;
+        mouse_move_enables_dpms = true;
+        key_press_enable_dpms = true;
+        animate_mouse_windowdragging = true;
+        animte_manual_resizes = true;
+        allow_session_lock_restore = false;
+        disable_splash_rendering = false;
+        new_windows_takes_over_fullscreen = true;
+        enable_swallow = true;
+        swallow_regex = "alacritty|tmux|zellij";
+        disable_autoreload = true;
+        vfr = true;
+      };
+
+
 
       exec-once = [
         "waybar"
@@ -64,69 +153,6 @@
       monitor = ",preferred,auto,1";
       xwayland = {
         force_zero_scaling = true;
-      };
-      input = {
-        kb_layout = "us";
-        repeat_delay = 350;
-        repeat_rate = 50;
-        accel_profile = "adaptive";
-        follow_mouse = 2;
-      };
-      general = {
-        layout = "dwindle";
-        gaps_in = 10;
-        gaps_out = 14;
-        border_size = 1;
-        resize_on_border = true;
-        "col.active_border" = "rgba(0, 0, 0, 0)";
-        "col.inactive_border" = "rgba(145, 190, 165, 0.32)";
-        no_border_on_floating = true;
-      };
-      misc = {
-        vfr = true;
-        disable_hyprland_logo = false;
-        disable_splash_rendering = false;
-        mouse_move_enables_dpms = false;
-        enable_swallow = true;
-        swallow_regex = "^(alacritty)$";
-      };
-      decoration = {
-        rounding = 10;
-        blur = {
-          enabled = true;
-          size = 12;
-          passes = 4;
-          new_optimizations = "on";
-          ignore_opacity = true;
-          xray = true;
-          blurls = "waybar";
-        };
-        active_opacity = 0.9;
-        inactive_opacity = 0.4;
-        fullscreen_opacity = 0.9;
-        drop_shadow = true;
-        shadow_range = 30;
-        shadow_render_power = 3;
-        "col.shadow" = "0x66000000";
-      };
-      animations = {
-        enabled = true;
-        bezier = [
-          "wind, 0.05, 0.9, 0.1, 1.05"
-          "winIn, 0.1, 1.1, 0.1, 1.1"
-          "winOut, 0.3, -0.3, 0, 1"
-          "liner, 1, 1, 1, 1"
-        ];
-        animation = [
-          "windows, 1, 6, wind, slide"
-          "windowsIn, 1, 6, winIn, slide"
-          "windowsOut, 1, 5, winOut, slide"
-          "windowsMove, 1, 5, wind, slide"
-          "border, 1, 1, liner"
-          "borderangle, 1, 30, liner, loop"
-          "fade, 1, 10, default"
-          "workspaces, 1, 5, wind"
-        ];
       };
       windowrule = [
         "float, file_progress"
@@ -166,15 +192,8 @@
         "workspace special silent,class:^(scratchpad)$"
         "center,class:^(scratchpad)$"
       ];
-      dwindle = {
-        pseudotile = true;
-        preserve_split = true;
-      };
       master = {
         #  new_is_master = true;
-      };
-      gestures = {
-        workspace_swipe = "off";
       };
       layerrule = [
         "ignorezero, waybar"
