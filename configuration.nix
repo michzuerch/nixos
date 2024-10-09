@@ -202,6 +202,8 @@
       pkgs.curl
       pkgs.dotnet-sdk_8
       pkgs.elinks
+      pkgs.exfat
+      pkgs.exfatprogs
       pkgs.exiftool
       pkgs.fzf
       pkgs.gdu
@@ -210,6 +212,7 @@
       pkgs.gopls
       pkgs.gparted
       pkgs.gsmartcontrol
+      pkgs.hclfmt
       pkgs.intel-gpu-tools
       pkgs.isort
       pkgs.iw
@@ -223,12 +226,14 @@
       pkgs.mupdf
       pkgs.nil
       pkgs.nixfmt-classic
+      pkgs.ntfs3g
       pkgs.odt2txt
       pkgs.p7zip
       pkgs.pandoc
       pkgs.partition-manager
       pkgs.pciutils
       pkgs.poppler_utils
+      pkgs.procs
       pkgs.proton-pass
       pkgs.protonvpn-cli
       pkgs.protonvpn-gui
@@ -241,17 +246,17 @@
       pkgs.sops
       pkgs.sox
       pkgs.stylua
-      pkgs.hclfmt
       pkgs.sudo-rs
       pkgs.tealdeer
+      pkgs.usbutils
       pkgs.unrar
       pkgs.w3m
       pkgs.wavemon
       pkgs.wev
       pkgs.wget
       pkgs.xlsx2csv
-      pkgs.yamllint
       pkgs.yamlfmt
+      pkgs.yamllint
     ];
     shellAliases = {
       rebuild-gc = "nh clean all";
