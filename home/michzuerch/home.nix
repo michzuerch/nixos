@@ -29,7 +29,7 @@
     ./node.nix
     ./pgbench.nix
     ./pyprland.nix
-    ./qt.nix
+    # ./qt.nix
     ./ranger.nix
     ./sh.nix
     ./starship.nix

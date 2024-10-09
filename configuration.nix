@@ -67,8 +67,8 @@
       };
     };
     desktopManager = {
-      plasma6.enable = false;
-      #cosmic.enable = false;
+      plasma6.enable = true;
+      cosmic.enable = true;
     };
 
     displayManager.defaultSession = "hyprland";
