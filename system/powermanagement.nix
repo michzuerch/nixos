@@ -6,6 +6,7 @@
 
   services = {
     # system76-scheduler.settings.cfsProfiles.enable = true;
+    throttled.enable = true;
     thermald.enable = true;
     # upower = {
     #   enable = true;
