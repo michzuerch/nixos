@@ -14,7 +14,7 @@
     ./git.nix
     ./golang.nix
     ./graphic.nix
-    ./gtk.nix
+    # ./gtk.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
