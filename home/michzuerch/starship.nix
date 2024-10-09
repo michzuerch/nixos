@@ -3,7 +3,8 @@ _: {
     enable = true;
     # catppuccin.enable = true;
   };
-  home.file.".config/starship.toml".text = # toml
+  home.file.".config/starship.toml".text =
+    # toml
     ''
       format = """
       ''${custom.dir}\
@@ -181,5 +182,4 @@ _: {
       format = '[$symbol$output]($style) '
       style = "fg:white bg:black bold"
     '';
-
 }

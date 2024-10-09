@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Bootloader.
   boot = {
     # bootspec.enable = true;
@@ -8,9 +8,9 @@
       enable = true;
       systemd.enable = true;
       verbose = false;
-      availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
+      availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
     kernelParams = [
       "quiet"
       "splash"
@@ -21,7 +21,7 @@
       "nowatchdog"
     ];
 
-    extraModulePackages = [ ];
+    extraModulePackages = [];
     loader = {
       timeout = 0;
       systemd-boot.enable = true;
@@ -31,7 +31,7 @@
     plymouth = {
       enable = true;
       font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
-      themePackages = [ pkgs.catppuccin-plymouth ];
+      themePackages = [pkgs.catppuccin-plymouth];
       theme = "catppuccin-macchiato";
     };
   };

@@ -1,5 +1,9 @@
-{ pkgs, lib, ... }: {
-  home.packages = with pkgs; [ nautilus ];
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [nautilus];
   gtk = {
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     enable = true;
@@ -12,4 +16,3 @@
     };
   };
 }
-

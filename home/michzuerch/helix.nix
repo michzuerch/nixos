@@ -29,7 +29,7 @@
         lsp.display-messages = true;
       };
 
-      theme = "catppuccin_mocha";
+      theme = "catppuccin_macchiato";
 
       keys = {
         normal = {";" = "command_mode";};
