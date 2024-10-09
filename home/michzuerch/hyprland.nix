@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -15,7 +14,11 @@
     xwayland = {
       enable = true;
     };
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+      variables = [ "-all" ];
+    };
     settings = {
       # "plugin:hyprexpo" = {
       #   columns = 3;
@@ -35,6 +38,15 @@
       #   border_size_2 = -1;
       #   natural_rounding = "yes";
       # };
+      "$mod" = "SUPER";
+
+      binds = {
+        allow_workspace_cycles = false;
+        focus_preferred_method = 1;
+
+        workspace_center_on = 1;
+      };
+
       exec-once = [
         "waybar"
         "swaync"
@@ -48,7 +60,7 @@
         "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
       ];
-      exec = ["hyprpaper"];
+      exec = [ "hyprpaper" ];
       monitor = ",preferred,auto,1";
       xwayland = {
         force_zero_scaling = true;
