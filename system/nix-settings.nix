@@ -2,10 +2,12 @@ _: {
   # Nix Configuration
   nix = {
     settings = {
+      builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
       trusted-users = ["root" "michzuerch"];
       substituters = [
+        "https://anyrun.cachix.org"
         "https://cuda-maintainers.cachix.org"
         "https://cache.nixos.org/"
         "https://hyprland.cachix.org"
@@ -13,6 +15,7 @@ _: {
         "https://cosmic.cachix.org/"
       ];
       trusted-public-keys = [
+        "anyrun.cachix.org-1:pqBobOjl7nKlsUMV25u9QHa9btJK65/8vnO3p346s="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
