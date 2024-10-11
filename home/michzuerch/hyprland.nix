@@ -147,6 +147,7 @@
         "nm-applet"
         "pypr"
         "hypridle"
+        "hyprctl setcursor rose-pine-hyprcursor 65"
         "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
         "gsettings set org.gnome.desktop.interface cursor-theme 'rose-pine-hyprcursor'"
