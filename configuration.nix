@@ -188,6 +188,8 @@
     };
     systemPackages = [
       inputs.nsearch.packages.${pkgs.system}.default
+
+      #Custom neovim with nixvim
       inputs.nvix.packages.${pkgs.system}.default
 
       # pkgs.cryptomator
