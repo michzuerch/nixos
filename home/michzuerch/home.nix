@@ -2,12 +2,9 @@
   imports = [
     # ./kitty.nix
     # ./wezterm.nix
-    # ./zed-editor.nix
     #./f3.nix
-    #./helix.nix
     #./latex.nix
     #./obs-studio.nix
-    #./torrent.nix
     ./alacritty.nix
     ./browsers.nix
     ./catppuccin.nix
@@ -15,7 +12,8 @@
     ./git.nix
     ./golang.nix
     ./graphic.nix
-    # ./gtk.nix
+    ./gtk.nix
+    ./helix.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
@@ -30,12 +28,13 @@
     ./node.nix
     ./pgbench.nix
     ./pyprland.nix
-    # ./qt.nix
+    ./qt.nix
     ./ranger.nix
     ./sh.nix
     ./starship.nix
     ./swaync.nix
     ./tmux.nix
+    ./torrent.nix
     ./typescript.nix
     ./vscode.nix
     ./wallpapers.nix
@@ -44,6 +43,7 @@
     ./wofi.nix
     ./xdg.nix
     ./yazi.nix
+    ./zed-editor.nix
     ./zellij.nix
     ./zoxide.nix
     ./zsh.nix

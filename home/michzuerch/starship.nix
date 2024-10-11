@@ -1,6 +1,13 @@
 _: {
   programs.starship = {
     enable = true;
+    settings = {
+      add_newline = false;
+      character = {
+        disabled = false;
+        vimcmd_symbol = "";
+      };
+    };
   };
   #   home.file.".config/starship.toml".text =
   #     # toml
