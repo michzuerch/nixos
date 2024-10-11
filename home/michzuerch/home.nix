@@ -10,6 +10,7 @@
     #./torrent.nix
     ./alacritty.nix
     ./browsers.nix
+    ./catppuccin.nix
     ./fastfetch.nix
     ./git.nix
     ./golang.nix

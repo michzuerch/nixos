@@ -95,7 +95,7 @@
           ./system/bluetooth.nix
           ./system/bootloader.nix
           ./system/cachix.nix
-          ./system/catppuccin.nix
+          # ./system/catppuccin.nix
           ./system/security.nix
           # ./system/database-tools.nix
           ./system/environment-variables.nix
