@@ -4,6 +4,9 @@
   ...
 }: {
   imports = [./hardware-configuration.nix];
+
+  catppuccin.enable = true;
+
   nixpkgs.config = {
     allowUnfree = true;
   };
