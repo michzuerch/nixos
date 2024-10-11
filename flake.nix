@@ -41,6 +41,10 @@
     catppuccin = {
       url = "github:catppuccin/nix";
     };
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +67,7 @@
     nvix,
     nixos-cosmic,
     catppuccin,
+    rose-pine-hyprcursor,
     nsearch,
     sops-nix,
     ...

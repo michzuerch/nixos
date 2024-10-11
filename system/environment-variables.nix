@@ -19,6 +19,8 @@
 
     OPENAI_API_KEY = "$cat(${config.sops.secrets.openai_api_key.path})";
 
+    EMAIL = "michzuerch@gmail.com";
+    NAME = "Michael Zuercher";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };

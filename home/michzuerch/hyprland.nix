@@ -48,7 +48,7 @@
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        no_gaps_when_only = false;
+        # no_gaps_when_only = 1;
         use_active_for_splits = true;
       };
 
@@ -149,6 +149,7 @@
         "hypridle"
         "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+        "gsettings set org.gnome.desktop.interface cursor-theme 'rose-pine-hyprcursor'"
       ];
       exec = ["hyprpaper"];
       monitor = ",preferred,auto,1";
@@ -278,6 +279,34 @@
       ];
 
       env = [
+        "GTK_THEME,adw-gtk3"
+        "HYPRCURSOR_SIZE,64"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+
+        # XDG
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+
+        # QT
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
+
+        # Toolkit
+        "SDL_VIDEODRIVER,wayland"
+        "_JAVA_AWT_WM_NONEREPARENTING,1"
+        "_JAVA_OPTIONS,-Dawt.useSystemAAFontSettings=on"
+        "JAVA_FONTS,/usr/share/fonts/TTF"
+        "CLUTTER_BACKEND,wayland"
+        "GDK_BACKEND,wayland,x11"
+
+        # Enabling firefox wayland
+        "BROWSER,firefox"
+        "MOZ_ENABLE_WAYLAND,1"
+
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
       ];
     };
   };
@@ -305,11 +334,11 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     MOZ_WEBRENDERER = "1";
     MOZ_ENABLE_WAYLAND = "1 firefox";
-    HYPRCURSORSIZE = 128;
     XCURSORSIZE = 128;
   };
 
   home.packages = with pkgs; [
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     nemo-with-extensions
     copyq
     ffmpegthumbnailer
