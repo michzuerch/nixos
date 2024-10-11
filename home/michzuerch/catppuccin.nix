@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [];
+  home.packages = with pkgs; [];
   catppuccin = {
     enable = true;
     flavor = "macchiato";
