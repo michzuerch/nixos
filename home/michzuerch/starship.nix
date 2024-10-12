@@ -7,6 +7,9 @@ _: {
         disabled = false;
         vimcmd_symbol = "";
       };
+      battery = {
+        disabled = false;
+      };
     };
   };
   #   home.file.".config/starship.toml".text =

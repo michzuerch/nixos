@@ -9,6 +9,7 @@
     ./browsers.nix
     ./catppuccin.nix
     ./fastfetch.nix
+    ./fish.nix
     ./git.nix
     ./golang.nix
     ./graphic.nix
