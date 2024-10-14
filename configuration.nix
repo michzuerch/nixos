@@ -197,7 +197,6 @@
     systemPackages = [
       inputs.nsearch.packages.${pkgs.system}.default
 
-
       # pkgs.cryptomator
       # pkgs.rustdesk
       # pkgs.ventoy

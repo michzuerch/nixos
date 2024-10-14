@@ -50,6 +50,7 @@
     ./zellij.nix
     ./zoxide.nix
     ./zsh.nix
+    ./nvim/default.nix
   ];
 
   home = {
