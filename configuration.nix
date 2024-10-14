@@ -22,6 +22,7 @@
   programs = {
     nm-applet.enable = true;
     zsh.enable = true;
+    fish.enable = true;
     git.enable = true;
     dconf.enable = true;
     light.enable = true;
@@ -196,8 +197,6 @@
     systemPackages = [
       inputs.nsearch.packages.${pkgs.system}.default
 
-      #Custom neovim with nixvim
-      inputs.nvix.packages.${pkgs.system}.default
 
       # pkgs.cryptomator
       # pkgs.rustdesk

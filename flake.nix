@@ -30,14 +30,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixvim = {
-    #   url = "github:michzuerch/nixvim?ref=development";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    nvix = {
-      url = "github:michzuerch/nvix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -63,8 +55,6 @@
     nixpkgs,
     home-manager,
     rust-overlay,
-    # nixvim,
-    nvix,
     nixos-cosmic,
     catppuccin,
     rose-pine-hyprcursor,
