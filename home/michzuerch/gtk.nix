@@ -3,12 +3,25 @@
   config,
   ...
 }: {
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 64;
+  };
+
+  xresources.properties = {
+    "Xft.dpi" = 150;
+    "*.dpi" = 150;
+  };
+
   gtk = {
     enable = true;
 
     font = {
-      name = "Inter";
-      package = pkgs.google-fonts.override {fonts = ["Inter"];};
+      name = "Noto Sans";
+      package = pkgs.noto-fonts;
       size = 11;
     };
 
@@ -18,8 +31,14 @@
     };
 
     theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "catppuccin-macchiato-pink-compact";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["pink"];
+        size = "compact";
+        variant = "macchiato";
+      };
+      # name = "adw-gtk3-dark";
+      # package = pkgs.adw-gtk3;
     };
 
     gtk2 = {

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs = {
     bash = {
       enable = true;
@@ -43,13 +43,12 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
-      enableFishIntegration = true;
+      # enableFishIntegration = true;
       nix-direnv.enable = true;
     };
 
     eza = {
       enable = true;
-      catppuccin.enable = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
       git = true;

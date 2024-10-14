@@ -367,6 +367,5 @@
     wtype
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-utils
   ];
 }
