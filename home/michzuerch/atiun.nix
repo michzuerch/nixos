@@ -1,5 +1,5 @@
 {
-  programs.zoxide = {
+  programs.atuin = {
     enable = true;
     enableZshIntegration = true;
     enableFishIntegration = true;

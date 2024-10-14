@@ -46,6 +46,15 @@
       enableFishIntegration = true;
       nix-direnv.enable = true;
     };
+
+    eza = {
+      enable = true;
+      catppuccin.enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+      git = true;
+      icons = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -56,7 +65,14 @@
     delta
     direnv
     du-dust
-    eza
+    doggo
+    gping
+    just
+    nix-output-monitor
+    hydra-check
+    nix-init
+    nix-melt
+    nix-tree
     fd
     gcc
     gnumake

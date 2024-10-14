@@ -6,6 +6,7 @@
     #./latex.nix
     #./obs-studio.nix
     ./alacritty.nix
+    ./atiun.nix
     ./browsers.nix
     ./catppuccin.nix
     ./fastfetch.nix
