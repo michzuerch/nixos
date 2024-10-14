@@ -12,7 +12,11 @@
   };
 
   zramSwap.enable = true;
-  console.keyMap = "us";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+    useXkbConfig = false;
+  };
   networking.hostName = "ThinkpadNomad"; # Define your hostname.
   networking.networkmanager.enable = true;
   programs = {

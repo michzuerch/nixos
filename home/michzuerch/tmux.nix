@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -54,5 +54,5 @@
     '';
   };
 
-  home.packages = with pkgs; [ byobu ];
+  home.packages = with pkgs; [byobu];
 }

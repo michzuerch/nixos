@@ -23,8 +23,8 @@
 
     extraModulePackages = [];
     loader = {
-      timeout = 0;
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 3;
       systemd-boot.memtest86.enable = false;
       efi.canTouchEfiVariables = true;
     };
