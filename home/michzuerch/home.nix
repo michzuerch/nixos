@@ -19,6 +19,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./k9s.nix
     ./language-servers.nix
     ./lf.nix
     ./mc.nix

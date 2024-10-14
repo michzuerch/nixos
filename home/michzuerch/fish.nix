@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
   };
 
-  home.package = with pkgs; [
+  home.packages = with pkgs; [
     fishPlugins.done
     fishPlugins.fzf-fish
     fishPlugins.forgit
