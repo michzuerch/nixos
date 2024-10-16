@@ -1,5 +1,5 @@
 {
-  description = "nixos michzuerch august 2024";
+  description = "nixos michzuerch october 2024";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -20,6 +20,10 @@
     };
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nsearch = {
@@ -50,101 +54,104 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    rust-overlay,
-    nixos-cosmic,
-    catppuccin,
-    rose-pine-hyprcursor,
-    nsearch,
-    sops-nix,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    systems = ["x86_64-linux"];
-    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-    pkgsFor = lib.genAttrs systems (system: import nixpkgs {inherit system;});
-  in {
-    inherit lib;
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , rust-overlay
+    , nixos-cosmic
+    , catppuccin
+    , rose-pine-hyprcursor
+    , anyrun
+    , nsearch
+    , sops-nix
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      systems = [ "x86_64-linux" ];
+      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
+    in
+    {
+      inherit lib;
+      formatter = forEachSystem (pkgs: pkgs.alejandra);
 
-    # Shell configured with packages that are typically only needed when working on or with nix-config.
-    devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
+      # Shell configured with packages that are typically only needed when working on or with nix-config.
+      devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
 
-    nixosConfigurations = {
-      ThinkpadNomad = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
+      nixosConfigurations = {
+        ThinkpadNomad = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./configuration.nix
+            ./system/audio.nix
+            ./system/bluetooth.nix
+            ./system/bootloader.nix
+            ./system/cachix.nix
+            # ./system/catppuccin.nix
+            ./system/security.nix
+            # ./system/database-tools.nix
+            ./system/environment-variables.nix
+            ./system/fonts.nix
+            ./system/fwupd.nix
+            ./system/gc.nix
+            ./system/graphics.nix
+            ./system/hacking.nix
+            ./system/info-fetchers.nix
+            ./system/linux-kernel.nix
+            # ./system/mariadb.nix
+            ./system/networking.nix
+            ./system/dns.nix
+            ./system/firewall.nix
+            ./system/nh.nix
+            ./system/nix-settings.nix
+            ./system/nix-tools.nix
+            ./system/lsp.nix
+            # ./system/openssh.nix
+            # ./system/postgres.nix
+            ./system/powermanagement.nix
+            # ./system/redis.nix
+            # ./system/syncthing.nix
+            # ./system/wine.nix
+            ./system/ollama.nix
+            # ./system/wasm.nix
+            ./system/rust.nix
+            ./system/virtualisation.nix
+            ./system/xdg.nix
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            nixos-cosmic.nixosModules.default
+            sops-nix.nixosModules.sops
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                backupFileExtension = "backup";
+                users = {
+                  michzuerch = {
+                    imports = [
+                      catppuccin.homeManagerModules.catppuccin
+                      ./home/michzuerch/home.nix
+                    ];
+                  };
+                  troublemaker = {
+                    imports = [
+                      catppuccin.homeManagerModules.catppuccin
+                      ./home/troublemaker/home.nix
+                    ];
+                  };
+                };
+              };
+            }
+          ];
         };
-        modules = [
-          ./configuration.nix
-          ./system/audio.nix
-          ./system/bluetooth.nix
-          ./system/bootloader.nix
-          ./system/cachix.nix
-          # ./system/catppuccin.nix
-          ./system/security.nix
-          # ./system/database-tools.nix
-          ./system/environment-variables.nix
-          ./system/fonts.nix
-          ./system/fwupd.nix
-          ./system/gc.nix
-          ./system/graphics.nix
-          ./system/hacking.nix
-          ./system/info-fetchers.nix
-          ./system/linux-kernel.nix
-          # ./system/mariadb.nix
-          ./system/networking.nix
-          ./system/dns.nix
-          ./system/firewall.nix
-          ./system/nh.nix
-          ./system/nix-settings.nix
-          ./system/nix-tools.nix
-          ./system/lsp.nix
-          # ./system/openssh.nix
-          # ./system/postgres.nix
-          ./system/powermanagement.nix
-          # ./system/redis.nix
-          # ./system/syncthing.nix
-          # ./system/wine.nix
-          ./system/ollama.nix
-          # ./system/wasm.nix
-          ./system/rust.nix
-          ./system/virtualisation.nix
-          ./system/xdg.nix
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          nixos-cosmic.nixosModules.default
-          sops-nix.nixosModules.sops
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                inherit inputs;
-              };
-              backupFileExtension = "backup";
-              users = {
-                michzuerch = {
-                  imports = [
-                    catppuccin.homeManagerModules.catppuccin
-                    ./home/michzuerch/home.nix
-                  ];
-                };
-                troublemaker = {
-                  imports = [
-                    catppuccin.homeManagerModules.catppuccin
-                    ./home/troublemaker/home.nix
-                  ];
-                };
-              };
-            };
-          }
-        ];
       };
     };
-  };
 }
