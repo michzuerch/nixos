@@ -209,6 +209,8 @@
       pkgs.curl
       pkgs.dotnet-sdk_8
       pkgs.elinks
+      pkgs.lua
+      pkgs.cmake
       pkgs.exfat
       pkgs.exfatprogs
       pkgs.exiftool
