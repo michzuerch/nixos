@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     anyrun = {
-      url = "github:anyrun-org/anyrun";
+      url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nsearch = {
