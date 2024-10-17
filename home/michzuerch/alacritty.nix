@@ -15,7 +15,3 @@ _: {
     };
   };
 }
-# [font.normal]
-# family = "FiraCode Nerd Font"
-# style = "Regular"
-

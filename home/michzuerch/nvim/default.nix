@@ -18,6 +18,9 @@
     lua-language-server
     stylua
     pyright
+    vscode-js-debug
+    typescript-language-server
+    golangci-lint-langserver
   ];
   home.sessionVariables = {
     EDITOR = "nvim";

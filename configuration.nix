@@ -145,7 +145,7 @@
     users.michzuerch = {
       isNormalUser = true;
       description = "Michi";
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       extraGroups = [
         "networkmanager"
         "wheel"

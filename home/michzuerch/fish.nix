@@ -1,6 +1,14 @@
 {pkgs, ...}: {
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+    # vendor = {
+    #   completions.enable = true;
+    #   config.enable = true;
+    #   functions.enable = true;
+    # };
   };
 
   home.packages = with pkgs; [
@@ -11,5 +19,7 @@
     fzf
     fishPlugins.grc
     grc
+    fishPlugins.z
+    fishPlugins.autopair
   ];
 }
