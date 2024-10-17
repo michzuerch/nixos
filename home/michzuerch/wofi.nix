@@ -1,13 +1,25 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.wofi = {
     enable = true;
+    # settings = {
+    #   width = 800;
+    #   height = 400;
+    #   mode = "drun";
+    #   filter-rate = 100;
+    #   allow-images = true;
+    # };
+
     settings = {
-      width = 800;
-      height = 400;
-      mode = "drun";
-      filter-rate = 100;
-      allow-images = true;
+      image_size = 48;
+      columns = 3;
+      allow_images = true;
+      insensitive = true;
+      run-always_parse_args = true;
+      run-cache_file = "/dev/null";
+      run-exec_search = true;
+      matching = "multi-contains";
     };
+
     style = ''
       window {
       margin: 0px;
