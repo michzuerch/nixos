@@ -139,12 +139,12 @@
                     ./home/michzuerch/home.nix
                   ];
                 };
-                troublemaker = {
-                  imports = [
-                    catppuccin.homeManagerModules.catppuccin
-                    ./home/troublemaker/home.nix
-                  ];
-                };
+                # troublemaker = {
+                #   imports = [
+                #     catppuccin.homeManagerModules.catppuccin
+                #     ./home/troublemaker/home.nix
+                #   ];
+                # };
               };
             };
           }

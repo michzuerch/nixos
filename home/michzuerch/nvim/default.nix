@@ -5,6 +5,19 @@
     fd
     nodejs_22
     gnumake
+    gcc
+    ansible-language-server
+    marksman
+    gopls
+    dockerfile-language-server-nodejs
+    docker-compose-language-service
+    cmake-language-server
+    helm-ls
+    nil
+    nixd
+    lua-language-server
+    stylua
+    pyright
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
