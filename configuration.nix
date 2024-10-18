@@ -196,6 +196,7 @@
     };
     systemPackages = [
       inputs.nsearch.packages.${pkgs.system}.default
+      # inputs.anyrun.packages.${pkgs.system}.default
 
       # pkgs.cryptomator
       # pkgs.rustdesk

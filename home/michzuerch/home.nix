@@ -7,7 +7,7 @@
     #./obs-studio.nix
     ./alacritty.nix
     ./atiun.nix
-    # ./anyrun.nix
+    ./anyrun.nix
     ./browsers.nix
     ./catppuccin.nix
     ./fastfetch.nix
