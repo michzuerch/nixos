@@ -7,7 +7,6 @@
     #./obs-studio.nix
     ./alacritty.nix
     ./atiun.nix
-    # ./anyrun.nix
     ./browsers.nix
     ./catppuccin.nix
     ./fastfetch.nix
@@ -51,7 +50,6 @@
     ./zoxide.nix
     ./zsh.nix
     ./nvim/default.nix
-    inputs.anyrun.nixosModules."${system}".home-manager
   ];
 
   home = {
