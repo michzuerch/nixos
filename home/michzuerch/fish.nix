@@ -10,6 +10,14 @@
         name = "grc";
         src = pkgs.fishPlugins.grc.src;
       }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
       # Manually packaging and enable a plugin
       {
         name = "z";
@@ -22,4 +30,7 @@
       }
     ];
   };
+  home.packages = [
+    pkgs.grc
+  ];
 }

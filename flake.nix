@@ -11,7 +11,8 @@
       url = "github:NixOS/nixos-hardware/master";
     };
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
@@ -20,10 +21,6 @@
     };
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    anyrun = {
-      url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nsearch = {
@@ -62,7 +59,6 @@
     nixos-cosmic,
     catppuccin,
     rose-pine-hyprcursor,
-    anyrun,
     nsearch,
     sops-nix,
     ...
@@ -90,7 +86,6 @@
           ./system/bluetooth.nix
           ./system/bootloader.nix
           ./system/cachix.nix
-          # ./system/catppuccin.nix
           ./system/security.nix
           # ./system/database-tools.nix
           ./system/environment-variables.nix
