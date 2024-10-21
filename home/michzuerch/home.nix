@@ -33,7 +33,7 @@
     ./qt.nix
     ./ranger.nix
     ./sh.nix
-    ./starship.nix
+    # ./starship.nix
     ./swaync.nix
     ./tmux.nix
     ./torrent.nix
