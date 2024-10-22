@@ -50,35 +50,47 @@
   };
 
   home.packages = with pkgs; [
-    # bandwhich
+    asciicam # Terminal webcam
+    asciinema-agg # Convert asciinema to .gif
+    bandwhich
     bat
+    bc # Terminal calculator
+    breezy # Terminal brz client
+    chafa # Terminal image viewer
     chatgpt-cli
+    chroma # Code syntax highlight
+    clinfo # OpenGFL info
     cowsay
+    croc # Filetransfer
+    curlie
+    cyme # modern lsusb
     delta
     direnv
-    du-dust
     doggo
-    gping
-    just
-    nix-output-monitor
-    hydra-check
-    nix-init
-    nix-melt
-    nix-tree
+    du-dust
     fd
     gcc
     gnumake
+    gping
     grex
     gtop
+    hydra-check
+    just
     krusader
     ncdu
+    netdiscover # Modern arp
+    nix-init
+    nix-melt
+    nix-output-monitor
+    nix-tree
+    nurl # Nix url fetcher
+    p7zip
     procs
     pwgen
     sd
     sqlite
     tealdeer
     tig
-    p7zip
     tokei
     unzip
     zoxide
