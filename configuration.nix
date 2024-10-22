@@ -34,6 +34,7 @@
   documentation = {
     enable = true;
     dev.enable = true;
+    nixos.enable = true;
     doc.enable = true;
     man.enable = true;
     info.enable = true;

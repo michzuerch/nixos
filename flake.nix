@@ -3,60 +3,60 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
-    hyprland = {
-      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nsearch = {
-      url = "github:niksingh710/nsearch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-    };
-    rose-pine-hyprcursor = {
-      url = "github:ndom91/rose-pine-hyprcursor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur = {
-      url = "github:nix-community/nur";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    alejandra.inputs.nixpkgs.follows = "nixpkgs";
+    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+
+    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
+    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
+
+    catppuccin.url = "github:catppuccin/nix";
+
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
+
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
+    nsearch.inputs.nixpkgs.follows = "nixpkgs";
+    nsearch.url = "github:niksingh710/nsearch";
+
+    nur.url = "github:nix-community/nur";
+
+    rose-pine-hyprcursor.inputs.nixpkgs.follows = "nixpkgs";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
+    auto-cpufreq,
     home-manager,
     rust-overlay,
     nixos-cosmic,
+    nixos-hardware,
+    nix-index-database,
     catppuccin,
     rose-pine-hyprcursor,
     nsearch,
@@ -81,6 +81,15 @@
           inherit inputs outputs;
         };
         modules = [
+          catppuccin.nixosModules.catppuccin
+          auto-cpufreq.nixosModules.default
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          nix-index-database.nixosModules.nix-index
+          home-manager.nixosModules.home-manager
+          nixos-cosmic.nixosModules.default
+          sops-nix.nixosModules.sops
           ./configuration.nix
           ./system/audio.nix
           ./system/bluetooth.nix
@@ -115,10 +124,6 @@
           ./system/rust.nix
           ./system/virtualisation.nix
           ./system/xdg.nix
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          nixos-cosmic.nixosModules.default
-          sops-nix.nixosModules.sops
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -131,6 +136,8 @@
                 michzuerch = {
                   imports = [
                     catppuccin.homeManagerModules.catppuccin
+                    sops-nix.homeManagerModules.sops
+                    nix-index-database.hmModules.nix-index
                     ./home/michzuerch/home.nix
                   ];
                 };
