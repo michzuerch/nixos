@@ -1,10 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.fastfetch = {
     enable = true;
     settings = {
       logo = {
         source = "nixos_small";
         padding = {
+          top = 2;
+          left = 1;
           right = 1;
         };
       };
