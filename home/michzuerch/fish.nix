@@ -30,7 +30,8 @@
       # }
     ];
   };
-  home.packages = [
-    pkgs.grc
+  home.packages = with pkgs; [
+    grc
+    ghq
   ];
 }
