@@ -6,10 +6,12 @@
     buf-language-server
     cmake-language-server
     delve
-    diagnostic-language-server
+    diagnostic-languageserver
     docker-compose-language-service
     emmet-language-server
     gopls
+    jsonnet-language-server
+    lua-language-server
     markdown-oxide
     marksman
     nginx-language-server
@@ -30,7 +32,6 @@
     typescript-language-server
     vscode-extensions.vadimcn.vscode-lldb
     vue-language-server
-    lua-language-server
     yaml-language-server
     zls
   ];
