@@ -18,6 +18,10 @@
         name = "tide";
         src = pkgs.fishPlugins.tide.src;
       }
+      {
+        name = "fishplugin-autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
       # Manually packaging and enable a plugin
       # {
       #   name = "z";
