@@ -10,7 +10,7 @@ return {
 		end,
 		opts = {
 			flavour = "macchiato",
-			transparent_background = true,
+			transparent_background = false,
 			no_italic = true,
 			integrations = {
 				noice = true,
