@@ -11,7 +11,8 @@
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
 
-    catppuccin.url = "github:catppuccin/nix";
+    # catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:ryand56/catppuccin-nix";
 
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";

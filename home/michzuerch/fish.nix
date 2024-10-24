@@ -3,6 +3,10 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      set fish_vi_force_cursor
+      set fish_cursor_default block
+      set fish_cursor_insert line blink
+      set fish_cursor_visual underscore blink
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
@@ -11,12 +15,8 @@
         src = pkgs.fishPlugins.grc.src;
       }
       {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
       }
       # Manually packaging and enable a plugin
       # {
