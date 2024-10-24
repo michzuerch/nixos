@@ -33,6 +33,7 @@
     vscode-extensions.vadimcn.vscode-lldb
     vue-language-server
     yaml-language-server
+    taplo-lsp
     zls
   ];
 }

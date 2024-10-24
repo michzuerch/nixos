@@ -71,7 +71,7 @@ return {
 					"jsonls",
 					"yamlls",
 					"clangd",
-					"cmake",
+					"cmake-language-server",
 					"gopls",
 					"ts_ls",
 					"autotools_ls",
