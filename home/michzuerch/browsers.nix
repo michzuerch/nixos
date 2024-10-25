@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs = {
     chromium = {enable = true;};
     brave = {enable = true;};
