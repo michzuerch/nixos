@@ -9,6 +9,7 @@
     #./f3.nix
     #./latex.nix
     #./obs-studio.nix
+    ./anyrun/default.nix
     ./alacritty.nix
     ./atiun.nix
     ./browsers.nix
