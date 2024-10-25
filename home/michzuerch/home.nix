@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # ./kitty.nix
     # ./wezterm.nix
@@ -35,6 +39,7 @@
     ./sh.nix
     # ./starship.nix
     ./swaync.nix
+    ./tailray.nix
     ./tmux.nix
     ./torrent.nix
     ./typescript.nix
@@ -50,6 +55,10 @@
     ./zoxide.nix
     ./zsh.nix
     ./nvim/default.nix
+    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.sops-nix.homeManagerModules.sops
+    inputs.nix-index-database.hmModules.nix-index
+    inputs.tailray.homeManagerModules.default
   ];
 
   home = {

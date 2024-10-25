@@ -1,18 +1,26 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # Bootloader.
   boot = {
-    # bootspec.enable = true;
+    bootspec.enable = true;
     # tmp.cleanOnBoot = true;
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     initrd = {
       enable = true;
       systemd.enable = true;
+      supportedFilesystems = ["ext4"];
       verbose = false;
       availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
     };
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernelModules = ["kvm-intel" "vhost_vsock"];
     kernelParams = [
       "quiet"
+      "sustemd.show_status=auto"
       "splash"
       "loglevel=3"
       "rd.systemd.show_status=false"
@@ -36,6 +44,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
+    config.boot.kernelPackages.cpupower
     coreutils-full
   ];
 }

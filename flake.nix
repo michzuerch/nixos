@@ -8,6 +8,19 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
+    anyrun.inputs.nixpkgs.follows = "nixpkgs";
+    anyrun.url = "github:fufexan/anyrun";
+
+    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
+
+    yazi.url = "github:sxyazi/yazi";
+
+    tailray.inputs.nixpkgs.follows = "nixpkgs";
+    tailray.url = "github:NotAShelf/tailray";
+
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.url = "github:fufexan/zen-browser-flake";
+
     auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
     auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
 
@@ -75,7 +88,7 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     # Shell configured with packages that are typically only needed when working on or with nix-config.
-    devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
+    # devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
 
     nixosConfigurations = {
       ThinkpadNomad = lib.nixosSystem {
@@ -106,7 +119,6 @@
           ./system/graphics.nix
           ./system/hacking.nix
           ./system/info-fetchers.nix
-          ./system/linux-kernel.nix
           # ./system/mariadb.nix
           ./system/networking.nix
           ./system/dns.nix
@@ -137,9 +149,6 @@
               users = {
                 michzuerch = {
                   imports = [
-                    catppuccin.homeManagerModules.catppuccin
-                    sops-nix.homeManagerModules.sops
-                    nix-index-database.hmModules.nix-index
                     ./home/michzuerch/home.nix
                   ];
                 };
