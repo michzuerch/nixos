@@ -4,7 +4,6 @@
     package = pkgs.wezterm;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
 
     extraConfig = ''
       local wezterm = require "wezterm"
@@ -27,6 +26,7 @@
        end
 
        return {
+         enable_wayland = false,
          check_for_updates = false,
          color_scheme = scheme_for_appearance(get_appearance()),
          default_cursor_style = 'SteadyBar',
