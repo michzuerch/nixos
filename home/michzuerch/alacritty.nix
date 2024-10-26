@@ -3,15 +3,25 @@ _: {
     enable = true;
     catppuccin.enable = true;
     settings = {
-      font = {size = 12;};
+      font = {
+        normal.family = "JetBrains Mono";
+        bold.family = "JetBrains Mono";
+        italic.family = "JetBrains Mono";
+        size = 12;
+      };
       window = {
+        decoration = "none";
+        dynamic_padding = true;
         opacity = 0.7;
         padding = {
-          x = 15;
-          y = 15;
+          x = 5;
+          y = 5;
         };
+        startup_mode = "Maximized";
       };
-      selection = {save_to_clipboard = true;};
+      scrolling.history = 10000;
+      draw_bold_text_with_bright_colors = true;
+      selection = { save_to_clipboard = true; };
     };
   };
 }
