@@ -10,7 +10,7 @@ _: {
         size = 12;
       };
       window = {
-        decoration = "none";
+        decorations = "none";
         dynamic_padding = true;
         opacity = 0.7;
         padding = {
@@ -20,8 +20,8 @@ _: {
         startup_mode = "Maximized";
       };
       scrolling.history = 10000;
-      draw_bold_text_with_bright_colors = true;
-      selection = { save_to_clipboard = true; };
+      colors.draw_bold_text_with_bright_colors = true;
+      selection = {save_to_clipboard = true;};
     };
   };
 }

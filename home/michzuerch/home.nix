@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    # ./kitty.nix
+    ./kitty.nix
     # ./wezterm.nix
     #./f3.nix
     #./latex.nix
