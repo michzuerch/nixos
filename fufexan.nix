@@ -36,6 +36,8 @@
       };
     };
 
+  systems.url = "github:nix-systems/default-linux";
+
   inputs = {
     # global, so they can be `.follow`ed
     systems.url = "github:nix-systems/default-linux";

@@ -1,7 +1,56 @@
 {
   description = "nixos michzuerch october 2024";
 
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+
+      imports = [
+        ./hosts
+        ./lib
+        ./modules
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
+
+      perSystem =
+        { config
+        , pkgs
+        , ...
+        }: {
+          devShells.default = pkgs.mkShell {
+            packages = [
+              pkgs.alejandra
+              pkgs.git
+              pkgs.nodePackages.prettier
+              config.packages.repl
+            ];
+            name = "dots";
+            DIRENV_LOG_FORMAT = "";
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
+          };
+
+          formatter = pkgs.alejandra;
+        };
+    };
+
+  systems.url = "github:nix-systems/default-linux";
+
   inputs = {
+    flake-compat.url = "github:edolstra/flake-compat";
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/master";
 
@@ -60,125 +109,25 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
     rust-overlay.url = "github:oxalica/rust-overlay";
 
+    helix.url = "github:helix-editor/helix";
+
+    lanzaboote.url = "github:nix-community/lanzaboote";
+
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-  };
 
-  outputs =
-    { self
-    , nixpkgs
-    , auto-cpufreq
-    , home-manager
-    , rust-overlay
-    , nixos-cosmic
-    , nixos-hardware
-    , nix-index-database
-    , catppuccin
-    , rose-pine-hyprcursor
-    , nsearch
-    , sops-nix
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-      lib = nixpkgs.lib // home-manager.lib;
-      systems = [ "x86_64-linux" ];
-      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
-    in
-    {
-      inherit lib;
-      formatter = forEachSystem (pkgs: pkgs.alejandra);
+    hm = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-      devShells.x86_64-linux.default = pkgs.mkShell {
-        packages = [
-          pkgs.age
-          pkgs.alejande
-          pkgs.cachix
-          pkgs.git
-          pkgs.just
-          pkgs.nh
-          pkgs.nix
-          pkgs.nodePackages.prettier
-          pkgs.pre-commit
-          pkgs.sops
-          pkgs.ssh-to-age
-          config.packages.repl
-        ];
-      };
-
-      nixosConfigurations = {
-        ThinkpadNomad = lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-            catppuccin.nixosModules.catppuccin
-            auto-cpufreq.nixosModules.default
-            nixos-hardware.nixosModules.common-pc
-            nixos-hardware.nixosModules.common-cpu-intel
-            nixos-hardware.nixosModules.common-pc-ssd
-            nix-index-database.nixosModules.nix-index
-            home-manager.nixosModules.home-manager
-            nixos-cosmic.nixosModules.default
-            sops-nix.nixosModules.sops
-            ./configuration.nix
-            ./system/audio.nix
-            ./system/bluetooth.nix
-            ./system/bootloader.nix
-            ./system/cachix.nix
-            ./system/security.nix
-            # ./system/database-tools.nix
-            ./system/environment-variables.nix
-            ./system/fonts.nix
-            ./system/fwupd.nix
-            ./system/gc.nix
-            ./system/graphics.nix
-            ./system/hacking.nix
-            ./system/info-fetchers.nix
-            # ./system/mariadb.nix
-            ./system/networking.nix
-            ./system/dns.nix
-            ./system/firewall.nix
-            ./system/nh.nix
-            ./system/nix-settings.nix
-            ./system/nix-tools.nix
-            ./system/lsp.nix
-            # ./system/openssh.nix
-            # ./system/postgres.nix
-            ./system/powermanagement.nix
-            # ./system/redis.nix
-            # ./system/syncthing.nix
-            # ./system/wine.nix
-            ./system/ollama.nix
-            # ./system/wasm.nix
-            ./system/rust.nix
-            ./system/virtualisation.nix
-            ./system/xdg.nix
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {
-                  inherit inputs;
-                };
-                backupFileExtension = "backup";
-                users = {
-                  michzuerch = {
-                    imports = [
-                      ./home/michzuerch/home.nix
-                    ];
-                  };
-                  # troublemaker = {
-                  #   imports = [
-                  #     catppuccin.homeManagerModules.catppuccin
-                  #     ./home/troublemaker/home.nix
-                  #   ];
-                  # };
-                };
-              };
-            }
-          ];
-        };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
       };
     };
+
+  };
+
 }
