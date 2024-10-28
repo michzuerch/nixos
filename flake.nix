@@ -63,106 +63,122 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    auto-cpufreq,
-    home-manager,
-    rust-overlay,
-    nixos-cosmic,
-    nixos-hardware,
-    nix-index-database,
-    catppuccin,
-    rose-pine-hyprcursor,
-    nsearch,
-    sops-nix,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    systems = ["x86_64-linux"];
-    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-    pkgsFor = lib.genAttrs systems (system: import nixpkgs {inherit system;});
-  in {
-    inherit lib;
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
+  outputs =
+    { self
+    , nixpkgs
+    , auto-cpufreq
+    , home-manager
+    , rust-overlay
+    , nixos-cosmic
+    , nixos-hardware
+    , nix-index-database
+    , catppuccin
+    , rose-pine-hyprcursor
+    , nsearch
+    , sops-nix
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      systems = [ "x86_64-linux" ];
+      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs { inherit system; });
+    in
+    {
+      inherit lib;
+      formatter = forEachSystem (pkgs: pkgs.alejandra);
 
-    # Shell configured with packages that are typically only needed when working on or with nix-config.
-    # devShells = forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
-
-    nixosConfigurations = {
-      ThinkpadNomad = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          catppuccin.nixosModules.catppuccin
-          auto-cpufreq.nixosModules.default
-          nixos-hardware.nixosModules.common-pc
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-pc-ssd
-          nix-index-database.nixosModules.nix-index
-          home-manager.nixosModules.home-manager
-          nixos-cosmic.nixosModules.default
-          sops-nix.nixosModules.sops
-          ./configuration.nix
-          ./system/audio.nix
-          ./system/bluetooth.nix
-          ./system/bootloader.nix
-          ./system/cachix.nix
-          ./system/security.nix
-          # ./system/database-tools.nix
-          ./system/environment-variables.nix
-          ./system/fonts.nix
-          ./system/fwupd.nix
-          ./system/gc.nix
-          ./system/graphics.nix
-          ./system/hacking.nix
-          ./system/info-fetchers.nix
-          # ./system/mariadb.nix
-          ./system/networking.nix
-          ./system/dns.nix
-          ./system/firewall.nix
-          ./system/nh.nix
-          ./system/nix-settings.nix
-          ./system/nix-tools.nix
-          ./system/lsp.nix
-          # ./system/openssh.nix
-          # ./system/postgres.nix
-          ./system/powermanagement.nix
-          # ./system/redis.nix
-          # ./system/syncthing.nix
-          # ./system/wine.nix
-          ./system/ollama.nix
-          # ./system/wasm.nix
-          ./system/rust.nix
-          ./system/virtualisation.nix
-          ./system/xdg.nix
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                inherit inputs;
-              };
-              backupFileExtension = "backup";
-              users = {
-                michzuerch = {
-                  imports = [
-                    ./home/michzuerch/home.nix
-                  ];
-                };
-                # troublemaker = {
-                #   imports = [
-                #     catppuccin.homeManagerModules.catppuccin
-                #     ./home/troublemaker/home.nix
-                #   ];
-                # };
-              };
-            };
-          }
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        packages = [
+          pkgs.age
+          pkgs.alejande
+          pkgs.cachix
+          pkgs.git
+          pkgs.just
+          pkgs.nh
+          pkgs.nix
+          pkgs.nodePackages.prettier
+          pkgs.pre-commit
+          pkgs.sops
+          pkgs.ssh-to-age
+          config.packages.repl
         ];
       };
+
+      nixosConfigurations = {
+        ThinkpadNomad = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            catppuccin.nixosModules.catppuccin
+            auto-cpufreq.nixosModules.default
+            nixos-hardware.nixosModules.common-pc
+            nixos-hardware.nixosModules.common-cpu-intel
+            nixos-hardware.nixosModules.common-pc-ssd
+            nix-index-database.nixosModules.nix-index
+            home-manager.nixosModules.home-manager
+            nixos-cosmic.nixosModules.default
+            sops-nix.nixosModules.sops
+            ./configuration.nix
+            ./system/audio.nix
+            ./system/bluetooth.nix
+            ./system/bootloader.nix
+            ./system/cachix.nix
+            ./system/security.nix
+            # ./system/database-tools.nix
+            ./system/environment-variables.nix
+            ./system/fonts.nix
+            ./system/fwupd.nix
+            ./system/gc.nix
+            ./system/graphics.nix
+            ./system/hacking.nix
+            ./system/info-fetchers.nix
+            # ./system/mariadb.nix
+            ./system/networking.nix
+            ./system/dns.nix
+            ./system/firewall.nix
+            ./system/nh.nix
+            ./system/nix-settings.nix
+            ./system/nix-tools.nix
+            ./system/lsp.nix
+            # ./system/openssh.nix
+            # ./system/postgres.nix
+            ./system/powermanagement.nix
+            # ./system/redis.nix
+            # ./system/syncthing.nix
+            # ./system/wine.nix
+            ./system/ollama.nix
+            # ./system/wasm.nix
+            ./system/rust.nix
+            ./system/virtualisation.nix
+            ./system/xdg.nix
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                backupFileExtension = "backup";
+                users = {
+                  michzuerch = {
+                    imports = [
+                      ./home/michzuerch/home.nix
+                    ];
+                  };
+                  # troublemaker = {
+                  #   imports = [
+                  #     catppuccin.homeManagerModules.catppuccin
+                  #     ./home/troublemaker/home.nix
+                  #   ];
+                  # };
+                };
+              };
+            }
+          ];
+        };
+      };
     };
-  };
 }
